@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pipeline Power System — Three Visual Models</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --steel:    #4682B4;
+      --graphite: #41424C;
+      --dark:     #2E2F38;
+      --orange:   #ff7900;
+      --mist:     #F5F7F8;
+      --white:    #FFFFFF;
+      --muted:    #6B7280;
+      --border:   #E2E6EA;
+    }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #F0F2F5;
+      padding: 48px 24px;
+      color: var(--graphite);
+    }
+    h1 {
+      text-align: center; font-size: 1.4rem; font-weight: 800;
+      color: var(--graphite); margin-bottom: 8px;
+    }
+    .intro {
+      text-align: center; color: var(--muted); font-size: 0.95rem;
+      margin-bottom: 56px;
+    }
+    .model-section {
+      max-width: 900px; margin: 0 auto 80px;
+    }
+    .model-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--orange);
+      margin-bottom: 6px;
+    }
+    .model-title {
+      font-size: 1.5rem; font-weight: 800; color: var(--graphite);
+      margin-bottom: 6px;
+    }
+    .model-desc {
+      font-size: 0.92rem; color: var(--muted); margin-bottom: 32px;
+      max-width: 640px; line-height: 1.6;
+    }
+    .model-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 48px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    svg { display: block; }
+  </style>
+</head>
+<body>
+
+<h1>Pipeline Power System — Three Visual Models</h1>
+<p class="intro">Three distinct approaches to visualizing the four components. Review and choose one to integrate into the website.</p>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     MODEL 1: VERTICAL FUNNEL WITH FORCE MULTIPLIER OUTER RING
+     Simon Bowen style — filter → engine → close, with FM as accelerant
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="model-section">
+  <div class="model-label">Version 01</div>
+  <div class="model-title">The Layered Funnel</div>
+  <p class="model-desc">A classic Simon Bowen-style model. The funnel shows the prospect journey from targeting to close. The Force Multiplier wraps the entire system as an outer accelerant ring — communicating that AI amplifies every stage, not just one.</p>
+  <div class="model-card">
+    <svg viewBox="0 0 800 620" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:800px;margin:0 auto;">
+
+      <!-- Outer FM ring background -->
+      <rect x="20" y="20" width="760" height="580" rx="16" fill="none" stroke="#ff7900" stroke-width="2" stroke-dasharray="8 5" opacity="0.4"/>
+      <text x="400" y="48" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="700" fill="#ff7900" letter-spacing="2" opacity="0.8">FORCE MULTIPLIER — AI RUNS THE ENTIRE SYSTEM FASTER</text>
+
+      <!-- Funnel shape: 3 trapezoids stacked -->
+      <!-- Stage 1: Target Lock (widest) -->
+      <polygon points="120,80 680,80 600,210 200,210" fill="#4682B4" opacity="0.15"/>
+      <polygon points="120,80 680,80 600,210 200,210" fill="none" stroke="#4682B4" stroke-width="2"/>
+
+      <!-- Stage 1 content -->
+      <text x="400" y="116" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="700" fill="#4682B4" letter-spacing="2">COMPONENT 01</text>
+      <text x="400" y="142" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="22" font-weight="800" fill="#2E2F38">The Target Lock</text>
+      <text x="400" y="166" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#6B7280">Define the ideal account with precision. Clarity before pursuit.</text>
+
+      <!-- Connector arrow 1→2 -->
+      <line x1="400" y1="210" x2="400" y2="235" stroke="#4682B4" stroke-width="2"/>
+      <polygon points="393,230 400,242 407,230" fill="#4682B4"/>
+
+      <!-- Stage 2: The 1440 (medium) -->
+      <polygon points="200,245 600,245 540,375 260,375" fill="#3E5C76" opacity="0.15"/>
+      <polygon points="200,245 600,245 540,375 260,375" fill="none" stroke="#3E5C76" stroke-width="2"/>
+
+      <!-- Stage 2 content -->
+      <text x="400" y="278" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="700" fill="#3E5C76" letter-spacing="2">COMPONENT 02</text>
+      <text x="400" y="304" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="22" font-weight="800" fill="#2E2F38">The 1440</text>
+      <text x="400" y="328" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#6B7280">14 touches · 40 days · 6 channels. The pursuit engine.</text>
+
+      <!-- Connector arrow 2→3 -->
+      <line x1="400" y1="375" x2="400" y2="400" stroke="#3E5C76" stroke-width="2"/>
+      <polygon points="393,395 400,407 407,395" fill="#3E5C76"/>
+
+      <!-- Stage 3: Value Cadence System (narrower) -->
+      <polygon points="260,410 540,410 490,510 310,510" fill="#2E2F38" opacity="0.12"/>
+      <polygon points="260,410 540,410 490,510 310,510" fill="none" stroke="#2E2F38" stroke-width="2"/>
+
+      <!-- Stage 3 content -->
+      <text x="400" y="438" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="700" fill="#41424C" letter-spacing="2">COMPONENT 03</text>
+      <text x="400" y="462" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="19" font-weight="800" fill="#2E2F38">Value Cadence System</text>
+      <text x="400" y="484" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#6B7280">Stay present from first touch to closed deal.</text>
+
+      <!-- Connector arrow 3→result -->
+      <line x1="400" y1="510" x2="400" y2="530" stroke="#ff7900" stroke-width="2"/>
+      <polygon points="393,525 400,537 407,525" fill="#ff7900"/>
+
+      <!-- Result: Production Floor -->
+      <rect x="290" y="540" width="220" height="50" rx="25" fill="#ff7900"/>
+      <text x="400" y="561" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="700" fill="white" letter-spacing="1">THE RESULT</text>
+      <text x="400" y="580" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="14" font-weight="800" fill="white">The Production Floor</text>
+
+      <!-- FM side labels -->
+      <text x="52" y="310" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="600" fill="#ff7900" transform="rotate(-90,52,310)">FORCE MULTIPLIER</text>
+      <text x="748" y="310" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="600" fill="#ff7900" transform="rotate(90,748,310)">FORCE MULTIPLIER</text>
+
+    </svg>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     MODEL 2: HORIZONTAL PIPELINE ENGINE
+     Left to right flow — prospect enters left, production floor exits right
+     Each component is a "gear" or "stage" in the engine
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="model-section">
+  <div class="model-label">Version 02</div>
+  <div class="model-title">The Pipeline Engine</div>
+  <p class="model-desc">A horizontal engine model. The prospect enters on the left as a raw lead and exits on the right as a qualified appointment. Each component is a stage in the engine. The Force Multiplier sits beneath as the fuel line powering every stage — a visual metaphor for AI as infrastructure, not a feature.</p>
+  <div class="model-card">
+    <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:800px;margin:0 auto;">
+
+      <!-- Title -->
+      <text x="400" y="32" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="700" fill="#6B7280" letter-spacing="1.5">THE PIPELINE POWER SYSTEM</text>
+
+      <!-- Input label -->
+      <text x="30" y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" font-weight="700" fill="#6B7280" letter-spacing="1">RAW</text>
+      <text x="30" y="162" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" font-weight="700" fill="#6B7280" letter-spacing="1">MARKET</text>
+      <line x1="55" y1="155" x2="80" y2="155" stroke="#E2E6EA" stroke-width="2"/>
+      <polygon points="76,150 84,155 76,160" fill="#E2E6EA"/>
+
+      <!-- Stage 1: Target Lock -->
+      <rect x="88" y="100" width="140" height="110" rx="10" fill="#4682B4"/>
+      <text x="158" y="130" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,0.6)" letter-spacing="1.5">COMPONENT 01</text>
+      <text x="158" y="152" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="15" font-weight="800" fill="white">Target</text>
+      <text x="158" y="170" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="15" font-weight="800" fill="white">Lock</text>
+      <text x="158" y="196" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">Precision ICP</text>
+
+      <!-- Arrow 1→2 -->
+      <line x1="228" y1="155" x2="254" y2="155" stroke="#4682B4" stroke-width="2.5"/>
+      <polygon points="250,149 260,155 250,161" fill="#4682B4"/>
+
+      <!-- Stage 2: The 1440 -->
+      <rect x="262" y="100" width="140" height="110" rx="10" fill="#3E5C76"/>
+      <text x="332" y="130" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,0.6)" letter-spacing="1.5">COMPONENT 02</text>
+      <text x="332" y="158" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="22" font-weight="800" fill="white">1440</text>
+      <text x="332" y="196" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">14 touches · 6 channels</text>
+
+      <!-- Arrow 2→3 -->
+      <line x1="402" y1="155" x2="428" y2="155" stroke="#3E5C76" stroke-width="2.5"/>
+      <polygon points="424,149 434,155 424,161" fill="#3E5C76"/>
+
+      <!-- Stage 3: VCS -->
+      <rect x="436" y="100" width="140" height="110" rx="10" fill="#41424C"/>
+      <text x="506" y="130" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,0.6)" letter-spacing="1.5">COMPONENT 03</text>
+      <text x="506" y="152" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="800" fill="white">Value Cadence</text>
+      <text x="506" y="170" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="800" fill="white">System</text>
+      <text x="506" y="196" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">First touch to close</text>
+
+      <!-- Arrow 3→result -->
+      <line x1="576" y1="155" x2="602" y2="155" stroke="#ff7900" stroke-width="2.5"/>
+      <polygon points="598,149 608,155 598,161" fill="#ff7900"/>
+
+      <!-- Result box -->
+      <rect x="610" y="90" width="150" height="130" rx="10" fill="#ff7900"/>
+      <text x="685" y="122" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" font-weight="700" fill="rgba(255,255,255,0.7)" letter-spacing="1.5">THE RESULT</text>
+      <text x="685" y="148" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="14" font-weight="800" fill="white">Production</text>
+      <text x="685" y="166" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="14" font-weight="800" fill="white">Floor</text>
+      <text x="685" y="196" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">1+ appt/rep/week</text>
+
+      <!-- Force Multiplier fuel line -->
+      <rect x="88" y="250" width="672" height="56" rx="10" fill="#ff7900" opacity="0.1" stroke="#ff7900" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text x="424" y="274" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="700" fill="#ff7900" letter-spacing="2">COMPONENT 04 — THE FORCE MULTIPLIER</text>
+      <text x="424" y="294" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#ff7900" opacity="0.8">AI tools built into every stage · Faster · Sharper · Less friction</text>
+
+      <!-- Vertical connectors from stages to FM bar -->
+      <line x1="158" y1="210" x2="158" y2="250" stroke="#ff7900" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>
+      <line x1="332" y1="210" x2="332" y2="250" stroke="#ff7900" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>
+      <line x1="506" y1="210" x2="506" y2="250" stroke="#ff7900" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>
+
+      <!-- Bottom label -->
+      <text x="400" y="358" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#6B7280">Done-with-you · 90 days · You own every component</text>
+
+    </svg>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     MODEL 3: THE BULLSEYE / TARGET MODEL
+     Simon Bowen's "concentric rings" approach — the outcome is at the center
+     Each ring is a layer of the system that protects and drives toward the result
+     ═══════════════════════════════════════════════════════════════════ -->
+<div class="model-section">
+  <div class="model-label">Version 03</div>
+  <div class="model-title">The Bullseye Model</div>
+  <p class="model-desc">A Simon Bowen-style concentric ring model. The Production Floor sits at the center — the outcome everything is built around. Each ring is a layer of the system that surrounds and drives toward it. The Force Multiplier is the outermost ring, amplifying everything inside it. This model communicates: every component exists to protect and produce the result at the center.</p>
+  <div class="model-card">
+    <svg viewBox="0 0 700 620" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:700px;margin:0 auto;">
+
+      <!-- Title -->
+      <text x="350" y="30" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="700" fill="#6B7280" letter-spacing="1.5">THE PIPELINE POWER SYSTEM</text>
+
+      <!-- Ring 4 (outermost): Force Multiplier -->
+      <circle cx="350" cy="330" r="260" fill="#ff7900" opacity="0.08" stroke="#ff7900" stroke-width="2" stroke-dasharray="8 5"/>
+
+      <!-- Ring 3: Value Cadence System -->
+      <circle cx="350" cy="330" r="200" fill="#41424C" opacity="0.08" stroke="#41424C" stroke-width="2"/>
+
+      <!-- Ring 2: The 1440 -->
+      <circle cx="350" cy="330" r="140" fill="#3E5C76" opacity="0.15" stroke="#3E5C76" stroke-width="2"/>
+
+      <!-- Ring 1: Target Lock -->
+      <circle cx="350" cy="330" r="80" fill="#4682B4" opacity="0.25" stroke="#4682B4" stroke-width="2"/>
+
+      <!-- Center: Production Floor -->
+      <circle cx="350" cy="330" r="52" fill="#ff7900"/>
+      <text x="350" y="320" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="700" fill="white" letter-spacing="1">PRODUCTION</text>
+      <text x="350" y="335" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="700" fill="white" letter-spacing="1">FLOOR</text>
+      <text x="350" y="352" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="rgba(255,255,255,0.8)">1+ appt/rep/wk</text>
+
+      <!-- Ring labels — positioned at top of each ring -->
+
+      <!-- Ring 1 label: Target Lock (top, inside ring 1) -->
+      <text x="350" y="264" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="800" fill="#4682B4">Target Lock</text>
+      <text x="350" y="279" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#4682B4" opacity="0.8">Precision ICP</text>
+
+      <!-- Ring 2 label: 1440 (right side) -->
+      <text x="476" y="325" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="800" fill="#3E5C76">The 1440</text>
+      <text x="476" y="340" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#3E5C76" opacity="0.8">14 · 40 · 6</text>
+
+      <!-- Ring 3 label: VCS (bottom) -->
+      <text x="350" y="408" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="800" fill="#41424C">Value Cadence System</text>
+      <text x="350" y="423" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#41424C" opacity="0.7">First touch to closed deal</text>
+
+      <!-- Ring 4 label: Force Multiplier (left side) -->
+      <text x="116" y="325" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="800" fill="#ff7900" transform="rotate(-90,116,325)">Force Multiplier</text>
+      <text x="116" y="340" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#ff7900" opacity="0.8" transform="rotate(-90,116,340)">AI Amplifies All</text>
+
+      <!-- Component number badges -->
+      <circle cx="350" cy="252" r="12" fill="#4682B4"/>
+      <text x="350" y="257" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="800" fill="white">01</text>
+
+      <circle cx="492" cy="330" r="12" fill="#3E5C76"/>
+      <text x="492" y="335" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="800" fill="white">02</text>
+
+      <circle cx="350" cy="436" r="12" fill="#41424C"/>
+      <text x="350" y="441" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="800" fill="white">03</text>
+
+      <circle cx="104" cy="330" r="12" fill="#ff7900"/>
+      <text x="104" y="335" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="800" fill="white">04</text>
+
+      <!-- Subtitle -->
+      <text x="350" y="610" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#6B7280">Every component drives toward the same center: the Production Floor.</text>
+
+    </svg>
+  </div>
+</div>
+
+</body>
+</html>
