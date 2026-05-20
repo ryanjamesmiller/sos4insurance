@@ -1,1 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pipeline Power System Scorecard | SOS Insurance</title>
+  <meta name="description" content="Does your agency have a real pipeline? Take 3 minutes to find out. Rate your agency across 5 categories and get your Pipeline Power Score." />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet" />
 
+  <style>
+    /* ── RESET & BASE ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --charcoal:  #41424C;
+      --navy:      #3E5C76;
+      --steel:     #4682B4;
+      --tan:       #CBBFAD;
+      --offwhite:  #F5F7F8;
+      --dark:      #2A2B32;
+      --white:     #FFFFFF;
+      --max-width: 780px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--offwhite);
+      color: var(--charcoal);
+      font-size: 16px;
+      line-height: 1.6;
+      padding-bottom: 80px; /* room for sticky bar */
+    }
+
+    /* ── HERO ─────────────────────────────────────────────────── */
+    .hero {
+      background: var(--dark);
+      padding: 48px 24px;
+    }
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .hero-left { flex: 1; }
+    .hero-logo {
+      width: 160px;
+      height: auto;
+      display: block;
+      margin-bottom: 24px;
+    }
+    .hero-headline {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--offwhite);
+      margin-bottom: 12px;
+      max-width: 520px;
+    }
+    .hero-instruction {
+      font-size: 14px;
+      color: var(--tan);
+    }
+    .hero-score-block {
+      flex-shrink: 0;
+      text-align: center;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 24px 32px;
+      min-width: 160px;
+    }
+    .hero-score-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--tan);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .hero-score-number {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--steel);
+      line-height: 1;
+    }
+    .hero-score-denom {
+      font-size: 22px;
+      color: var(--tan);
+    }
+
+    /* ── MAIN CONTENT ─────────────────────────────────────────── */
+    .main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    /* ── CATEGORY CARDS ───────────────────────────────────────── */
+    .category-card {
+      background: var(--white);
+      border: 1px solid var(--tan);
+      border-left: 4px solid var(--steel);
+      border-radius: 6px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .card-category-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .card-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--steel);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ── STATEMENT ROWS ───────────────────────────────────────── */
+    .statement-row {
+      padding: 16px 0;
+      border-top: 1px solid var(--offwhite);
+    }
+    .statement-row:first-of-type { border-top: none; }
+    .statement-text {
+      font-size: 16px;
+      color: var(--charcoal);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    /* ── RATING BUTTONS ───────────────────────────────────────── */
+    .rating-group {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .rating-label-low,
+    .rating-label-high {
+      font-size: 11px;
+      color: var(--tan);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .rating-buttons {
+      display: flex;
+      gap: 6px;
+      flex-wrap: nowrap;
+    }
+    .rating-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      border: 1.5px solid var(--tan);
+      background: var(--white);
+      color: var(--charcoal);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .rating-btn:hover {
+      background: var(--offwhite);
+      border-color: var(--steel);
+    }
+    .rating-btn.selected {
+      background: var(--steel);
+      border-color: var(--steel);
+      color: var(--white);
+    }
+    .rating-btn:focus-visible {
+      outline: 2px solid var(--steel);
+      outline-offset: 2px;
+    }
+
+    /* ── STICKY SCORE BAR ─────────────────────────────────────── */
+    .sticky-score-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--navy);
+      z-index: 100;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sticky-score-inner {
+      max-width: var(--max-width);
+      width: 100%;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .sticky-score-text {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .sticky-score-value {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--steel);
+    }
+    .sticky-progress-wrap {
+      flex: 1;
+      max-width: 240px;
+      height: 6px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .sticky-progress-fill {
+      height: 100%;
+      background: var(--steel);
+      border-radius: 3px;
+      transition: width 0.25s ease;
+      width: 0%;
+    }
+    .sticky-rated-count {
+      font-size: 13px;
+      color: var(--tan);
+      white-space: nowrap;
+    }
+
+    /* ── RESULT SECTION ───────────────────────────────────────── */
+    .result-section {
+      display: none;
+      background: var(--dark);
+      padding: 48px 24px;
+      margin-top: 48px;
+      border-radius: 6px;
+      animation: fadeSlideUp 0.28s ease forwards;
+    }
+    .result-section.visible { display: block; }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .result-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .result-score-display {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--tan);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .result-score-big {
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--steel);
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    .result-score-big span {
+      font-size: 28px;
+      color: var(--tan);
+    }
+    .result-headline {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .result-body {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--offwhite);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 640px;
+    }
+    .result-cta-btn {
+      display: inline-block;
+      background: var(--steel);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 4px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .result-cta-btn:hover { background: var(--navy); }
+
+    /* ── FOOTER ───────────────────────────────────────────────── */
+    .footer {
+      background: var(--navy);
+      padding: 24px;
+      margin-top: 48px;
+    }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .footer-logo {
+      width: 40px;
+      height: auto;
+    }
+    .footer-center {
+      font-size: 13px;
+      color: var(--tan);
+      text-align: center;
+    }
+    .footer-right {
+      font-size: 13px;
+      color: var(--tan);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* ── MOBILE ───────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .hero-inner {
+        flex-direction: column;
+        gap: 24px;
+      }
+      .hero-headline { font-size: 28px; }
+      .hero-score-block { width: 100%; }
+      .hero-score-number { font-size: 40px; }
+
+      .rating-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      .rating-label-low, .rating-label-high { display: none; }
+      .rating-buttons { gap: 4px; }
+      .rating-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+      }
+
+      .sticky-score-bar { height: 60px; }
+      .sticky-progress-wrap { display: none; }
+      .sticky-rated-count { display: none; }
+
+      .result-cta-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 18px 24px;
+        font-size: 17px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+      }
+      .footer-right { text-align: center; white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ HERO ══════════════════════════════════════════════════════════════ -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <img src="assets/sos_logo_correct.png" alt="SOS Insurance" class="hero-logo" />
+        <h1 class="hero-headline">Does Your Agency Have a Real Pipeline?</h1>
+        <p class="hero-sub">Take 3 minutes. Rate your agency honestly. See where your pipeline is strong and where it is quietly costing you deals.</p>
+        <p class="hero-instruction">Rate each statement from 1 (not true at all) to 5 (very true and consistent). Your total score is out of 75.</p>
+      </div>
+      <div class="hero-score-block" aria-live="polite" aria-label="Live score counter">
+        <div class="hero-score-label">Your Score</div>
+        <div class="hero-score-number" id="hero-score">0 <span class="hero-score-denom">/ 75</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ SCORECARD CARDS ════════════════════════════════════════════════════ -->
+  <main class="main" id="scorecard">
+
+    <!-- Category 1 -->
+    <div class="category-card">
+      <div class="card-header">
+        <div class="card-category-label">Pipeline Health &amp; Volume</div>
+        <div class="card-badge" aria-label="Category 1">1</div>
+      </div>
+      <div class="statement-row">
+        <p class="statement-text">We consistently generate enough leads to meet or exceed sales goals.</p>
+        <div class="rating-group">
+          <span class="rating-label-low">1 = Not true</span>
+          <div class="rating-buttons" role="group" aria-label="Rating for statement 1">
+            <button class="rating-btn" data-stmt="1" data-val="1" aria-label="1 - Not true at all">1</button>
+            <button class="rating-btn" data-stmt="1" data-val="2" aria-label="2">2</button>
+            <button class="rating-btn" data-stmt="1" data-val="3" aria-label="3">3</button>
+            <button class="rating-btn" data-stmt="1" data-val="4" aria-label="4">4</button>
+            <button class="rating-btn" data-stmt="1" data-val="5" aria-label="5 - Very true and consistent">5</button>
+          </div>
+          <span class="rating-label-high">5 = Very true</span>
+        </div>
+      </div>
+      <div class="statement-row">
+        <p class="statement-text">Our pipeline has a balanced mix of top, middle, and bottom funnel deals.</p>
+        <div class="rating-group">
+          <span class="rating-label-low">1 = Not true</span>
+          <div class="rating-buttons" role="group" aria-label="Rating for statement 2">
+            <button class="rating-btn" data-stmt="2" data-val="1" aria-label="1 - Not true at all">1</button>
+            <button class="rating-btn" data-stmt="2" data-val="2" aria-label="2">2</button>
+            <button class="rating-btn" data-stmt="2" data-val="3" aria-label="3">3</button>
+            <button class="rating-btn" data-stmt="2" data-val="4" aria-label="4">4</button>
+            <button class="rating-btn" data-stmt="2" data-val="5" aria-label="5 - Very true and consistent">5</button>
+          </div>
+          <span class="rating-label-high">5 = Very true</span>
+        </div>
+      </div>
+      <div class="statement-row">
+        <p class="statement-text">There is minimal risk of pipeline dry spells during the quarter.</p>
+        <div class="rating-group">
+          <span class="rating-label-low">1 = Not true</span>
+          <div class="rating-buttons" role="group" aria-label="Rating for statement 3">
+            <button class="rating-btn" data-stmt="3" data-val="1" aria-label="1 - Not true at all">1</button>
+            <button class="rating-btn" data-stmt="3" data-val="2" aria-label="2">2</button>
+            <button class="rating-btn" data-stmt="3" data-val="3" aria-label="3">3</button>
+            <button class="rating-btn" data-stmt="3" data-val="4" aria-label="4">4</button>
+            <button class="rating-btn" data-stmt="3" data-val="5" aria-label="5 - Very true and consistent">5</button>
+          </div>
+          <span class="rating-label-high">5 = Very true</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 2 -->
+    <div class="category-card">
+      <div class="card-header">
+        <div class="card-category-label">Prospecting &amp; Lead Generation</div>
+        <div class="card-badge" aria-label="Category 2">2</div>
+      </div>
+      <div class="statement-row">
+        <p class="statement-text">We have a clearly defined outbound prospecting strategy.</p>
+        <div class="rating-group">
+          <span class="rating-label-low">1 = Not true</span>
+          <div class="rating-buttons" role="group" aria-label="Rating for statement 4">
+            <button class="rating-btn" data-stmt="4" data-val="1" aria-label="1 - Not true at all">1</button>
+            <button class="rating-btn" data-stmt="4" data-val="2" aria-label="2">2</button>
+            <button class="rating-btn" data-stmt="4" data-val="3" aria-label="3">3</button>
+            <button class="rating-btn" data-stmt="4" data-val="4" aria-label="4">4</button>
+            <button class="rating-btn" data-stmt="4" data-val="5" aria-label="5 - Very true and consistent">5</button>
+          </div>
+          <span class="rating-label-high">5 = Very true</span>
+        </div>
+      </div>
+      <div class="statement-row">
+        <p class="statement-text">Reps execute daily and weekly prospecting activity with measurable KPIs.</p>
+        <div class="rating-group">
+          <span class="rating-label-low">1 = Not true</span>
+          <div class="rating-buttons" role="group" aria-label="Rating for statement 5">
+            <button class="rating-btn" data-stmt="5" data-val="1" aria-label="1 - Not true at all">1</button>
+            <button class="rating-btn" data-stmt="5" data-val="2" aria-label="2">2</button>
+            <button class="rating-btn" data-stmt="5" data-val="3" aria-label="3">3</button>
+            <button class="rating-btn" data-stmt="5" data-val="4" aria-label="4">4</button>
+            <button class="rating-btn" data-stmt="5" data-val="5" aria-label="5 - Very true and consistent">5</button>
+          </div>
+          <span class="rating-label-high">5 = Very true</span>
+        </div>
+      </div>
+      <div class="statement-row">
+        <p class="statement-text">Inbound leads are qualified quickly and routed effectively.</p>
+        <div class="rating-group">
+          <span class="rating-label-low">1 = Not true</span>
+          <div class="rating-buttons" role="group" aria-label="Rating for statement 6">
+            <button class="rating-btn" data-stmt="6" data-val="1" aria-label="1 - Not true at all">1</button>
+            <button class="rating-btn" data-stmt="6" data-val="2" aria-label="2">2</button>
+            <button class="rating-btn" data-stmt="6" data-val="3" aria-label="3">3</button>
+            <button class="rating-btn" data-stmt="6" data-val="4" aria-label="4">4</button>
+            <button class="rating-btn" data-stmt="6" data-val="5" aria-label="5 - Very true and consistent">5</button>
+          </div>
+          <span class="rating-label-high">5 = Very true</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 3 -->
+    <div class="category-card">
+      <div class="card-header">
+        <div class="card-category-label">Pipeline Process &amp; Structure</div>
+        <div class="card-badge" aria-label="Category 3">3</div>
+      </div>
+      <div class="statement-row">
+        <p class="statement-text">We follow a documented, step-by-step sales process.</p>
+        <div class="rating-group">
+          <span class="rating-label-low">1 = Not true</span>
+          <div class="rating-buttons" role="group" aria-label="Rating for statement 7">
+            <button class="rating-btn" data-stmt="7" data-val="1" aria-label="1 - Not true at all">1</button>
+            <button class="rating-btn" data-stmt="7" data-val="2" aria-label="2">2</button>
+            <button class="rating-btn" data-stmt="7" data-val="3" aria-label="3">3</button>
+            <button class="rating-btn" data-stmt="7" data-val="4" aria-label="4">4</button>
+            <button class="rating-btn" data-stmt="7" data-val="5" aria-label="5 - Very true and consistent">5</button>
+          </div>
+          <span class="rating-label-high">5 = Very true</span>
+        </div>
+      </div>
+      <div class="statement-row">
+        <p class="statement-text">Each stage in our pipeline has defined entry and exit criteria.</p>
+        <div class="rating-group">
+          <span class="rating-label-low">1 = Not true</span>
+          <div class="rating-buttons" role="group" aria-label="Rating for statement 8">
+            <button class="rating-btn" data-stmt="8" data-val="1" aria-label="1 - Not true at all">1</button>
+            <button class="rating-btn" data-stmt="8" data-val="2" aria-label="2">2</button>
+            <button class="rating-btn" data-stmt="8" data-val="3" aria-label="3">3</button>
+            <button class="rating-btn" data-stmt="8" data-val="4" aria-label="4">4</button>
+            <button class="rating-btn" data-stmt="8" data-val="5" aria-label="5 - Very true and consistent">5</button>
+          </div>
+          <span class="rating-label-high">5 = Very true</span>
+        </div>
+      </div>
+      <div class="statement-row">
+        <p class="statement-text">We have a system for identifying stuck or stalled deals.</p>
+        <div class="rating-group">
+          <span class="rating-label-low">1 = Not true</span>
+          <div class="rating-buttons" role="group" aria-label="Rating for statement 9">
+            <button class="rating-btn" data-stmt="9" data-val="1" aria-label="1 - Not true at all">1</button>
+            <button class="rating-btn" data-stmt="9" data-val="2" aria-label="2">2</button>
+            <button class="rating-btn" data-stmt="9" data-val="3" aria-label="3">3</button>
+            <button class="rating-btn" data-stmt="9" data-val="4" aria-label="4">4</button>
+            <button class="rating-btn" data-stmt="9" data-val="5" aria-label="5 - Very true and consistent">5</button>
+          </div>
+          <span class="rating-label-high">5 = Very true</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 4 -->
+    <div class="category-card">
+      <div class="card-header">
+        <div class="card-category-label">Forecasting &amp; Visibility</div>
+        <div class="card-badge" aria-label="Category 4">4</div>
+      </div>
+      <div class="statement-row">
+        <p class="statement-text">Sales leaders have real-time visibility into pipeline status.</p>
+        <div class="rating-group">
+          <span class="rating-label-low">1 = Not true</span>
+          <div class="rating-buttons" role="group" aria-label="Rating for statement 10">
+            <button class="rating-btn" data-stmt="10" data-val="1" aria-label="1 - Not true at all">1</button>
+            <button class="rating-btn" data-stmt="10" data-val="2" aria-label="2">2</button>
+            <button class="rating-btn" data-stmt="10" data-val="3" aria-label="3">3</button>
+            <button class="rating-btn" data-stmt="10" data-val="4" aria-label="4">4</button>
+            <button class="rating-btn" data-stmt="10" data-val="5" aria-label="5 - Very true and consistent">5</button>
+          </div>
+          <span class="rating-label-high">5 = Very true</span>
+        </div>
+      </div>
+      <div class="statement-row">
+        <p class="statement-text">We use data to forecast accurately within 10 to 15 percent of actuals.</p>
+        <div class="rating-group">
+          <span class="rating-label-low">1 = Not true</span>
+          <div class="rating-buttons" role="group" aria-label="Rating for statement 11">
+            <button class="rating-btn" data-stmt="11" data-val="1" aria-label="1 - Not true at all">1</button>
+            <button class="rating-btn" data-stmt="11" data-val="2" aria-label="2">2</button>
+            <button class="rating-btn" data-stmt="11" data-val="3" aria-label="3">3</button>
+            <button class="rating-btn" data-stmt="11" data-val="4" aria-label="4">4</button>
+            <button class="rating-btn" data-stmt="11" data-val="5" aria-label="5 - Very true and consistent">5</button>
+          </div>
+          <span class="rating-label-high">5 = Very true</span>
+        </div>
+      </div>
+      <div class="statement-row">
+        <p class="statement-text">Deals are regularly reviewed and updated based on clear criteria.</p>
+        <div class="rating-group">
+          <span class="rating-label-low">1 = Not true</span>
+          <div class="rating-buttons" role="group" aria-label="Rating for statement 12">
+            <button class="rating-btn" data-stmt="12" data-val="1" aria-label="1 - Not true at all">1</button>
+            <button class="rating-btn" data-stmt="12" data-val="2" aria-label="2">2</button>
+            <button class="rating-btn" data-stmt="12" data-val="3" aria-label="3">3</button>
+            <button class="rating-btn" data-stmt="12" data-val="4" aria-label="4">4</button>
+            <button class="rating-btn" data-stmt="12" data-val="5" aria-label="5 - Very true and consistent">5</button>
+          </div>
+          <span class="rating-label-high">5 = Very true</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category 5 -->
+    <div class="category-card">
+      <div class="card-header">
+        <div class="card-category-label">Sales Execution &amp; Follow-Through</div>
+        <div class="card-badge" aria-label="Category 5">5</div>
+      </div>
+      <div class="statement-row">
+        <p class="statement-text">Reps follow through consistently on all next steps and action items.</p>
+        <div class="rating-group">
+          <span class="rating-label-low">1 = Not true</span>
+          <div class="rating-buttons" role="group" aria-label="Rating for statement 13">
+            <button class="rating-btn" data-stmt="13" data-val="1" aria-label="1 - Not true at all">1</button>
+            <button class="rating-btn" data-stmt="13" data-val="2" aria-label="2">2</button>
+            <button class="rating-btn" data-stmt="13" data-val="3" aria-label="3">3</button>
+            <button class="rating-btn" data-stmt="13" data-val="4" aria-label="4">4</button>
+            <button class="rating-btn" data-stmt="13" data-val="5" aria-label="5 - Very true and consistent">5</button>
+          </div>
+          <span class="rating-label-high">5 = Very true</span>
+        </div>
+      </div>
+      <div class="statement-row">
+        <p class="statement-text">Obstacles in deals are addressed proactively, not reactively.</p>
+        <div class="rating-group">
+          <span class="rating-label-low">1 = Not true</span>
+          <div class="rating-buttons" role="group" aria-label="Rating for statement 14">
+            <button class="rating-btn" data-stmt="14" data-val="1" aria-label="1 - Not true at all">1</button>
+            <button class="rating-btn" data-stmt="14" data-val="2" aria-label="2">2</button>
+            <button class="rating-btn" data-stmt="14" data-val="3" aria-label="3">3</button>
+            <button class="rating-btn" data-stmt="14" data-val="4" aria-label="4">4</button>
+            <button class="rating-btn" data-stmt="14" data-val="5" aria-label="5 - Very true and consistent">5</button>
+          </div>
+          <span class="rating-label-high">5 = Very true</span>
+        </div>
+      </div>
+      <div class="statement-row">
+        <p class="statement-text">Our team closes deals consistently without last-minute surprises.</p>
+        <div class="rating-group">
+          <span class="rating-label-low">1 = Not true</span>
+          <div class="rating-buttons" role="group" aria-label="Rating for statement 15">
+            <button class="rating-btn" data-stmt="15" data-val="1" aria-label="1 - Not true at all">1</button>
+            <button class="rating-btn" data-stmt="15" data-val="2" aria-label="2">2</button>
+            <button class="rating-btn" data-stmt="15" data-val="3" aria-label="3">3</button>
+            <button class="rating-btn" data-stmt="15" data-val="4" aria-label="4">4</button>
+            <button class="rating-btn" data-stmt="15" data-val="5" aria-label="5 - Very true and consistent">5</button>
+          </div>
+          <span class="rating-label-high">5 = Very true</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ RESULT SECTION ══════════════════════════════════════════════════ -->
+    <section class="result-section" id="result-section" aria-live="polite">
+      <div class="result-inner">
+        <div class="result-score-display">Your Pipeline Power Score</div>
+        <div class="result-score-big" id="result-score-big">0 <span>/ 75</span></div>
+        <h2 class="result-headline" id="result-headline"></h2>
+        <p class="result-body" id="result-body"></p>
+        <a class="result-cta-btn" id="result-cta-btn" href="#" target="_blank" rel="noopener noreferrer"></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <img src="assets/sos_logo_correct.png" alt="SOS Insurance" class="footer-logo" />
+      <div class="footer-center">SOS Insurance &nbsp;|&nbsp; sos4insurance.com &nbsp;|&nbsp; ryan@ryanjamesmiller.com</div>
+      <div class="footer-right">&copy; Ryan James Miller. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- ══ STICKY SCORE BAR ════════════════════════════════════════════════════ -->
+  <div class="sticky-score-bar" role="status" aria-live="polite" aria-label="Live score tracker">
+    <div class="sticky-score-inner">
+      <span class="sticky-score-text">Your Score:</span>
+      <span class="sticky-score-value" id="sticky-score">0 / 75</span>
+      <div class="sticky-progress-wrap">
+        <div class="sticky-progress-fill" id="sticky-progress"></div>
+      </div>
+      <span class="sticky-rated-count" id="sticky-rated">0 of 15 rated</span>
+    </div>
+  </div>
+
+  <!-- ══ SCORING JAVASCRIPT ═════════════════════════════════════════════════ -->
+  <script>
+    (function () {
+      'use strict';
+
+      // State: 15 statements, keyed 1–15, value = null (unrated) or 1–5
+      const ratings = {};
+      for (let i = 1; i <= 15; i++) ratings[i] = null;
+
+      const TOTAL_STATEMENTS = 15;
+      const MAX_SCORE = 75;
+
+      // Result copy
+      const RESULTS = {
+        A: {
+          headline: 'You Have a Solid Pipeline Foundation.',
+          body: 'Your numbers tell a good story. The question is whether you can make it repeatable at scale. The agencies that go from solid to exceptional are the ones who document the system, train their team into it, and build the Force Multiplier layer. You are close. Let\'s talk about what tightening up looks like.',
+          cta: 'Schedule a Free Pipeline Strategy Call',
+          link: 'https://calendly.com/ryanjamesmiller/sos-discovery-call'
+        },
+        B: {
+          headline: 'You Have the Instincts. Now You Need the System.',
+          body: 'Your score shows real effort and some strong habits. But the gaps are showing up at the worst times — inconsistent prospecting, stalled deals, and no clear forecast. That is a system problem, not a people problem. The Pipeline Power System is built for exactly this stage. Let\'s map your gaps and build the fix.',
+          cta: 'Book Your Pipeline Diagnostic Call',
+          link: 'https://calendly.com/ryanjamesmiller/sos-discovery-call'
+        },
+        C: {
+          headline: 'Your Pipeline Is Running on Hope. That Stops Now.',
+          body: 'A score below 50 does not mean you have a bad agency. It means your sales results are driven by relationships and luck, not by a system. That is fixable. But it requires building the infrastructure most agency owners skip. The Pipeline Power System was built for this exact situation. The first step is a 30-minute call to see where the gaps are and what it takes to close them.',
+          cta: 'Claim Your Free Pipeline Audit Call',
+          link: 'https://calendly.com/ryanjamesmiller/sos-discovery-call'
+        }
+      };
+
+      function getScore() {
+        let total = 0;
+        for (let i = 1; i <= TOTAL_STATEMENTS; i++) {
+          if (ratings[i] !== null) total += ratings[i];
+        }
+        return total;
+      }
+
+      function getRatedCount() {
+        let count = 0;
+        for (let i = 1; i <= TOTAL_STATEMENTS; i++) {
+          if (ratings[i] !== null) count++;
+        }
+        return count;
+      }
+
+      function getResultState(score) {
+        if (score >= 65) return 'A';
+        if (score >= 50) return 'B';
+        return 'C';
+      }
+
+      function updateUI() {
+        const score = getScore();
+        const rated = getRatedCount();
+        const allRated = rated === TOTAL_STATEMENTS;
+
+        // Hero score
+        document.getElementById('hero-score').innerHTML =
+          score + ' <span class="hero-score-denom">/ ' + MAX_SCORE + '</span>';
+
+        // Sticky bar
+        document.getElementById('sticky-score').textContent = score + ' / ' + MAX_SCORE;
+        document.getElementById('sticky-rated').textContent = rated + ' of ' + TOTAL_STATEMENTS + ' rated';
+        const pct = (score / MAX_SCORE) * 100;
+        document.getElementById('sticky-progress').style.width = pct + '%';
+
+        // Result section
+        const resultSection = document.getElementById('result-section');
+        if (allRated) {
+          const state = getResultState(score);
+          const r = RESULTS[state];
+
+          document.getElementById('result-score-big').innerHTML =
+            score + ' <span>/ ' + MAX_SCORE + '</span>';
+          document.getElementById('result-headline').textContent = r.headline;
+          document.getElementById('result-body').textContent = r.body;
+
+          const ctaBtn = document.getElementById('result-cta-btn');
+          ctaBtn.textContent = r.cta;
+          ctaBtn.href = r.link;
+
+          if (!resultSection.classList.contains('visible')) {
+            resultSection.classList.add('visible');
+            // Smooth scroll to result
+            setTimeout(function () {
+              resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+          }
+        } else {
+          resultSection.classList.remove('visible');
+        }
+      }
+
+      // Attach click handlers to all rating buttons
+      document.querySelectorAll('.rating-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const stmt = parseInt(btn.dataset.stmt, 10);
+          const val  = parseInt(btn.dataset.val,  10);
+
+          // Update state
+          ratings[stmt] = val;
+
+          // Update button visual state for this statement
+          document.querySelectorAll('.rating-btn[data-stmt="' + stmt + '"]').forEach(function (b) {
+            b.classList.toggle('selected', parseInt(b.dataset.val, 10) === val);
+          });
+
+          updateUI();
+        });
+
+        // Keyboard: Enter/Space already handled natively for buttons
+      });
+
+      // Initial render
+      updateUI();
+    })();
+  </script>
+
+</body>
+</html>
