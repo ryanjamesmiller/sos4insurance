@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pipeline Power System Build Series | SOS Insurance</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── RESET & BASE ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      color: #41424C;
+      background: #F5F7F8;
+      line-height: 1.65;
+    }
+
+    /* ── TOKENS ───────────────────────────────────────────────── */
+    :root {
+      --navy:    #3E5C76;
+      --steel:   #4682B4;
+      --charcoal:#41424C;
+      --tan:     #CBBFAD;
+      --offwhite:#F5F7F8;
+      --dark:    #2A2B32;
+      --white:   #ffffff;
+      --orange:  #ff7900;
+    }
+
+    /* ── HEADER / NAV ─────────────────────────────────────────── */
+    .site-header {
+      background: var(--dark);
+      border-left: 4px solid var(--steel);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-logo {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+    .header-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--tan);
+      text-transform: uppercase;
+    }
+
+    /* ── HERO ─────────────────────────────────────────────────── */
+    .hero {
+      background: var(--dark);
+      border-left: 4px solid var(--steel);
+      padding: 72px 40px 64px;
+    }
+    .hero-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-size: 18px;
+      font-weight: 400;
+      color: #c8cdd4;
+      max-width: 680px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .hero-note {
+      font-size: 14px;
+      color: var(--tan);
+      font-style: italic;
+      max-width: 620px;
+      line-height: 1.55;
+    }
+
+    /* ── SERIES OVERVIEW BAR ──────────────────────────────────── */
+    .overview-bar {
+      background: var(--navy);
+      padding: 32px 40px;
+    }
+    .overview-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .overview-stat {
+      text-align: center;
+      flex: 1;
+      min-width: 140px;
+      padding: 8px 16px;
+      border-right: 1px solid rgba(203,191,173,0.25);
+    }
+    .overview-stat:last-child { border-right: none; }
+    .overview-stat-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .overview-stat-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--tan);
+    }
+
+    /* ── MODULES SECTION ──────────────────────────────────────── */
+    .modules-section {
+      padding: 64px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .modules-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-bottom: 8px;
+    }
+    .modules-heading {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 48px;
+    }
+
+    /* ── MODULE CARD ──────────────────────────────────────────── */
+    .module-card {
+      background: var(--white);
+      border: 1px solid var(--tan);
+      border-radius: 6px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      margin-bottom: 32px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 58% 42%;
+    }
+    .module-card:nth-child(even) {
+      background: var(--offwhite);
+    }
+    .module-card-divider {
+      border: none;
+      border-top: 1px solid var(--tan);
+      margin: 0 0 32px 0;
+      opacity: 0.5;
+    }
+
+    /* Video side */
+    .module-video {
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+      position: relative;
+    }
+    .video-wrapper {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      position: relative;
+    }
+    .video-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--dark);
+      color: var(--tan);
+      gap: 12px;
+      min-height: 220px;
+    }
+    .video-placeholder-icon {
+      width: 56px;
+      height: 56px;
+      border: 2px solid var(--steel);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .video-placeholder-icon svg {
+      fill: var(--steel);
+      margin-left: 4px;
+    }
+    .video-placeholder-text {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--tan);
+      opacity: 0.7;
+    }
+    .video-placeholder-id {
+      font-size: 11px;
+      color: var(--steel);
+      opacity: 0.6;
+    }
+    /* Lazy load embed */
+    .video-embed-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      position: relative;
+      cursor: pointer;
+    }
+    .video-embed-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .video-thumbnail {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: var(--dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 2;
+      transition: opacity 0.2s;
+    }
+    .video-thumbnail:hover .play-btn { transform: scale(1.1); }
+    .play-btn {
+      width: 64px;
+      height: 64px;
+      background: var(--steel);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s;
+      margin-bottom: 12px;
+    }
+    .play-btn svg { fill: white; margin-left: 5px; }
+    .play-label {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--tan);
+    }
+
+    /* Content side */
+    .module-content {
+      padding: 32px 32px 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .module-badge {
+      width: 40px;
+      height: 40px;
+      background: var(--steel);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-bottom: 4px;
+    }
+    .module-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+    .module-meta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .module-duration {
+      font-size: 13px;
+      color: var(--tan);
+      font-weight: 500;
+    }
+    .module-section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--steel);
+      background: rgba(70,130,180,0.1);
+      padding: 3px 8px;
+      border-radius: 3px;
+    }
+    .module-description {
+      font-size: 15px;
+      color: var(--charcoal);
+      line-height: 1.65;
+    }
+
+    /* Assignment block */
+    .assignment-block {
+      border: 1px solid var(--tan);
+      border-radius: 4px;
+      padding: 16px 18px;
+      background: rgba(203,191,173,0.08);
+      margin-top: 4px;
+    }
+    .assignment-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .assignment-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .assignment-list li {
+      font-size: 14px;
+      color: var(--charcoal);
+      line-height: 1.5;
+      padding-left: 20px;
+      position: relative;
+    }
+    .assignment-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      background: var(--steel);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── BUILD SESSION CTA ────────────────────────────────────── */
+    .cta-section {
+      background: var(--dark);
+      border-left: 4px solid var(--steel);
+      padding: 72px 40px;
+      text-align: center;
+    }
+    .cta-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .cta-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-bottom: 20px;
+    }
+    .cta-headline {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .cta-body {
+      font-size: 17px;
+      color: #c8cdd4;
+      line-height: 1.65;
+      margin-bottom: 36px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--steel);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      padding: 16px 40px;
+      border-radius: 4px;
+      transition: background 0.2s, transform 0.15s;
+      margin-bottom: 16px;
+    }
+    .cta-btn:hover {
+      background: var(--navy);
+      transform: translateY(-1px);
+    }
+    .cta-note {
+      font-size: 13px;
+      color: var(--tan);
+      margin-top: 12px;
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────────── */
+    .site-footer {
+      background: var(--navy);
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-logo {
+      height: 32px;
+      width: auto;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: var(--tan);
+      text-align: center;
+      flex: 1;
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .module-card {
+        grid-template-columns: 1fr;
+      }
+      .module-video {
+        min-height: 220px;
+      }
+      .module-content {
+        padding: 24px 20px;
+      }
+      .overview-stat {
+        min-width: 120px;
+      }
+    }
+    @media (max-width: 600px) {
+      .site-header { padding: 0 20px; }
+      .hero { padding: 48px 20px 40px; }
+      .overview-bar { padding: 24px 20px; }
+      .overview-inner { gap: 8px; }
+      .overview-stat { min-width: 100px; padding: 8px; border-right: none; border-bottom: 1px solid rgba(203,191,173,0.2); }
+      .overview-stat:last-child { border-bottom: none; }
+      .modules-section { padding: 40px 20px; }
+      .cta-section { padding: 48px 20px; }
+      .site-footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+      .header-label { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ HEADER ════════════════════════════════════════════════ -->
+  <header class="site-header">
+    <img src="assets/sos_logo_white.png" alt="SOS Insurance" class="header-logo" />
+    <span class="header-label">Pipeline Power System &middot; Client Training Hub</span>
+  </header>
+
+  <!-- ══ HERO ══════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">SOS Insurance &middot; Client Resource</p>
+      <h1>The Pipeline Power System Build Series</h1>
+      <p class="hero-sub">Seven videos. One document. One system. Watch each video in sequence. Complete the assigned section of your intake document before moving forward.</p>
+      <p class="hero-note">This is not a course. It is a construction project. By the time you finish Video 6, your Pipeline Power System is built.</p>
+    </div>
+  </section>
+
+
+  <!-- ══ VIDEO MODULES ═════════════════════════════════════════ -->
+  <section class="modules-section">
+    <p class="modules-eyebrow">The Build Series</p>
+    <h2 class="modules-heading">Watch in sequence. Complete each assignment before moving forward.</h2>
+
+    <!-- VIDEO 0 — Welcome -->
+    <div class="module-card" id="module-0">
+      <div class="module-video">
+        <div class="video-embed-container" aria-label="Video 0: Welcome — placeholder embed">
+          <iframe src="https://www.youtube.com/embed/-odzE2A9gac" title="Video 0 · Welcome" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="width:100%;height:100%;position:absolute;top:0;left:0;"></iframe>
+        </div>
+      </div>
+      <div class="module-content">
+        <div class="module-badge">0</div>
+        <h3 class="module-title">Welcome</h3>
+        <div class="module-meta">
+          <span class="module-duration">90 seconds</span>
+          <span class="module-section-label">No Section Assignment</span>
+        </div>
+        <p class="module-description">Before anything else. Three rules, one charge, hard cut. Watch this the day you receive this link. It sets the expectations for everything that follows.</p>
+        <div class="assignment-block">
+          <p class="assignment-label">Before the Next Video</p>
+          <ul class="assignment-list">
+            <li>Watch this video before opening any section of your intake document.</li>
+            <li>Confirm your login to the coaching call platform.</li>
+            <li>Mark your calendar for your first group coaching call.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="module-card-divider" />
+
+    <!-- VIDEO 1 — Who You Are as a Producer -->
+    <div class="module-card" id="module-1">
+      <div class="module-video">
+        <div class="video-embed-container" aria-label="Video 1: Who You Are as a Producer — placeholder embed">
+          <iframe src="https://www.youtube.com/embed/ZvTXdvo8yOA" title="Video 1 · Who You Are as a Producer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="width:100%;height:100%;position:absolute;top:0;left:0;"></iframe>
+        </div>
+      </div>
+      <div class="module-content">
+        <div class="module-badge">1</div>
+        <h3 class="module-title">Who You Are as a Producer</h3>
+        <div class="module-meta">
+          <span class="module-duration">8&ndash;9 minutes</span>
+          <span class="module-section-label">Sections 1, 6 &amp; 7</span>
+        </div>
+        <p class="module-description">The audit most producers have never done. Before we build anything, we need an honest picture of where you are &mdash; how you currently sell, how you operate, and what you are actually committed to building.</p>
+        <div class="assignment-block">
+          <p class="assignment-label">Before the Next Video</p>
+          <ul class="assignment-list">
+            <li>Complete Section 1 (Questions 1&ndash;5) in full. Write what is true, not what sounds impressive.</li>
+            <li>Complete Section 6 (Questions 35&ndash;41). Answer the strength and weakness questions with real answers.</li>
+            <li>Complete Section 7 (Questions 42&ndash;47). Put a specific number on every goal. Explain your commitment score.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="module-card-divider" />
+
+    <!-- VIDEO 2 — Target Lock -->
+    <div class="module-card" id="module-2">
+      <div class="module-video">
+        <div class="video-embed-container" aria-label="Video 2: Target Lock — placeholder embed">
+          <iframe src="https://www.youtube.com/embed/BTJhkh5THqU" title="Video 2 · Target Lock" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="width:100%;height:100%;position:absolute;top:0;left:0;"></iframe>
+        </div>
+      </div>
+      <div class="module-content">
+        <div class="module-badge">2</div>
+        <h3 class="module-title">Target Lock</h3>
+        <div class="module-meta">
+          <span class="module-duration">9&ndash;10 minutes</span>
+          <span class="module-section-label">Section 2</span>
+        </div>
+        <p class="module-description">Stop chasing everything. Start winning the right accounts. This video builds your written, defensible ICP &mdash; the foundation that every other component in the system sits on.</p>
+        <div class="assignment-block">
+          <p class="assignment-label">Before the Next Video</p>
+          <ul class="assignment-list">
+            <li>Complete Section 2 (Questions 6&ndash;13) in full.</li>
+            <li>Write your ideal account description with enough specificity that a list-builder could find matching companies.</li>
+            <li>Review your current prospect list against the Target Lock criteria. Identify your top 20 accounts that pass.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="module-card-divider" />
+
+    <!-- VIDEO 3 — The 1440 -->
+    <div class="module-card" id="module-3">
+      <div class="module-video">
+        <div class="video-embed-container" aria-label="Video 3: The 1440 — placeholder embed">
+          <iframe src="https://www.youtube.com/embed/dylSs-hA0w0" title="Video 3 · The 1440" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="width:100%;height:100%;position:absolute;top:0;left:0;"></iframe>
+        </div>
+      </div>
+      <div class="module-content">
+        <div class="module-badge">3</div>
+        <h3 class="module-title">The 1440</h3>
+        <div class="module-meta">
+          <span class="module-duration">9&ndash;10 minutes</span>
+          <span class="module-section-label">Section 3</span>
+        </div>
+        <p class="module-description">14 touches, 40 days, 6 channels. The pursuit system that gets answered. This video replaces whatever you are doing now with a structured, multi-channel prospecting sequence &mdash; and shows you why volume and consistency are math problems before they are skill problems.</p>
+        <div class="assignment-block">
+          <p class="assignment-label">Before the Next Video</p>
+          <ul class="assignment-list">
+            <li>Complete Section 3 (Questions 14&ndash;21) in full. Write your current first outreach message word for word.</li>
+            <li>Load the 1440 sequence framework into your CRM or tracking system.</li>
+            <li>Enter your top 5 Target Lock accounts as your first 1440 entries.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="module-card-divider" />
+
+    <!-- VIDEO 4 — Discovery and the SOS-Q -->
+    <div class="module-card" id="module-4">
+      <div class="module-video">
+        <div class="video-embed-container" aria-label="Video 4: Discovery and the SOS-Q — placeholder embed">
+          <iframe src="https://www.youtube.com/embed/t3a11GKV0g8" title="Video 4 · Discovery and the SOS-Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="width:100%;height:100%;position:absolute;top:0;left:0;"></iframe>
+        </div>
+      </div>
+      <div class="module-content">
+        <div class="module-badge">4</div>
+        <h3 class="module-title">Discovery and the SOS-Q</h3>
+        <div class="module-meta">
+          <span class="module-duration">8&ndash;9 minutes</span>
+          <span class="module-section-label">Section 4</span>
+        </div>
+        <p class="module-description">Most deals don't stall at closing. They stall here. The SOS-Q is a five-criteria qualification framework &mdash; Pain, Financial Impact, Decision Process, Timeline, Authority &mdash; that tells you whether an opportunity is real before you spend a month chasing it.</p>
+        <div class="assignment-block">
+          <p class="assignment-label">Before the Next Video</p>
+          <ul class="assignment-list">
+            <li>Complete Section 4 (Questions 22&ndash;28) in full.</li>
+            <li>Write out your current first meeting opening &mdash; what you lead with and what you ask first.</li>
+            <li>Run the SOS-Q against every active deal in your pipeline. Write what you know and what you are still missing for each one.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="module-card-divider" />
+
+    <!-- VIDEO 5 — The Value Cadence System -->
+    <div class="module-card" id="module-5">
+      <div class="module-video">
+        <div class="video-embed-container" aria-label="Video 5: The Value Cadence System — placeholder embed">
+          <iframe src="https://www.youtube.com/embed/rTF2MWuP8Kw" title="Video 5 · The Value Cadence System" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="width:100%;height:100%;position:absolute;top:0;left:0;"></iframe>
+        </div>
+      </div>
+      <div class="module-content">
+        <div class="module-badge">5</div>
+        <h3 class="module-title">The Value Cadence System</h3>
+        <div class="module-meta">
+          <span class="module-duration">7&ndash;8 minutes</span>
+          <span class="module-section-label">Section 5</span>
+        </div>
+        <p class="module-description">The follow-up that keeps warm deals moving without chasing. Seven touches, 21 days, one principle: deliver value before you make an ask. This video solves the silence that kills more deals than any objection ever will.</p>
+        <div class="assignment-block">
+          <p class="assignment-label">Before the Next Video</p>
+          <ul class="assignment-list">
+            <li>Complete Section 5 (Questions 29&ndash;34) in full.</li>
+            <li>List every case study or documented client result you have access to.</li>
+            <li>Map every active deal in your pipeline to the VCS. Schedule the next touch for each one within 24 hours.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="module-card-divider" />
+
+    <!-- VIDEO 6 — The Force Multiplier -->
+    <div class="module-card" id="module-6">
+      <div class="module-video">
+        <div class="video-embed-container" aria-label="Video 6: The Force Multiplier — placeholder embed">
+          <iframe src="https://www.youtube.com/embed/vIxsTcJzrDw" title="Video 6 · The Force Multiplier" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="width:100%;height:100%;position:absolute;top:0;left:0;"></iframe>
+        </div>
+      </div>
+      <div class="module-content">
+        <div class="module-badge">6</div>
+        <h3 class="module-title">The Force Multiplier</h3>
+        <div class="module-meta">
+          <span class="module-duration">7&ndash;8 minutes</span>
+          <span class="module-section-label">All Sections &mdash; Activation Layer</span>
+        </div>
+        <p class="module-description">AI in the system. Faster without losing human. This video shows exactly where AI plugs into the PPS you have now built &mdash; and what a producer looks like running the full system with the Force Multiplier active.</p>
+        <div class="assignment-block">
+          <p class="assignment-label">After This Video</p>
+          <ul class="assignment-list">
+            <li>Set up your AI tool of choice if not already done.</li>
+            <li>Use AI to research your top 3 Target Lock accounts. Write a one-paragraph brief on each.</li>
+            <li>Draft your first 1440 opening email using AI. Edit it until it sounds like you. Bring both drafts to the build session.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══ BUILD SESSION CTA ══════════════════════════════════════ -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <p class="cta-eyebrow">What Comes Next</p>
+      <h2 class="cta-headline">Your intake document is complete. Your build session is next.</h2>
+      <p class="cta-body">Every section of your intake document is now the raw material for your working Pipeline Power System. Bring it to your build session. That is where the system gets assembled and activated.</p>
+      <a href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener" class="cta-btn">Schedule Your Build Session</a>
+      <p class="cta-note">Ryan leads every build session personally.</p>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <img src="assets/sos_logo_white.png" alt="SOS Insurance" class="footer-logo" />
+    <p class="footer-copy">&copy; 2026 SOS Insurance &middot; Sales Operating System &middot; sos4insurance.com</p>
+  </footer>
+
+</body>
+</html>
