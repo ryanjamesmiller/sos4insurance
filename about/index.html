@@ -4,8 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Ryan Miller | SOS Insurance</title>
-  <meta name="description" content="Ryan Miller — Sales strategist, coach, and founder of SOS Insurance. 20+ years building high-performance sales systems for insurance professionals." />
-  <link rel="icon" href="assets/sos_logo_blue.png" type="image/png" />
+  <meta name="description" content="Sales strategist, coach, and founder of SOS Insurance — 20+ years building high-performance sales systems for founder-led insurance agencies." />
+  <link rel="canonical" href="https://sos4insurance.com/about/" />
+  <meta property="og:title" content="About Ryan Miller | SOS Insurance" />
+  <meta property="og:description" content="Sales strategist, coach, and founder of SOS Insurance — 20+ years building high-performance sales systems for founder-led insurance agencies." />
+  <meta property="og:image" content="https://sos4insurance.com/assets/sos-insurance-social.png" />
+  <meta property="og:url" content="https://sos4insurance.com/about/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
@@ -77,6 +84,26 @@
       transition: background 0.2s !important;
     }
     .nav-cta:hover { background: #e06b00 !important; color: var(--white) !important; }
+    .mobile-menu-toggle {
+      display: none; width: 44px; height: 44px; border: 1px solid var(--border);
+      border-radius: 8px; background: var(--white); color: var(--graphite);
+      align-items: center; justify-content: center; cursor: pointer;
+      position: relative; z-index: 2;
+    }
+    .mobile-menu-toggle svg { width: 23px; height: 23px; }
+    .mobile-menu {
+      display: none; position: fixed; top: 64px; left: 0; right: 0; z-index: 99;
+      padding: 14px 20px 20px; background: rgba(255,255,255,0.99);
+      border-bottom: 1px solid var(--border); box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+    .mobile-menu.is-open { display: grid; gap: 8px; }
+    .mobile-menu a {
+      display: block; padding: 12px 14px; border-radius: 8px; color: var(--graphite);
+      text-decoration: none; font-weight: 700;
+    }
+    .mobile-menu a:hover, .mobile-menu a[aria-current="page"] { background: var(--mist); color: var(--steel); }
+    .mobile-menu .mobile-cta { margin-top: 4px; text-align: center; background: var(--orange); color: var(--white); }
+    .mobile-menu .mobile-cta:hover { background: #e06b00; color: var(--white); }
 
     /* ══ HERO ═════════════════════════════════════════════════════ */
     .hero {
@@ -406,6 +433,7 @@
     @media (max-width: 768px) {
       .nav { padding: 0 20px; }
       .nav-links { display: none; }
+      .mobile-menu-toggle { display: inline-flex; }
       .hero { padding: 56px 20px 48px; }
       .hero-inner {
         grid-template-columns: 1fr;
@@ -425,17 +453,46 @@
 <body>
 
   <!-- ══ NAV ══════════════════════════════════════════════════════ -->
-  <nav class="nav">
-    <a class="nav-logo" href="/">
-      <img src="assets/sos_logo_blue.png" alt="SOS Insurance" />
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="nav-logo" href="/" aria-label="SOS Insurance home">
+      <img src="/assets/sos_logo_blue.png" alt="SOS Insurance" />
     </a>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
       <li><a href="/scorecard/">Scorecard</a></li>
       <li><a href="/about/" aria-current="page" style="color:var(--steel);">About</a></li>
-      <li><a class="nav-cta" href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener">Book a Call</a></li>
+      <li><a class="nav-cta" href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener">Book a Discovery Call</a></li>
     </ul>
+    <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+    </button>
   </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/">Home</a>
+    <a href="/scorecard/">Scorecard</a>
+    <a href="/about/" aria-current="page">About</a>
+    <a class="mobile-cta" href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener">Book a Discovery Call</a>
+  </div>
+  <script>
+    (function () {
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', function () {
+        const open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        toggle.setAttribute('aria-label', open ? 'Open navigation menu' : 'Close navigation menu');
+        menu.classList.toggle('is-open', !open);
+      });
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Open navigation menu');
+          menu.classList.remove('is-open');
+        });
+      });
+    })();
+  </script>
 
   <!-- ══ HERO ═════════════════════════════════════════════════════ -->
   <section class="hero">
@@ -555,9 +612,9 @@
   <!-- ══ FOOTER ════════════════════════════════════════════════════ -->
   <footer class="footer">
     <div class="footer-logo">
-      <img src="assets/sos_logo_white_v2.png" alt="SOS Insurance" />
+      <img src="/assets/sos_logo_white_v2.png" alt="SOS Insurance" />
     </div>
-    <p class="footer-copy">&copy; 2026 SOS Insurance. All rights reserved.</p>
+    <p class="footer-copy">&copy; 2026 SOS Insurance &middot; Sales Operating System</p>
     <div class="footer-links">
       <a href="mailto:ryan@ryanjamesmiller.com">ryan@ryanjamesmiller.com</a>
       <a href="https://www.linkedin.com/in/rjmsalespro/" target="_blank" rel="noopener">LinkedIn</a>

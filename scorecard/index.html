@@ -3,9 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pipeline Power System Scorecard | SOS Insurance</title>
-  <meta name="description" content="Does your agency have a real pipeline? Take 3 minutes to find out. Rate your agency across 5 categories and get your Pipeline Power Score." />
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <title>Pipeline Power Scorecard | SOS Insurance</title>
+  <meta name="description" content="Take the 3-minute Pipeline Power Scorecard and see where your agency's pipeline is strong, and where it's quietly costing you deals." />
+  <link rel="canonical" href="https://sos4insurance.com/scorecard/" />
+  <meta property="og:title" content="Pipeline Power Scorecard | SOS Insurance" />
+  <meta property="og:description" content="Take the 3-minute Pipeline Power Scorecard and see where your agency's pipeline is strong, and where it's quietly costing you deals." />
+  <meta property="og:image" content="https://sos4insurance.com/assets/sos-insurance-social.png" />
+  <meta property="og:url" content="https://sos4insurance.com/scorecard/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet" />
@@ -22,6 +29,8 @@
       --offwhite:  #F5F7F8;
       --dark:      #2A2B32;
       --white:     #FFFFFF;
+      --orange:    #ff7900;
+      --border:    #E2E6EA;
       --max-width: 780px;
     }
 
@@ -35,6 +44,45 @@
       line-height: 1.6;
       padding-bottom: 80px; /* room for sticky bar */
     }
+
+    /* ── NAVIGATION ──────────────────────────────────────────────── */
+    .site-nav {
+      position: sticky; top: 0; z-index: 200; height: 68px; padding: 0 24px;
+      background: rgba(255,255,255,0.98); border-bottom: 1px solid var(--border);
+    }
+    .site-nav-inner {
+      max-width: 1100px; height: 100%; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .site-nav-logo img { display: block; height: 36px; width: auto; }
+    .site-nav-links { display: flex; align-items: center; gap: 24px; }
+    .site-nav-link { color: var(--charcoal); text-decoration: none; font-size: 14px; font-weight: 700; }
+    .site-nav-link:hover, .site-nav-link[aria-current="page"] { color: var(--steel); }
+    .site-nav-cta {
+      background: var(--orange); color: var(--white); text-decoration: none;
+      padding: 10px 22px; border-radius: 6px; font-size: 14px; font-weight: 700;
+    }
+    .site-nav-cta:hover { background: #e06c00; }
+    .mobile-menu-toggle {
+      display: none; width: 44px; height: 44px; border: 1px solid var(--border);
+      border-radius: 8px; background: var(--white); color: var(--charcoal);
+      align-items: center; justify-content: center; cursor: pointer;
+      position: relative; z-index: 2;
+    }
+    .mobile-menu-toggle svg { width: 23px; height: 23px; }
+    .mobile-menu {
+      display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 199;
+      padding: 14px 20px 20px; background: rgba(255,255,255,0.99);
+      border-bottom: 1px solid var(--border); box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+    .mobile-menu.is-open { display: grid; gap: 8px; }
+    .mobile-menu a {
+      display: block; padding: 12px 14px; border-radius: 8px; color: var(--charcoal);
+      text-decoration: none; font-weight: 700;
+    }
+    .mobile-menu a:hover, .mobile-menu a[aria-current="page"] { background: var(--offwhite); color: var(--steel); }
+    .mobile-menu .mobile-cta { margin-top: 4px; text-align: center; background: var(--orange); color: var(--white); }
+    .mobile-menu .mobile-cta:hover { background: #e06c00; color: var(--white); }
 
     /* ── HERO ─────────────────────────────────────────────────── */
     .hero {
@@ -259,6 +307,34 @@
       white-space: nowrap;
     }
 
+    /* ── EMAIL GATE ───────────────────────────────────────────── */
+    .email-gate {
+      display: none; background: var(--white); border: 1px solid var(--tan);
+      border-top: 4px solid var(--orange); border-radius: 8px; padding: 36px;
+      margin-top: 36px; box-shadow: 0 12px 34px rgba(42,43,50,0.08);
+      animation: fadeSlideUp 0.28s ease forwards;
+    }
+    .email-gate.visible { display: block; }
+    .email-gate h2 { font-size: 30px; color: var(--dark); line-height: 1.2; margin-bottom: 10px; }
+    .email-gate-sub { font-size: 17px; color: var(--charcoal); margin-bottom: 24px; }
+    .email-form { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: end; }
+    .email-field { display: grid; gap: 7px; }
+    .email-field label { font-size: 13px; font-weight: 700; color: var(--navy); }
+    .email-field input {
+      width: 100%; min-height: 52px; border: 1.5px solid var(--tan); border-radius: 5px;
+      padding: 12px 14px; font: inherit; color: var(--charcoal); background: var(--white);
+    }
+    .email-field input:focus { outline: 2px solid var(--steel); outline-offset: 2px; border-color: var(--steel); }
+    .email-submit {
+      min-height: 52px; border: 0; border-radius: 5px; padding: 12px 26px;
+      background: var(--orange); color: var(--white); font: inherit; font-weight: 700; cursor: pointer;
+    }
+    .email-submit:hover { background: #e06c00; }
+    .email-submit:disabled { cursor: wait; opacity: 0.7; }
+    .email-error { min-height: 22px; margin-top: 8px; color: #9B2C2C; font-size: 13px; font-weight: 700; }
+    .form-note { margin-top: 10px; color: #6B7280; font-size: 12px; line-height: 1.5; }
+    .ac-native-form { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
     /* ── RESULT SECTION ───────────────────────────────────────── */
     .result-section {
       display: none;
@@ -361,6 +437,9 @@
 
     /* ── MOBILE ───────────────────────────────────────────────── */
     @media (max-width: 768px) {
+      .site-nav { padding: 0 20px; }
+      .site-nav-links { display: none; }
+      .mobile-menu-toggle { display: inline-flex; }
       .hero-inner {
         flex-direction: column;
         gap: 24px;
@@ -386,6 +465,11 @@
       .sticky-progress-wrap { display: none; }
       .sticky-rated-count { display: none; }
 
+      .email-gate { padding: 28px 22px; }
+      .email-gate h2 { font-size: 26px; }
+      .email-form { grid-template-columns: 1fr; }
+      .email-submit { width: 100%; }
+
       .result-cta-btn {
         display: block;
         width: 100%;
@@ -406,6 +490,48 @@
 </head>
 <body>
 
+  <!-- ══ NAV ═══════════════════════════════════════════════════════════════ -->
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="site-nav-inner">
+      <a class="site-nav-logo" href="/" aria-label="SOS Insurance home"><img src="/assets/sos_logo_blue.png" alt="SOS Insurance" /></a>
+      <div class="site-nav-links">
+        <a class="site-nav-link" href="/">Home</a>
+        <a class="site-nav-link" href="/scorecard/" aria-current="page">Scorecard</a>
+        <a class="site-nav-link" href="/about/">About</a>
+        <a class="site-nav-cta" href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener">Book a Discovery Call</a>
+      </div>
+      <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/">Home</a>
+    <a href="/scorecard/" aria-current="page">Scorecard</a>
+    <a href="/about/">About</a>
+    <a class="mobile-cta" href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener">Book a Discovery Call</a>
+  </div>
+  <script>
+    (function () {
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', function () {
+        const open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        toggle.setAttribute('aria-label', open ? 'Open navigation menu' : 'Close navigation menu');
+        menu.classList.toggle('is-open', !open);
+      });
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Open navigation menu');
+          menu.classList.remove('is-open');
+        });
+      });
+    })();
+  </script>
+
   <!-- ══ HERO ══════════════════════════════════════════════════════════════ -->
   <header class="hero">
     <div class="hero-inner">
@@ -415,9 +541,9 @@
         <p class="hero-sub">Take 3 minutes. Rate your agency honestly. See where your pipeline is strong and where it is quietly costing you deals.</p>
         <p class="hero-instruction">Rate each statement from 1 (not true at all) to 5 (very true and consistent). Your total score is out of 75.</p>
       </div>
-      <div class="hero-score-block" aria-live="polite" aria-label="Live score counter">
-        <div class="hero-score-label">Your Score</div>
-        <div class="hero-score-number" id="hero-score">0 <span class="hero-score-denom">/ 75</span></div>
+      <div class="hero-score-block" aria-live="polite" aria-label="Assessment progress">
+        <div class="hero-score-label">Your Progress</div>
+        <div class="hero-score-number" id="hero-score">0 <span class="hero-score-denom">/ 15</span></div>
       </div>
     </div>
   </header>
@@ -675,6 +801,36 @@
       </div>
     </div>
 
+    <!-- ══ EMAIL GATE ════════════════════════════════════════════════════ -->
+    <section class="email-gate" id="email-gate" aria-live="polite">
+      <h2>Your Pipeline Power Score is ready.</h2>
+      <p class="email-gate-sub">Enter your email to see your score and what it means for your agency.</p>
+      <form class="email-form" id="email-gate-form" novalidate>
+        <div class="email-field">
+          <label for="scorecard-email">Email address</label>
+          <input id="scorecard-email" name="email" type="email" autocomplete="email" inputmode="email" required />
+        </div>
+        <button class="email-submit" id="email-submit" type="submit">Show My Score</button>
+      </form>
+      <p class="email-error" id="email-error" role="alert"></p>
+      <p class="form-note">We’ll use your email to send relevant Pipeline Power resources. You can unsubscribe at any time.</p>
+
+      <!-- ActiveCampaign native form. Form identifiers and the score custom-field name are injected during integration setup. -->
+      <form class="ac-native-form" id="activecampaign-form" method="post" action="https://ryanjamesmiller35255.activehosted.com/proc.php" target="activecampaign-submit-frame" data-configured="true" aria-hidden="true">
+        <input type="hidden" name="u" value="13" />
+        <input type="hidden" name="f" value="13" />
+        <input type="hidden" name="s" />
+        <input type="hidden" name="c" value="0" />
+        <input type="hidden" name="m" value="0" />
+        <input type="hidden" name="act" value="sub" />
+        <input type="hidden" name="v" value="2" />
+        <input type="hidden" name="or" value="aeea6938-00e4-4b11-bc26-0c2ec12bfb24" />
+        <input type="hidden" id="ac-email" name="email" value="" />
+        <input type="hidden" id="ac-score" name="field[11]" value="" />
+      </form>
+      <iframe class="ac-native-form" name="activecampaign-submit-frame" title="ActiveCampaign form submission"></iframe>
+    </section>
+
     <!-- ══ RESULT SECTION ══════════════════════════════════════════════════ -->
     <section class="result-section" id="result-section" aria-live="polite">
       <div class="result-inner">
@@ -691,17 +847,17 @@
   <!-- ══ FOOTER ═════════════════════════════════════════════════════════════ -->
   <footer class="footer">
     <div class="footer-inner">
-      <img src="assets/sos_logo_correct.png" alt="SOS Insurance" class="footer-logo" />
-      <div class="footer-center">SOS Insurance &nbsp;|&nbsp; sos4insurance.com &nbsp;|&nbsp; ryan@ryanjamesmiller.com</div>
-      <div class="footer-right">&copy; Ryan James Miller. All rights reserved.</div>
+      <a href="/" aria-label="SOS Insurance home"><img src="/assets/sos_logo_white_v2.png" alt="SOS Insurance" class="footer-logo" /></a>
+      <div class="footer-center">sos4insurance.com</div>
+      <div class="footer-right">&copy; 2026 SOS Insurance &middot; Sales Operating System</div>
     </div>
   </footer>
 
   <!-- ══ STICKY SCORE BAR ════════════════════════════════════════════════════ -->
-  <div class="sticky-score-bar" role="status" aria-live="polite" aria-label="Live score tracker">
+  <div class="sticky-score-bar" role="status" aria-live="polite" aria-label="Assessment progress">
     <div class="sticky-score-inner">
-      <span class="sticky-score-text">Your Score:</span>
-      <span class="sticky-score-value" id="sticky-score">0 / 75</span>
+      <span class="sticky-score-text">Progress:</span>
+      <span class="sticky-score-value" id="sticky-score">0 / 15</span>
       <div class="sticky-progress-wrap">
         <div class="sticky-progress-fill" id="sticky-progress"></div>
       </div>
@@ -709,39 +865,43 @@
     </div>
   </div>
 
-  <!-- ══ SCORING JAVASCRIPT ═════════════════════════════════════════════════ -->
+  <!-- ══ SCORING + EMAIL GATE JAVASCRIPT ═══════════════════════════════════ -->
   <script>
     (function () {
       'use strict';
 
-      // State: 15 statements, keyed 1–15, value = null (unrated) or 1–5
       const ratings = {};
       for (let i = 1; i <= 15; i++) ratings[i] = null;
 
       const TOTAL_STATEMENTS = 15;
       const MAX_SCORE = 75;
+      let gateSubmitted = false;
+      let gateAnnounced = false;
 
-      // Result copy
       const RESULTS = {
-        A: {
-          headline: 'You Have a Solid Pipeline Foundation.',
-          body: 'Your numbers tell a good story. The question is whether you can make it repeatable at scale. The agencies that go from solid to exceptional are the ones who document the system, train their team into it, and build the Force Multiplier layer. You are close. Let\'s talk about what tightening up looks like.',
-          cta: 'Schedule a Free Pipeline Strategy Call',
-          link: 'https://calendly.com/ryanjamesmiller/sos-discovery-call'
+        FOUNDATIONAL: {
+          body: "Your pipeline is running on the founder. That's the ceiling that's keeping your agency from scaling.",
+          tag: 'Scorecard – Foundational Gaps'
         },
-        B: {
-          headline: 'You Have the Instincts. Now You Need the System.',
-          body: 'Your score shows real effort and some strong habits. But the gaps are showing up at the worst times — inconsistent prospecting, stalled deals, and no clear forecast. That is a system problem, not a people problem. The Pipeline Power System is built for exactly this stage. Let\'s map your gaps and build the fix.',
-          cta: 'Book Your Pipeline Diagnostic Call',
-          link: 'https://calendly.com/ryanjamesmiller/sos-discovery-call'
+        MID_BUILD: {
+          body: "You've got pieces of a system in place — but not enough to trust it without you.",
+          tag: 'Scorecard – Mid Build'
         },
-        C: {
-          headline: 'Your Pipeline Is Running on Hope. That Stops Now.',
-          body: 'A score below 50 does not mean you have a bad agency. It means your sales results are driven by relationships and luck, not by a system. That is fixable. But it requires building the infrastructure most agency owners skip. The Pipeline Power System was built for this exact situation. The first step is a 30-minute call to see where the gaps are and what it takes to close them.',
-          cta: 'Claim Your Free Pipeline Audit Call',
-          link: 'https://calendly.com/ryanjamesmiller/sos-discovery-call'
+        STRONG: {
+          body: "You're close to a real production floor. A few gaps are likely costing you deals you should be closing.",
+          tag: 'Scorecard – Strong Pipeline'
         }
       };
+
+      const emailGate = document.getElementById('email-gate');
+      const resultSection = document.getElementById('result-section');
+      const emailForm = document.getElementById('email-gate-form');
+      const emailInput = document.getElementById('scorecard-email');
+      const emailError = document.getElementById('email-error');
+      const emailSubmit = document.getElementById('email-submit');
+      const acForm = document.getElementById('activecampaign-form');
+      const acEmail = document.getElementById('ac-email');
+      const acScore = document.getElementById('ac-score');
 
       function getScore() {
         let total = 0;
@@ -760,74 +920,130 @@
       }
 
       function getResultState(score) {
-        if (score >= 65) return 'A';
-        if (score >= 50) return 'B';
-        return 'C';
+        if (score <= 25) return 'FOUNDATIONAL';
+        if (score <= 50) return 'MID_BUILD';
+        return 'STRONG';
+      }
+
+      function renderResult(score) {
+        const state = getResultState(score);
+        const result = RESULTS[state];
+
+        document.getElementById('result-score-big').innerHTML =
+          score + ' <span>/ ' + MAX_SCORE + '</span>';
+        document.getElementById('result-headline').textContent = result.tag.replace('Scorecard – ', '');
+        document.getElementById('result-body').textContent = result.body;
+
+        const ctaBtn = document.getElementById('result-cta-btn');
+        ctaBtn.textContent = 'Book a Discovery Call';
+        ctaBtn.href = 'https://calendly.com/ryanjamesmiller/sos-discovery-call';
       }
 
       function updateUI() {
         const score = getScore();
         const rated = getRatedCount();
         const allRated = rated === TOTAL_STATEMENTS;
+        const progressPct = (rated / TOTAL_STATEMENTS) * 100;
 
-        // Hero score
         document.getElementById('hero-score').innerHTML =
-          score + ' <span class="hero-score-denom">/ ' + MAX_SCORE + '</span>';
-
-        // Sticky bar
-        document.getElementById('sticky-score').textContent = score + ' / ' + MAX_SCORE;
+          rated + ' <span class="hero-score-denom">/ ' + TOTAL_STATEMENTS + '</span>';
+        document.getElementById('sticky-score').textContent = rated + ' / ' + TOTAL_STATEMENTS;
         document.getElementById('sticky-rated').textContent = rated + ' of ' + TOTAL_STATEMENTS + ' rated';
-        const pct = (score / MAX_SCORE) * 100;
-        document.getElementById('sticky-progress').style.width = pct + '%';
+        document.getElementById('sticky-progress').style.width = progressPct + '%';
 
-        // Result section
-        const resultSection = document.getElementById('result-section');
-        if (allRated) {
-          const state = getResultState(score);
-          const r = RESULTS[state];
-
-          document.getElementById('result-score-big').innerHTML =
-            score + ' <span>/ ' + MAX_SCORE + '</span>';
-          document.getElementById('result-headline').textContent = r.headline;
-          document.getElementById('result-body').textContent = r.body;
-
-          const ctaBtn = document.getElementById('result-cta-btn');
-          ctaBtn.textContent = r.cta;
-          ctaBtn.href = r.link;
-
-          if (!resultSection.classList.contains('visible')) {
-            resultSection.classList.add('visible');
-            // Smooth scroll to result
-            setTimeout(function () {
-              resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
-          }
-        } else {
+        if (!allRated) {
+          gateSubmitted = false;
+          gateAnnounced = false;
+          emailGate.classList.remove('visible');
           resultSection.classList.remove('visible');
+          return;
+        }
+
+        renderResult(score);
+
+        if (gateSubmitted) {
+          emailGate.classList.remove('visible');
+          resultSection.classList.add('visible');
+          return;
+        }
+
+        resultSection.classList.remove('visible');
+        emailGate.classList.add('visible');
+        if (!gateAnnounced) {
+          gateAnnounced = true;
+          setTimeout(function () {
+            emailGate.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            emailInput.focus({ preventScroll: true });
+          }, 100);
         }
       }
 
-      // Attach click handlers to all rating buttons
       document.querySelectorAll('.rating-btn').forEach(function (btn) {
         btn.addEventListener('click', function () {
           const stmt = parseInt(btn.dataset.stmt, 10);
-          const val  = parseInt(btn.dataset.val,  10);
-
-          // Update state
+          const val = parseInt(btn.dataset.val, 10);
           ratings[stmt] = val;
+          gateSubmitted = false;
+          emailError.textContent = '';
 
-          // Update button visual state for this statement
-          document.querySelectorAll('.rating-btn[data-stmt="' + stmt + '"]').forEach(function (b) {
-            b.classList.toggle('selected', parseInt(b.dataset.val, 10) === val);
+          document.querySelectorAll('.rating-btn[data-stmt="' + stmt + '"]').forEach(function (button) {
+            const selected = parseInt(button.dataset.val, 10) === val;
+            button.classList.toggle('selected', selected);
+            button.setAttribute('aria-pressed', String(selected));
           });
 
           updateUI();
         });
-
-        // Keyboard: Enter/Space already handled natively for buttons
       });
 
-      // Initial render
+      emailForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        emailError.textContent = '';
+
+        if (getRatedCount() !== TOTAL_STATEMENTS) {
+          emailError.textContent = 'Please rate all 15 statements before requesting your score.';
+          return;
+        }
+
+        const email = emailInput.value.trim();
+        if (!email || !emailInput.checkValidity()) {
+          emailError.textContent = 'Enter a valid email address to see your score.';
+          emailInput.focus();
+          return;
+        }
+
+        if (acForm.dataset.configured !== 'true' || !acForm.action) {
+          emailError.textContent = 'Score delivery is temporarily unavailable. Please try again shortly.';
+          return;
+        }
+
+        const score = getScore();
+        acEmail.value = email;
+        acScore.value = String(score);
+        emailSubmit.disabled = true;
+        emailSubmit.textContent = 'Loading Your Score…';
+
+        try {
+          acForm.submit();
+          gateSubmitted = true;
+          renderResult(score);
+          emailGate.classList.remove('visible');
+          resultSection.classList.add('visible');
+          setTimeout(function () {
+            resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        } catch (error) {
+          emailError.textContent = 'We could not submit your email. Please try again.';
+        } finally {
+          emailSubmit.disabled = false;
+          emailSubmit.textContent = 'Show My Score';
+        }
+      });
+
+      document.querySelectorAll('.rating-btn').forEach(function (btn) {
+        btn.setAttribute('aria-pressed', 'false');
+      });
+
       updateUI();
     })();
   </script>
