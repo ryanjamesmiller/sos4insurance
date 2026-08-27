@@ -98,6 +98,26 @@
       background: rgba(255,255,255,0.1);
       border-color: var(--white);
     }
+    .btn--outline-blue {
+      background: transparent;
+      color: var(--steel-blue);
+      border-color: var(--steel-blue);
+    }
+    .btn--outline-blue:hover {
+      background: var(--steel-blue);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(70,130,180,0.22);
+    }
+    .section-cta-pair {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .section-cta-pair .btn { min-width: 220px; text-align: center; }
 
     /* ─── NAV ─── */
     nav {
@@ -709,6 +729,8 @@
       .journey-diagram-wrap,
       .diff-table-wrap   { width: 100%; max-width: 100%; overflow-x: auto; contain: inline-size; -webkit-overflow-scrolling: touch; }
       .diff-table        { min-width: 600px; }
+      .section-cta-pair  { display: grid; grid-template-columns: 1fr; gap: 12px; }
+      .section-cta-pair .btn { width: 100%; min-width: 0; }
       .faith-line        { padding: 24px; }
     }
   </style>
@@ -975,6 +997,10 @@
           <p>We show your producers exactly how to use AI to run the entire system faster, sharper, and with less friction — so they spend more time building trust and closing business, and less time on research, prep, and repetition. This is not about replacing the relational nature of insurance sales. It's about removing the guesswork.</p>
         </div>
       </div>
+      <div class="section-cta-pair" aria-label="Pipeline Power System next steps">
+        <a href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Book a Discovery Call</a>
+        <a href="/scorecard/" class="btn btn--outline-blue">Take the Scorecard</a>
+      </div>
     </div>
   </section>
 
@@ -1008,6 +1034,10 @@
             <div class="secondary-proof-stat"><strong>$75K</strong><span>New Revenue</span></div>
             <div class="secondary-proof-stat"><strong>90</strong><span>Days</span></div>
           </div>
+        </div>
+        <div class="section-cta-pair" aria-label="Case study next steps">
+          <a href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Book a Discovery Call</a>
+          <a href="/scorecard/" class="btn btn--outline-blue">Take the Scorecard</a>
         </div>
       </div>
     </div>
