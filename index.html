@@ -210,9 +210,20 @@
     }
     .proof-strip-inner {
       max-width: 1100px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: center;
-      gap: 40px; flex-wrap: wrap;
+      display: flex; align-items: center; gap: 40px; flex-wrap: wrap;
     }
+    .proof-quote {
+      flex: 1; min-width: 260px;
+      font-size: 1rem; color: rgba(255,255,255,0.9);
+      font-style: italic; line-height: 1.65;
+    }
+    .proof-quote cite {
+      display: block; margin-top: 10px;
+      font-style: normal; font-size: 0.78rem;
+      font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--orange);
+    }
+    .proof-divider { width: 1px; height: 60px; background: rgba(255,255,255,0.2); flex-shrink: 0; }
     .proof-stats { display: flex; gap: 36px; flex-wrap: wrap; justify-content: center; }
     .proof-stat { text-align: center; }
     .proof-stat strong {
@@ -703,6 +714,7 @@
       .tiers-grid        { grid-template-columns: 1fr; }
       .not-for-list      { grid-template-columns: 1fr; }
       .proof-strip-inner { flex-direction: column; }
+      .proof-divider     { display: none; }
       .proof-stats       { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 12px; width: 100%; max-width: 320px; }
       .journey-outcomes  { grid-template-columns: 1fr; }
       .nav-tagline       { display: none; }
@@ -791,6 +803,11 @@
   <!-- ══ PROOF STRIP ════════════════════════════════════════════════════ -->
   <section id="proof-strip">
     <div class="proof-strip-inner">
+      <div class="proof-quote">
+        "I would highly recommend you to anyone who feels like their results are not aligned with their efforts."
+        <cite>— Seasoned Benefits Broker, SOS Client</cite>
+      </div>
+      <div class="proof-divider"></div>
       <div class="proof-stats">
         <div class="proof-stat"><strong>90</strong><span>Day Build</span></div>
         <div class="proof-stat"><strong>1440</strong><span>Sequence</span></div>
