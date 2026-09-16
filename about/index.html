@@ -282,6 +282,42 @@
       margin: 0;
     }
 
+
+    /* ══ CREDENTIALS ══════════════════════════════════════════════ */
+    .creds-section {
+      padding: 80px 40px;
+      background: var(--white);
+    }
+    .creds-inner { max-width: 800px; margin: 0 auto; }
+    .creds-list { margin-top: 36px; }
+    .cred-item {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+    }
+    .cred-item:last-child { border-bottom: 1px solid var(--border); }
+    .cred-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--steel);
+    }
+    .cred-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.35;
+    }
+    .cred-detail {
+      font-size: 16px;
+      color: var(--light-text);
+      line-height: 1.65;
+    }
+    .cred-detail a { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
+
     /* ══ CONTACT SECTION ══════════════════════════════════════════ */
     .contact-section {
       padding: 80px 40px;
@@ -450,7 +486,7 @@
       .hero-photo-wrap { justify-content: center; }
       .hero-photo { width: 240px; height: 240px; }
       .hero-divider { margin: 0 auto 28px; }
-      .bio-section, .contact-section { padding: 56px 20px; }
+      .bio-section, .contact-section, .creds-section { padding: 56px 20px; }
       .values-strip { padding: 48px 20px; }
       .value-row { grid-template-columns: 44px 1fr; padding: 22px 0; }
       .cta-section { padding: 56px 20px; }
@@ -532,6 +568,11 @@
         </div>
 
         <p>I also believe deeply that a great business and a great life aren't two separate goals. After surviving the Route 91 shooting in 2017, I made a decision to stop separating who I am from what I do. My faith isn't a side note. It's the foundation. Every system I build, every conversation I have, and every leader I develop is grounded in that truth.</p>
+
+        <p>That sounds good on a website. Here is what it cost me once.</p>
+        <p>Years ago I landed one of the largest contractors in the country after chasing them for two years. Then my team slipped up. I had a chance to cover it with a lie, and my boss wanted me to, because it was our best shot at keeping the account. I couldn't do it. I called the client and told her the whole truth. We lost the account. The company lost a lot of revenue and I lost a significant commission. I was at peace with it, because I had done the right thing.</p>
+        <p>That is the same standard I bring into your agency. I will tell you what is actually broken in your pipeline, even when a softer answer would be easier to sell.</p>
+
         <p>At the core, I'm a follower of Jesus, husband to Michelle, and father to Alexis and Chloe.</p>
       </div>
     </div>
@@ -578,6 +619,35 @@
             <p class="value-line">I speak truth with strength and love, calling others higher with courage and conviction.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CREDENTIALS ═══════════════════════════════════════════════ -->
+  <section class="creds-section">
+    <div class="creds-inner">
+      <p class="section-eyebrow">Where This Has Been Tested</p>
+      <h2 class="section-headline">Taught on the Industry's Own Stage</h2>
+      <div class="creds-list">
+
+        <div class="cred-item">
+          <span class="cred-label">NABIP Annual Convention 2026</span>
+          <span class="cred-title">"Stop Guessing, Start Closing: A Proven Prospecting System for Insurance Producers"</span>
+          <span class="cred-detail">A 45-minute breakout on Professional Development Day, Atlantic City. The same prospecting system I install inside agencies, taught to a room of producers and agency leaders.</span>
+        </div>
+
+        <div class="cred-item">
+          <span class="cred-label">Author</span>
+          <span class="cred-title">Wounds: How Hurt, Heartache, and Tragedy Become the Keys to Unlocking Greatness</span>
+          <span class="cred-detail">My own story, and the reason I believe the person and the producer cannot be separated. <a href="https://www.amazon.com/Wounds-Heartache-Tragedy-Unlocking-Greatness/dp/B0CGMPX2QN/" target="_blank" rel="noopener noreferrer">Available on Amazon</a>.</span>
+        </div>
+
+        <div class="cred-item">
+          <span class="cred-label">Host</span>
+          <span class="cred-title">Unlocking Greatness</span>
+          <span class="cred-detail">300+ episodes since 2018, interviewing leaders on the work behind the results. <a href="https://www.podpage.com/unlocking-greatness/" target="_blank" rel="noopener noreferrer">Listen here</a>.</span>
+        </div>
+
       </div>
     </div>
   </section>
