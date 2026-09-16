@@ -210,21 +210,10 @@
     }
     .proof-strip-inner {
       max-width: 1100px; margin: 0 auto;
-      display: flex; align-items: center; gap: 40px; flex-wrap: wrap;
+      display: flex; align-items: center; justify-content: center;
+      gap: 40px; flex-wrap: wrap;
     }
-    .proof-quote {
-      flex: 1; min-width: 260px;
-      font-size: 1rem; color: rgba(255,255,255,0.9);
-      font-style: italic; line-height: 1.65;
-    }
-    .proof-quote cite {
-      display: block; margin-top: 10px;
-      font-style: normal; font-size: 0.78rem;
-      font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--orange);
-    }
-    .proof-divider { width: 1px; height: 60px; background: rgba(255,255,255,0.2); flex-shrink: 0; }
-    .proof-stats { display: flex; gap: 36px; flex-wrap: wrap; }
+    .proof-stats { display: flex; gap: 36px; flex-wrap: wrap; justify-content: center; }
     .proof-stat { text-align: center; }
     .proof-stat strong {
       display: block; font-size: 2rem; font-weight: 800;
@@ -714,7 +703,7 @@
       .tiers-grid        { grid-template-columns: 1fr; }
       .not-for-list      { grid-template-columns: 1fr; }
       .proof-strip-inner { flex-direction: column; }
-      .proof-divider     { display: none; }
+      .proof-stats       { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 12px; width: 100%; max-width: 320px; }
       .journey-outcomes  { grid-template-columns: 1fr; }
       .nav-tagline       { display: none; }
       .nav-links         { display: none; }
@@ -802,11 +791,6 @@
   <!-- ══ PROOF STRIP ════════════════════════════════════════════════════ -->
   <section id="proof-strip">
     <div class="proof-strip-inner">
-      <div class="proof-quote">
-        "I know I have been doing this a long time, but finally I have a real roadmap that works."
-        <cite>— Insurance Producer, SOS Client</cite>
-      </div>
-      <div class="proof-divider"></div>
       <div class="proof-stats">
         <div class="proof-stat"><strong>90</strong><span>Day Build</span></div>
         <div class="proof-stat"><strong>1440</strong><span>Sequence</span></div>
@@ -1010,20 +994,20 @@
       <span class="eyebrow eyebrow--orange">Real Result</span>
       <h2>The Gap Isn't Talent.<br>It's Process.</h2>
       <div class="case-story-body">
-        <p>A regional benefits agency came to us in January. They were struggling to consistently produce new business appointments, and the meetings they did get weren't converting into closed deals.</p>
+        <p>A regional benefits agency came to us struggling to consistently produce new business appointments, and the meetings they did get weren't converting into closed deals.</p>
         <p>Over the first 90 days, we built and installed the Pipeline Power System inside their agency — trained leadership to run it, and coached the sales team, six producers at the time, nine today, on executing it. In month four, the engagement transitioned into ongoing coaching to make sure every producer was working the process on every deal.</p>
-        <p>Seven months in, here's where they stand.</p>
+        <p>After our first seven months of working together, here's what we achieved.</p>
         <div class="agency-proof-stats" aria-label="Agency case study results">
-          <div class="agency-proof-stat"><strong>$1.5M+</strong><span>Closed YTD</span></div>
+          <div class="agency-proof-stat"><strong>$1.5M+</strong><span>Closed</span></div>
           <div class="agency-proof-stat"><strong>9</strong><span>Producers</span></div>
           <div class="agency-proof-stat"><strong>7</strong><span>Months</span></div>
         </div>
         <ul class="agency-results">
-          <li>Collectively, the agency has generated over $1.5 million in closed business year to date</li>
-          <li>One producer has generated over $300K in new business YTD</li>
-          <li>Another has generated over $360K in new business YTD, with less than a year of tenure</li>
-          <li>Two new producers have each closed two new deals in their first six months</li>
-          <li>One seasoned producer went from producing $75K–$100K a year to exceeding $200K YTD</li>
+          <li>Collectively, the agency generated over $1.5 million in closed business</li>
+          <li>One producer generated over $300K in new business</li>
+          <li>Another generated over $360K in new business, with less than a year of tenure</li>
+          <li>Two new producers each closed two new deals in their first six months</li>
+          <li>One seasoned producer went from producing $75K–$100K a year to exceeding $200K</li>
           <li>Every producer is generating at least one qualified new-business appointment a week, with several generating two or more</li>
         </ul>
         <p class="case-conclusion">Nine producers. One system. A pipeline that runs whether the owner is in the room or not.</p>
