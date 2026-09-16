@@ -28,7 +28,7 @@
       --dusty-blue:   #3E5C76;
       --white:        #FFFFFF;
       --light-border: #E2E6EA;
-      --orange:       #ff7900;
+      --warm-sand:    #CBBFAD;
       --body-text:    #41424C;
       --muted-text:   #6B7280;
       --section-pad:  96px 24px;
@@ -55,7 +55,7 @@
       color: var(--steel-blue);
       margin-bottom: 14px;
     }
-    .eyebrow--orange { color: var(--orange); }
+    .eyebrow--orange { color: var(--steel-blue); }
     .eyebrow--light  { color: rgba(255,255,255,0.55); }
 
     h1, h2, h3, h4 { font-family: 'DM Sans', sans-serif; line-height: 1.15; color: var(--graphite); }
@@ -79,15 +79,15 @@
       border: 2px solid transparent;
     }
     .btn--primary {
-      background: var(--orange);
+      background: var(--dusty-blue);
       color: var(--white);
-      border-color: var(--orange);
+      border-color: var(--dusty-blue);
     }
     .btn--primary:hover {
-      background: #e06c00;
-      border-color: #e06c00;
+      background: var(--steel-blue);
+      border-color: var(--steel-blue);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(255,121,0,0.35);
+      box-shadow: 0 8px 24px rgba(70,130,180,0.35);
     }
     .btn--outline-white {
       background: transparent;
@@ -162,8 +162,8 @@
       text-decoration: none; font-weight: 700;
     }
     .mobile-menu a:hover, .mobile-menu a[aria-current="page"] { background: var(--mist-gray); color: var(--steel-blue); }
-    .mobile-menu .mobile-cta { margin-top: 4px; text-align: center; background: var(--orange); color: var(--white); }
-    .mobile-menu .mobile-cta:hover { background: #e06c00; color: var(--white); }
+    .mobile-menu .mobile-cta { margin-top: 4px; text-align: center; background: var(--dusty-blue); color: var(--white); }
+    .mobile-menu .mobile-cta:hover { background: var(--steel-blue); color: var(--white); }
 
     /* ─── HERO ─── */
     #hero {
@@ -181,11 +181,11 @@
     .hero-inner { max-width: 760px; position: relative; }
     .hero-eyebrow {
       font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--orange);
+      text-transform: uppercase; color: var(--warm-sand);
       display: block; margin-bottom: 20px;
     }
     #hero h1 { color: var(--white); margin-bottom: 24px; }
-    #hero h1 em { color: var(--orange); font-style: normal; }
+    #hero h1 em { color: var(--warm-sand); font-style: normal; }
     .hero-sub {
       font-size: 1.15rem; color: rgba(255,255,255,0.75);
       line-height: 1.7; margin-bottom: 36px; max-width: 640px;
@@ -196,11 +196,80 @@
       color: rgba(255,255,255,0.62); line-height: 1.55;
     }
     .hero-secondary a { color: var(--white); font-weight: 700; text-underline-offset: 3px; }
-    .hero-secondary a:hover { color: var(--orange); }
+    .hero-secondary a:hover { color: var(--warm-sand); }
     .hero-trust {
       margin-top: 28px;
       font-size: 0.82rem; color: rgba(255,255,255,0.4);
       letter-spacing: 0.04em;
+    }
+
+    /* ─── PERSONAL RUNBOOK BAND ─── */
+    .runbook-band {
+      margin-top: 64px;
+      background: var(--graphite);
+      border-radius: 16px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 48px;
+      align-items: center;
+    }
+    .runbook-eyebrow {
+      display: block; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--warm-sand); margin-bottom: 14px;
+    }
+    .runbook-copy h3 {
+      color: var(--white); font-size: 1.9rem;
+      font-weight: 700; margin: 0 0 16px;
+    }
+    .runbook-copy p {
+      color: rgba(255,255,255,0.82); line-height: 1.7; margin: 0 0 14px;
+    }
+    .runbook-kicker {
+      color: var(--white) !important; font-weight: 600;
+      border-left: 3px solid var(--steel-blue); padding-left: 16px;
+    }
+    .runbook-stats { display: flex; gap: 36px; flex-wrap: wrap; margin-top: 28px; }
+    .runbook-stat strong {
+      display: block; font-size: 1.7rem; font-weight: 800;
+      color: var(--warm-sand); line-height: 1;
+    }
+    .runbook-stat span {
+      display: block; margin-top: 6px; font-size: 0.72rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+    /* the mock runbook page */
+    .rb-page {
+      background: var(--white); border-radius: 10px;
+      padding: 22px 20px; box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+    }
+    .rb-head { border-bottom: 2px solid var(--steel-blue); padding-bottom: 10px; margin-bottom: 16px; }
+    .rb-title { display: block; font-weight: 800; color: var(--graphite); font-size: 1rem; }
+    .rb-sub { display: block; font-size: 0.7rem; color: var(--muted-text); margin-top: 3px; }
+    .rb-sec { margin-bottom: 16px; }
+    .rb-label {
+      display: block; font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--steel-blue); margin-bottom: 8px;
+    }
+    .rb-row {
+      display: flex; justify-content: space-between;
+      font-size: 0.72rem; color: var(--body-text);
+      padding: 3px 0; border-bottom: 1px solid var(--light-border);
+    }
+    .rb-row b { color: var(--graphite); }
+    .rb-line {
+      height: 6px; border-radius: 3px;
+      background: var(--light-border); margin-bottom: 6px;
+    }
+    .rb-line--s { width: 55%; }
+    .rb-line--m { width: 72%; }
+    .rb-script { border-left: 3px solid var(--warm-sand); padding-left: 10px; }
+    .runbook-caption {
+      margin: 12px 0 0; font-size: 0.68rem; font-style: italic;
+      color: rgba(255,255,255,0.5); text-align: center;
     }
 
     /* ─── PROOF STRIP ─── */
@@ -221,14 +290,14 @@
       display: block; margin-top: 10px;
       font-style: normal; font-size: 0.78rem;
       font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--orange);
+      text-transform: uppercase; color: var(--warm-sand);
     }
     .proof-divider { width: 1px; height: 60px; background: rgba(255,255,255,0.2); flex-shrink: 0; }
     .proof-stats { display: flex; gap: 36px; flex-wrap: wrap; justify-content: center; }
     .proof-stat { text-align: center; }
     .proof-stat strong {
       display: block; font-size: 2rem; font-weight: 800;
-      color: var(--orange); line-height: 1;
+      color: var(--warm-sand); line-height: 1;
     }
     .proof-stat span {
       font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
@@ -277,7 +346,7 @@
       flex-shrink: 0; margin-top: 1px; font-size: 11px; font-weight: 700;
     }
     .ba-card--before .ba-icon { background: #F3F4F6; color: #9CA3AF; }
-    .ba-card--after  .ba-icon { background: var(--orange); color: var(--white); }
+    .ba-card--after  .ba-icon { background: var(--warm-sand); color: var(--graphite); }
 
     /* ─── JOURNEY ─── */
     #journey {
@@ -299,7 +368,7 @@
     }
     .phase-num {
       font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--orange); margin-bottom: 8px;
+      text-transform: uppercase; color: var(--warm-sand); margin-bottom: 8px;
     }
     .phase-title {
       font-size: 1.2rem; font-weight: 800; color: var(--white); margin-bottom: 12px;
@@ -323,7 +392,7 @@
     }
     .journey-outcome strong {
       display: block; font-size: 2.2rem; font-weight: 800;
-      color: var(--orange); line-height: 1; margin-bottom: 6px;
+      color: var(--warm-sand); line-height: 1; margin-bottom: 6px;
     }
     .journey-outcome span {
       font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em;
@@ -356,7 +425,7 @@
     }
     .program-num {
       font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--orange); margin-bottom: 10px;
+      text-transform: uppercase; color: var(--steel-blue); margin-bottom: 10px;
     }
     .program-card h3 { margin-bottom: 14px; color: var(--graphite); }
     .program-card p  { font-size: 0.95rem; }
@@ -374,7 +443,7 @@
     .case-story-body {
       background: var(--white);
       border-radius: 12px; padding: 48px;
-      border-left: 4px solid var(--orange);
+      border-left: 4px solid var(--steel-blue);
     }
     .case-story-body p {
       font-size: 1.05rem; color: var(--body-text);
@@ -398,7 +467,7 @@
     }
     .case-result-stat strong {
       display: block; font-size: 1.8rem; font-weight: 800;
-      color: var(--orange); line-height: 1;
+      color: var(--steel-blue); line-height: 1;
     }
     .case-result-stat span {
       font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
@@ -412,7 +481,7 @@
     .agency-proof-stat {
       background: var(--graphite-2); border-radius: 10px; padding: 22px 16px; text-align: center;
     }
-    .agency-proof-stat strong { display: block; color: var(--orange); font-size: 1.7rem; line-height: 1.1; }
+    .agency-proof-stat strong { display: block; color: var(--warm-sand); font-size: 1.7rem; line-height: 1.1; }
     .agency-proof-stat span {
       display: block; margin-top: 6px; color: rgba(255,255,255,0.65);
       font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
@@ -426,14 +495,14 @@
       color: var(--white); display: grid; gap: 18px;
     }
     .secondary-proof blockquote {
-      margin: 0; border-left-color: var(--orange); color: var(--white);
+      margin: 0; border-left-color: var(--warm-sand); color: var(--white);
     }
     .secondary-proof-stats { display: flex; flex-wrap: wrap; gap: 14px; }
     .secondary-proof-stat {
       min-width: 120px; padding: 12px 16px; border: 1px solid rgba(255,255,255,0.18);
       border-radius: 8px; text-align: center;
     }
-    .secondary-proof-stat strong { display: block; color: var(--orange); font-size: 1.35rem; line-height: 1; }
+    .secondary-proof-stat strong { display: block; color: var(--warm-sand); font-size: 1.35rem; line-height: 1; }
     .secondary-proof-stat span { display: block; margin-top: 5px; color: rgba(255,255,255,0.7); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; }
 
     /* ─── WHO IT'S FOR ─── */
@@ -454,7 +523,7 @@
     }
     .who-type {
       font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--orange);
+      text-transform: uppercase; color: var(--steel-blue);
       margin-bottom: 8px;
     }
     .who-card h3 { margin-bottom: 12px; }
@@ -512,7 +581,7 @@
     }
     .tier-label {
       font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--orange); margin-bottom: 6px;
+      text-transform: uppercase; color: var(--steel-blue); margin-bottom: 6px;
     }
     .tier-card h3 { margin-bottom: 6px; }
     .tier-who {
@@ -599,7 +668,7 @@
     .delivery-content { padding-top: 8px; }
     .delivery-timing {
       font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--orange); margin-bottom: 6px;
+      text-transform: uppercase; color: var(--steel-blue); margin-bottom: 6px;
     }
     .delivery-content h3 { margin-bottom: 10px; }
     .delivery-list { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
@@ -658,11 +727,11 @@
     .faq-item p { padding: 0 22px 22px; color: var(--body-text); }
     .faith-line {
       max-width: 760px; margin: 42px auto 0; padding: 28px 32px;
-      border-left: 4px solid var(--orange); background: var(--graphite-2); border-radius: 8px;
+      border-left: 4px solid var(--warm-sand); background: var(--graphite-2); border-radius: 8px;
       color: var(--white); font-size: 1.08rem; font-style: italic; line-height: 1.7;
     }
     .faith-line cite {
-      display: block; margin-top: 12px; color: var(--orange); font-size: 0.78rem;
+      display: block; margin-top: 12px; color: var(--warm-sand); font-size: 0.78rem;
       font-style: normal; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
     }
 
@@ -679,7 +748,7 @@
       background: radial-gradient(ellipse at 50% 100%, rgba(70,130,180,0.2) 0%, transparent 65%);
       pointer-events: none;
     }
-    #cta-final .eyebrow { color: var(--orange); display: block; margin-bottom: 16px; }
+    #cta-final .eyebrow { color: var(--warm-sand); display: block; margin-bottom: 16px; }
     #cta-final h2 { color: var(--white); margin-bottom: 20px; }
     #cta-final p  { color: rgba(255,255,255,0.65); max-width: 560px; margin: 0 auto 36px; font-size: 1.05rem; }
     .cta-trust {
@@ -715,6 +784,9 @@
       .not-for-list      { grid-template-columns: 1fr; }
       .proof-strip-inner { flex-direction: column; }
       .proof-divider     { display: none; }
+      .runbook-band      { grid-template-columns: 1fr; padding: 32px 22px; gap: 32px; margin-top: 48px; }
+      .runbook-copy h3   { font-size: 1.55rem; }
+      .runbook-stats     { gap: 24px; }
       .proof-stats       { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 12px; width: 100%; max-width: 320px; }
       .journey-outcomes  { grid-template-columns: 1fr; }
       .nav-tagline       { display: none; }
@@ -937,11 +1009,11 @@
           <!-- Arrow -->
           <polygon points="848,75 858,80 848,85" fill="rgba(255,255,255,0.3)"/>
 
-          <!-- Node 7: Production Floor (orange) -->
-          <circle cx="900" cy="80" r="52" fill="#ff7900" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
-          <text x="900" y="66" text-anchor="middle" fill="white" font-family="DM Sans,sans-serif" font-size="10" font-weight="800">PRODUCTION</text>
-          <text x="900" y="81" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-family="DM Sans,sans-serif" font-size="9" font-weight="700">FLOOR</text>
-          <text x="900" y="96" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="DM Sans,sans-serif" font-size="8">1+ APT/REP/WK</text>
+          <!-- Node 7: Production Floor — the destination, warm sand -->
+          <circle cx="900" cy="80" r="52" fill="#CBBFAD" stroke="rgba(255,255,255,0.45)" stroke-width="2"/>
+          <text x="900" y="66" text-anchor="middle" fill="#41424C" font-family="DM Sans,sans-serif" font-size="10" font-weight="800">PRODUCTION</text>
+          <text x="900" y="81" text-anchor="middle" fill="#41424C" font-family="DM Sans,sans-serif" font-size="9" font-weight="700">FLOOR</text>
+          <text x="900" y="96" text-anchor="middle" fill="rgba(65,66,76,0.75)" font-family="DM Sans,sans-serif" font-size="8">1+ APT/REP/WK</text>
         </svg>
       </div>
 
@@ -998,6 +1070,52 @@
           <p>We show your producers exactly how to use AI to run the entire system faster, sharper, and with less friction — so they spend more time building trust and closing business, and less time on research, prep, and repetition. This is not about replacing the relational nature of insurance sales. It's about removing the guesswork.</p>
         </div>
       </div>
+
+      <!-- ── The Personal Runbook ── -->
+      <div class="runbook-band">
+        <div class="runbook-copy">
+          <span class="runbook-eyebrow">And every producer walks away with this</span>
+          <h3>The Personal Runbook</h3>
+          <p>Not a binder of theory with their name on the cover. Their target accounts. Their words. Their objections. Their case stories. Twenty-seven scripts written in their own voice, and their pipeline math worked out to a real number — how many conversations it takes to hit their goal, and what that costs them in hours a week.</p>
+          <p class="runbook-kicker">It is the difference between training a producer and handing them something they can run.</p>
+          <div class="runbook-stats">
+            <div class="runbook-stat"><strong>27</strong><span>Scripts</span></div>
+            <div class="runbook-stat"><strong>1</strong><span>Per Producer</span></div>
+            <div class="runbook-stat"><strong>100%</strong><span>Their Voice</span></div>
+          </div>
+        </div>
+
+        <div class="runbook-visual" role="img" aria-label="Illustration of a Personal Runbook page showing pipeline math, the qualification gate, and a sample prospecting script">
+          <div class="rb-page">
+            <div class="rb-head">
+              <span class="rb-title">Personal Runbook</span>
+              <span class="rb-sub">Producer · Employee Benefits</span>
+            </div>
+            <div class="rb-sec">
+              <span class="rb-label">Pipeline Math</span>
+              <div class="rb-row"><span>Revenue goal</span><b>$250,000</b></div>
+              <div class="rb-row"><span>Accounts needed</span><b>10</b></div>
+              <div class="rb-row"><span>Conversations / week</span><b>12</b></div>
+              <div class="rb-row"><span>Protected hours</span><b>6.5</b></div>
+            </div>
+            <div class="rb-sec">
+              <span class="rb-label">The Gate</span>
+              <div class="rb-line"></div>
+              <div class="rb-line rb-line--s"></div>
+            </div>
+            <div class="rb-sec">
+              <span class="rb-label">Touch 06 · Case Story</span>
+              <div class="rb-script">
+                <div class="rb-line"></div>
+                <div class="rb-line"></div>
+                <div class="rb-line rb-line--m"></div>
+              </div>
+            </div>
+          </div>
+          <p class="runbook-caption">Illustration. Every runbook is built from that producer's own intake.</p>
+        </div>
+      </div>
+
       <div class="section-cta-pair" aria-label="Pipeline Power System next steps">
         <a href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener noreferrer" class="btn btn--primary">Book a Discovery Call</a>
         <a href="/scorecard/" class="btn btn--outline-blue">Take the Scorecard</a>
