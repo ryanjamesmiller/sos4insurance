@@ -29,7 +29,6 @@
       --offwhite:  #F5F7F8;
       --dark:      #2A2B32;
       --white:     #FFFFFF;
-      --orange:    #ff7900;
       --border:    #E2E6EA;
       --max-width: 780px;
     }
@@ -59,10 +58,10 @@
     .site-nav-link { color: var(--charcoal); text-decoration: none; font-size: 14px; font-weight: 700; }
     .site-nav-link:hover, .site-nav-link[aria-current="page"] { color: var(--steel); }
     .site-nav-cta {
-      background: var(--orange); color: var(--white); text-decoration: none;
+      background: var(--navy); color: var(--white); text-decoration: none;
       padding: 10px 22px; border-radius: 6px; font-size: 14px; font-weight: 700;
     }
-    .site-nav-cta:hover { background: #e06c00; }
+    .site-nav-cta:hover { background: var(--steel); }
     .mobile-menu-toggle {
       display: none; width: 44px; height: 44px; border: 1px solid var(--border);
       border-radius: 8px; background: var(--white); color: var(--charcoal);
@@ -81,8 +80,8 @@
       text-decoration: none; font-weight: 700;
     }
     .mobile-menu a:hover, .mobile-menu a[aria-current="page"] { background: var(--offwhite); color: var(--steel); }
-    .mobile-menu .mobile-cta { margin-top: 4px; text-align: center; background: var(--orange); color: var(--white); }
-    .mobile-menu .mobile-cta:hover { background: #e06c00; color: var(--white); }
+    .mobile-menu .mobile-cta { margin-top: 4px; text-align: center; background: var(--navy); color: var(--white); }
+    .mobile-menu .mobile-cta:hover { background: var(--steel); color: var(--white); }
 
     /* ── HERO ─────────────────────────────────────────────────── */
     .hero {
@@ -310,7 +309,7 @@
     /* ── EMAIL GATE ───────────────────────────────────────────── */
     .email-gate {
       display: none; background: var(--white); border: 1px solid var(--tan);
-      border-top: 4px solid var(--orange); border-radius: 8px; padding: 36px;
+      border-top: 4px solid var(--steel); border-radius: 8px; padding: 36px;
       margin-top: 36px; box-shadow: 0 12px 34px rgba(42,43,50,0.08);
       animation: fadeSlideUp 0.28s ease forwards;
     }
@@ -327,9 +326,9 @@
     .email-field input:focus { outline: 2px solid var(--steel); outline-offset: 2px; border-color: var(--steel); }
     .email-submit {
       min-height: 52px; border: 0; border-radius: 5px; padding: 12px 26px;
-      background: var(--orange); color: var(--white); font: inherit; font-weight: 700; cursor: pointer;
+      background: var(--navy); color: var(--white); font: inherit; font-weight: 700; cursor: pointer;
     }
-    .email-submit:hover { background: #e06c00; }
+    .email-submit:hover { background: var(--steel); }
     .email-submit:disabled { cursor: wait; opacity: 0.7; }
     .email-error { min-height: 22px; margin-top: 8px; color: #9B2C2C; font-size: 13px; font-weight: 700; }
     .form-note { margin-top: 10px; color: #6B7280; font-size: 12px; line-height: 1.5; }
@@ -394,13 +393,13 @@
       margin-bottom: 30px;
       padding: 24px 26px;
       background: rgba(70, 130, 180, 0.14);
-      border-left: 4px solid var(--orange);
+      border-left: 4px solid var(--navy);
       border-radius: 6px;
     }
     .result-next-move-label {
       display: block;
       margin-bottom: 8px;
-      color: var(--orange);
+      color: var(--navy);
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.12em;
