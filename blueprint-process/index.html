@@ -31,23 +31,66 @@
     }
     button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 
-    /* Header */
-    .site-header {
-      background: var(--graphite);
-      padding: 0 32px;
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+    /* Main menu, copied from the home page (index.html). Scoped to .site-nav because the stage rail is also a <nav>. */
+    .site-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #E2E6EA;
     }
-    .site-header img { height: 60px; width: auto; display: block; }
-    .header-tag {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--sand);
+    body { padding-top: 68px; }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      height: 68px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-left { display: flex; align-items: center; gap: 14px; }
+    .nav-logo img { height: 38px; display: block; }
+    .nav-tagline {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: #6B7280;
+      border-left: 1px solid #E2E6EA; padding-left: 14px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-link {
+      font-size: 0.9rem; font-weight: 600; color: var(--graphite);
+      text-decoration: none; transition: color 0.2s ease;
+    }
+    .nav-link:hover { color: var(--steel); }
+    .nav-cta {
+      display: inline-block; padding: 10px 24px; border-radius: 6px;
+      font-size: 0.88rem; font-weight: 700; letter-spacing: 0.02em; text-decoration: none;
+      background: var(--dusty); color: var(--white); border: 2px solid var(--dusty);
+      transition: all 0.2s ease;
+    }
+    .nav-cta:hover {
+      background: var(--steel); border-color: var(--steel);
+      transform: translateY(-2px); box-shadow: 0 8px 24px rgba(70,130,180,0.35);
+    }
+    .mobile-menu-toggle {
+      display: none; width: 44px; height: 44px; border: 1px solid #E2E6EA;
+      border-radius: 8px; background: var(--white); color: var(--graphite);
+      align-items: center; justify-content: center; cursor: pointer;
+      position: relative; z-index: 2;
+    }
+    .mobile-menu-toggle svg { width: 23px; height: 23px; }
+    .mobile-menu {
+      display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 99;
+      padding: 14px 20px 20px; background: rgba(255,255,255,0.99);
+      border-bottom: 1px solid #E2E6EA; box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+    .mobile-menu.is-open { display: grid; gap: 8px; }
+    .mobile-menu a {
+      display: block; padding: 12px 14px; border-radius: 8px; color: var(--graphite);
+      text-decoration: none; font-weight: 700;
+    }
+    .mobile-menu a:hover { background: var(--mist); color: var(--steel); }
+    .mobile-menu .mobile-cta { margin-top: 4px; text-align: center; background: var(--dusty); color: var(--white); }
+    .mobile-menu .mobile-cta:hover { background: var(--steel); color: var(--white); }
+    @media (max-width: 768px) {
+      .nav-tagline       { display: none; }
+      .nav-links         { display: none; }
+      .mobile-menu-toggle{ display: inline-flex; }
+      .nav-logo img      { height: 34px; }
     }
 
     /* Hero */
@@ -242,8 +285,8 @@
       border: 1px solid rgba(65,66,76,0.08);
       padding: 22px 14px 14px;
       position: sticky;
-      top: 20px;
-      max-height: calc(100vh - 40px);
+      top: 88px;
+      max-height: calc(100vh - 108px);
       overflow-y: auto;
     }
     .progress {
@@ -374,8 +417,6 @@
       .playlist { position: static; max-height: none; }
     }
     @media (max-width: 640px) {
-      .site-header { padding: 0 16px; }
-      .header-tag { display: none; }
       .hero { padding: 48px 16px 0; }
       .hero-sub { margin-bottom: 36px; }
       .climb { grid-template-columns: repeat(2, 1fr); gap: 8px; }
@@ -393,10 +434,31 @@
 </head>
 <body>
 
-  <header class="site-header">
-    <img src="/assets/sos_logo_white_v2.png" alt="SOS, Sales Operating System" />
-    <span class="header-tag">Blueprint Training Library</span>
-  </header>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="/" class="nav-logo" aria-label="SOS Insurance home">
+          <img src="/assets/sos_logo_blue.png" alt="SOS, Sales Operating System" />
+        </a>
+        <span class="nav-tagline">Insurance</span>
+      </div>
+      <div class="nav-links">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/scorecard/">Scorecard</a>
+        <a class="nav-link" href="/about/">About</a>
+        <a href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener" class="nav-cta">Book a Discovery Call</a>
+      </div>
+      <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/">Home</a>
+    <a href="/scorecard/">Scorecard</a>
+    <a href="/about/">About</a>
+    <a class="mobile-cta" href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener">Book a Discovery Call</a>
+  </div>
 
   <section class="hero">
     <div class="hero-inner">
@@ -460,6 +522,25 @@
   </footer>
 
   <script>
+    (function () {
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', function () {
+        const open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        toggle.setAttribute('aria-label', open ? 'Open navigation menu' : 'Close navigation menu');
+        menu.classList.toggle('is-open', !open);
+      });
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Open navigation menu');
+          menu.classList.remove('is-open');
+        });
+      });
+    })();
+
     const STAGES = [
       { name: "Prospecting",        short: "Prospecting" },
       { name: "The Initial Meeting", short: "Initial Meeting" },
