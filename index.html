@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SOS Insurance | Pipeline Power System</title>
-  <meta name="description" content="SOS Insurance installs the Pipeline Power System inside founder-led benefits agencies in 90 days — so producers prospect with precision and owners get out of the middle of every deal." />
+  <meta name="description" content="SOS installs the Pipeline Power System inside benefits and commercial P&amp;C agencies, so every producer opens more doors with a written target, a 14-touch sequence and scripts in their own voice." />
   <link rel="canonical" href="https://sos4insurance.com/" />
   <meta property="og:title" content="SOS Insurance | Pipeline Power System" />
-  <meta property="og:description" content="SOS Insurance installs the Pipeline Power System inside founder-led benefits agencies in 90 days — so producers prospect with precision and owners get out of the middle of every deal." />
+  <meta property="og:description" content="SOS installs the Pipeline Power System inside benefits and commercial P&amp;C agencies, so every producer opens more doors with a written target, a 14-touch sequence and scripts in their own voice." />
   <meta property="og:image" content="https://sos4insurance.com/assets/sos-insurance-social.png" />
   <meta property="og:url" content="https://sos4insurance.com/" />
   <meta property="og:type" content="website" />
@@ -21,16 +21,14 @@
 
     :root {
       --steel-blue:   #4682B4;
-      --steel-blue-2: #5A96C8;
       --graphite:     #41424C;
-      --graphite-2:   #2E2F38;
       --mist-gray:    #F5F7F8;
       --dusty-blue:   #3E5C76;
       --white:        #FFFFFF;
-      --light-border: #E2E6EA;
+      --light-border: rgba(65,66,76,0.14);
       --warm-sand:    #CBBFAD;
       --body-text:    #41424C;
-      --muted-text:   #6B7280;
+      --muted-text:   rgba(65,66,76,0.78);
       --section-pad:  96px 24px;
     }
 
@@ -131,7 +129,7 @@
       height: 68px; display: flex; align-items: center; justify-content: space-between;
     }
     .nav-left { display: flex; align-items: center; gap: 14px; }
-    .nav-logo img { height: 38px; display: block; }
+    .nav-logo img { height: 46px; display: block; }
     .nav-tagline {
       font-size: 11px; font-weight: 600; letter-spacing: 0.18em;
       text-transform: uppercase; color: var(--muted-text);
@@ -154,7 +152,7 @@
     .mobile-menu {
       display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 99;
       padding: 14px 20px 20px; background: rgba(255,255,255,0.99);
-      border-bottom: 1px solid var(--light-border); box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      border-bottom: 1px solid var(--light-border); box-shadow: 0 12px 30px rgba(65,66,76,0.08);
     }
     .mobile-menu.is-open { display: grid; gap: 8px; }
     .mobile-menu a {
@@ -167,7 +165,7 @@
 
     /* ─── HERO ─── */
     #hero {
-      background: var(--graphite-2);
+      background: var(--graphite);
       padding: 148px 24px 96px;
       position: relative;
       overflow: hidden;
@@ -175,7 +173,7 @@
     #hero::before {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 70% 50%, rgba(70,130,180,0.18) 0%, transparent 65%);
+      background: none;
       pointer-events: none;
     }
     .hero-inner { max-width: 760px; position: relative; }
@@ -243,7 +241,7 @@
     /* the mock runbook page */
     .rb-page {
       background: var(--white); border-radius: 10px;
-      padding: 22px 20px; box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+      padding: 22px 20px; box-shadow: 0 18px 40px rgba(65,66,76,0.28);
     }
     .rb-head { border-bottom: 2px solid var(--steel-blue); padding-bottom: 10px; margin-bottom: 16px; }
     .rb-title { display: block; font-weight: 800; color: var(--graphite); font-size: 1rem; }
@@ -345,13 +343,13 @@
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0; margin-top: 1px; font-size: 11px; font-weight: 700;
     }
-    .ba-card--before .ba-icon { background: #F3F4F6; color: #9CA3AF; }
+    .ba-card--before .ba-icon { background: #F5F7F8; color: rgba(65,66,76,0.45); }
     .ba-card--after  .ba-icon { background: var(--warm-sand); color: var(--graphite); }
 
     /* ─── JOURNEY ─── */
     #journey {
       padding: var(--section-pad);
-      background: var(--graphite-2);
+      background: var(--graphite);
     }
     #journey .section-header { text-align: center; margin-bottom: 56px; }
     #journey .section-header h2 { color: var(--white); }
@@ -417,7 +415,7 @@
       position: relative; overflow: hidden;
       transition: box-shadow 0.2s ease;
     }
-    .program-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+    .program-card:hover { box-shadow: 0 8px 32px rgba(65,66,76,0.08); }
     .program-card::before {
       content: '';
       position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -479,7 +477,7 @@
       margin: 28px 0;
     }
     .agency-proof-stat {
-      background: var(--graphite-2); border-radius: 10px; padding: 22px 16px; text-align: center;
+      background: var(--graphite); border-radius: 10px; padding: 22px 16px; text-align: center;
     }
     .agency-proof-stat strong { display: block; color: var(--warm-sand); font-size: 1.7rem; line-height: 1.1; }
     .agency-proof-stat span {
@@ -496,6 +494,10 @@
     }
     .secondary-proof blockquote {
       margin: 0; border-left-color: var(--warm-sand); color: var(--white);
+    }
+    .secondary-proof blockquote cite {
+      display: block; margin-top: 10px; font-style: normal; font-size: 0.78rem;
+      font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm-sand);
     }
     .secondary-proof-stats { display: flex; flex-wrap: wrap; gap: 14px; }
     .secondary-proof-stat {
@@ -691,7 +693,7 @@
     .diff-table {
       width: 100%; border-collapse: collapse;
       background: var(--white); border-radius: 12px; overflow: hidden;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 16px rgba(65,66,76,0.06);
     }
     .diff-table th {
       padding: 16px 24px; font-size: 0.82rem; font-weight: 700;
@@ -699,14 +701,14 @@
     }
     .diff-table th:first-child { text-align: left; color: var(--muted-text); background: var(--mist-gray); }
     .diff-table th:nth-child(2) { background: var(--steel-blue); color: var(--white); text-align: center; }
-    .diff-table th:nth-child(3) { background: #F3F4F6; color: var(--muted-text); text-align: center; }
+    .diff-table th:nth-child(3) { background: #F5F7F8; color: var(--muted-text); text-align: center; }
     .diff-table td {
       padding: 14px 24px; font-size: 0.93rem; border-top: 1px solid var(--light-border);
     }
     .diff-table td:first-child { color: var(--body-text); }
     .diff-table td:nth-child(2), .diff-table td:nth-child(3) { text-align: center; }
     .check { color: var(--steel-blue); font-size: 1.1rem; font-weight: 700; }
-    .cross { color: #D1D5DB; font-size: 1.1rem; }
+    .cross { color: rgba(65,66,76,0.3); font-size: 1.1rem; }
 
     /* ─── FAQ ─── */
     #faq { padding: var(--section-pad); background: var(--white); }
@@ -727,7 +729,7 @@
     .faq-item p { padding: 0 22px 22px; color: var(--body-text); }
     .faith-line {
       max-width: 760px; margin: 42px auto 0; padding: 28px 32px;
-      border-left: 4px solid var(--warm-sand); background: var(--graphite-2); border-radius: 8px;
+      border-left: 4px solid var(--warm-sand); background: var(--graphite); border-radius: 8px;
       color: var(--white); font-size: 1.08rem; font-style: italic; line-height: 1.7;
     }
     .faith-line cite {
@@ -738,14 +740,14 @@
     /* ─── FINAL CTA ─── */
     #cta-final {
       padding: 96px 24px;
-      background: var(--graphite-2);
+      background: var(--graphite);
       text-align: center;
       position: relative; overflow: hidden;
     }
     #cta-final::before {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 100%, rgba(70,130,180,0.2) 0%, transparent 65%);
+      background: none;
       pointer-events: none;
     }
     #cta-final .eyebrow { color: var(--warm-sand); display: block; margin-bottom: 16px; }
@@ -758,14 +760,14 @@
 
     /* ─── FOOTER ─── */
     footer {
-      background: #1C1D24; padding: 40px 24px;
+      background: var(--dusty-blue); padding: 40px 24px;
     }
     .footer-inner {
       max-width: 1100px; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 16px;
     }
-    .footer-logo img { height: 30px; display: block; }
+    .footer-logo img { height: 62px; display: block; }
     .footer-copy {
       font-size: 0.8rem; color: rgba(255,255,255,0.3);
     }
@@ -792,7 +794,7 @@
       .nav-tagline       { display: none; }
       .nav-links         { display: none; }
       .mobile-menu-toggle{ display: inline-flex; }
-      .nav-logo img      { height: 34px; }
+      .nav-logo img      { height: 46px; }
       .case-story-body   { padding: 28px 24px; }
       .agency-proof-stats { grid-template-columns: 1fr; }
       html, body         { overflow-x: hidden; }
@@ -861,9 +863,9 @@
   <!-- ══ HERO ══════════════════════════════════════════════════════════ -->
   <section id="hero">
     <div class="hero-inner container">
-      <span class="hero-eyebrow">Sales Operating System &nbsp;|&nbsp; Insurance</span>
-      <h1>Your Producers Aren't<br>Filling the Pipeline.<br><em>You Are.</em></h1>
-      <p class="hero-sub">That was the strength that built your agency. It is also the ceiling that is keeping it from scaling. In 90 days, we install the Pipeline Power System so your producers prospect with precision, engage consistently, and put qualified meetings on the calendar every week — without you being in the middle of every deal.</p>
+      <span class="hero-eyebrow">SOS &nbsp;|&nbsp; The Pipeline Power System</span>
+      <h1>Your Producers Don't Have<br>a Closing Problem.<br><em>They Have a Door Problem.</em></h1>
+      <p class="hero-sub">Almost every agency we work with tells us the same thing: once we get in the room, we win. We just need more doors to open. The Pipeline Power System gives every producer a written target, a 14-touch outreach sequence and a follow-up cadence built in their own voice, across employee benefits and commercial P&amp;C, so new doors open every week without the owner carrying the pipeline.</p>
       <div class="hero-cta">
         <a href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener" class="btn btn--primary">Book a Discovery Call</a>
       </div>
@@ -877,7 +879,7 @@
     <div class="proof-strip-inner">
       <div class="proof-quote">
         "I would highly recommend you to anyone who feels like their results are not aligned with their efforts."
-        <cite>— Seasoned Benefits Broker, SOS Client</cite>
+        <cite>Insurance Consultant, SOS Client</cite>
       </div>
       <div class="proof-divider"></div>
       <div class="proof-stats">
@@ -906,7 +908,7 @@
             <li><span class="ba-icon">✗</span>Every deal requires the founder's personal touch</li>
             <li><span class="ba-icon">✗</span>Referrals only — no proactive prospecting engine</li>
             <li><span class="ba-icon">✗</span>ICP lives in the founder's head, not on paper</li>
-            <li><span class="ba-icon">✗</span>Producers not consistently setting first appointments</li>
+            <li><span class="ba-icon">✗</span>Producers win once they're in the room, but not enough doors are opening</li>
             <li><span class="ba-icon">✗</span>No pipeline visibility — problems surface too late</li>
             <li><span class="ba-icon">✗</span>New reps hired with nothing to hand them</li>
           </ul>
@@ -915,7 +917,7 @@
           <div class="ba-label">After SOS</div>
           <div class="ba-title">The Production Floor</div>
           <ul class="ba-list">
-            <li><span class="ba-icon">✓</span>A guaranteed minimum of qualified new prospect meetings every week</li>
+            <li><span class="ba-icon">✓</span>New doors opening every week from outreach, not only referrals and renewals</li>
             <li><span class="ba-icon">✓</span>Founder out of every deal — team closes without you</li>
             <li><span class="ba-icon">✓</span>1440 Sequence running across 6 channels on qualified prospects</li>
             <li><span class="ba-icon">✓</span>Written Target Lock that qualifies leads before the first call</li>
@@ -934,24 +936,24 @@
       <div class="section-header">
         <span class="eyebrow eyebrow--light">The Client Journey</span>
         <h2>From Founder Trap to Production Floor</h2>
-        <p>Every SOS Insurance engagement follows the same three-phase arc — built in 90 days, designed to run without you forever.</p>
+        <p>Every SOS engagement follows the same three-phase arc: four live build sessions, a Personal Runbook for every producer, then coaching that keeps the system running without you.</p>
       </div>
 
       <div class="journey-phases">
         <div class="journey-phase">
-          <div class="phase-num">Phase 01 &nbsp;·&nbsp; Weeks 1–2</div>
-          <div class="phase-title">Diagnostic & Foundation</div>
-          <p class="phase-desc">Intake call, current state assessment, Target Lock definition, and baseline metrics. We audit what exists before we build anything new.</p>
+          <div class="phase-num">Phase 01 &nbsp;·&nbsp; Four Live Sessions</div>
+          <div class="phase-title">Build Sessions</div>
+          <p class="phase-desc">Kickoff and diagnostic, then the Target Lock, the 1440 and the Value Cadence System, taught live with your producers in the room and every producer's intake captured along the way.</p>
         </div>
         <div class="journey-phase">
-          <div class="phase-num">Phase 02 &nbsp;·&nbsp; Weeks 3–8</div>
-          <div class="phase-title">System Build</div>
-          <p class="phase-desc">Build the 1440 sequence, Value Cadence System, and Force Multiplier. Train producers in group coaching and role-play formats. Install the full pipeline infrastructure.</p>
+          <div class="phase-num">Phase 02 &nbsp;·&nbsp; After Session 4</div>
+          <div class="phase-title">Personal Runbooks</div>
+          <p class="phase-desc">Every producer receives a Personal Runbook built from their own intake: their targets, their pipeline math, and scripts for the full 1440 and multiple Value Cadence plays, written in their voice.</p>
         </div>
         <div class="journey-phase">
-          <div class="phase-num">Phase 03 &nbsp;·&nbsp; Weeks 9+</div>
-          <div class="phase-title">Activation & Accountability</div>
-          <p class="phase-desc">Producers running live sequences with coaching support. Bi-weekly group calls, pipeline reviews, real-time troubleshooting. Owner debrief at close.</p>
+          <div class="phase-num">Phase 03 &nbsp;·&nbsp; Ongoing</div>
+          <div class="phase-title">Activation & Coaching</div>
+          <p class="phase-desc">Producers run live sequences with coaching support and weekly forum calls, where real deals, messaging and objections get worked in the room.</p>
         </div>
       </div>
 
@@ -971,8 +973,8 @@
 
           <!-- Node 2: Intake & Runbook -->
           <circle cx="220" cy="80" r="52" fill="#3E5C76" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
-          <text x="220" y="73" text-anchor="middle" fill="white" font-family="DM Sans,sans-serif" font-size="10" font-weight="700">INTAKE &amp;</text>
-          <text x="220" y="89" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="DM Sans,sans-serif" font-size="9">RUNBOOK</text>
+          <text x="220" y="73" text-anchor="middle" fill="white" font-family="DM Sans,sans-serif" font-size="10" font-weight="700">KICKOFF &amp;</text>
+          <text x="220" y="89" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="DM Sans,sans-serif" font-size="9">INTAKE</text>
 
           <!-- Arrow -->
           <polygon points="288,75 298,80 288,85" fill="rgba(255,255,255,0.3)"/>
@@ -993,34 +995,33 @@
           <!-- Arrow -->
           <polygon points="568,75 578,80 568,85" fill="rgba(255,255,255,0.3)"/>
 
-          <!-- Node 5: Force Multiplier -->
+          <!-- Node 5: Personal Runbook -->
           <circle cx="640" cy="80" r="52" fill="#4682B4" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-          <text x="640" y="73" text-anchor="middle" fill="white" font-family="DM Sans,sans-serif" font-size="10" font-weight="700">FORCE</text>
-          <text x="640" y="89" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="DM Sans,sans-serif" font-size="9">MULTIPLIER</text>
+          <text x="640" y="73" text-anchor="middle" fill="white" font-family="DM Sans,sans-serif" font-size="10" font-weight="700">PERSONAL</text>
+          <text x="640" y="89" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="DM Sans,sans-serif" font-size="9">RUNBOOK</text>
 
           <!-- Arrow -->
           <polygon points="708,75 718,80 708,85" fill="rgba(255,255,255,0.3)"/>
 
           <!-- Node 6: Activation -->
           <circle cx="780" cy="80" r="52" fill="#4682B4" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-          <text x="780" y="73" text-anchor="middle" fill="white" font-family="DM Sans,sans-serif" font-size="10" font-weight="700">ACTIVATION</text>
-          <text x="780" y="89" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="DM Sans,sans-serif" font-size="9">&amp; COACHING</text>
+          <text x="780" y="73" text-anchor="middle" fill="white" font-family="DM Sans,sans-serif" font-size="10" font-weight="700">COACHING</text>
+          <text x="780" y="89" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-family="DM Sans,sans-serif" font-size="9">&amp; FORUMS</text>
 
           <!-- Arrow -->
           <polygon points="848,75 858,80 848,85" fill="rgba(255,255,255,0.3)"/>
 
           <!-- Node 7: Production Floor — the destination, warm sand -->
           <circle cx="900" cy="80" r="52" fill="#CBBFAD" stroke="rgba(255,255,255,0.45)" stroke-width="2"/>
-          <text x="900" y="66" text-anchor="middle" fill="#41424C" font-family="DM Sans,sans-serif" font-size="10" font-weight="800">PRODUCTION</text>
-          <text x="900" y="81" text-anchor="middle" fill="#41424C" font-family="DM Sans,sans-serif" font-size="9" font-weight="700">FLOOR</text>
-          <text x="900" y="96" text-anchor="middle" fill="rgba(65,66,76,0.75)" font-family="DM Sans,sans-serif" font-size="8">1+ APT/REP/WK</text>
+          <text x="900" y="73" text-anchor="middle" fill="#41424C" font-family="DM Sans,sans-serif" font-size="10" font-weight="800">PRODUCTION</text>
+          <text x="900" y="89" text-anchor="middle" fill="#41424C" font-family="DM Sans,sans-serif" font-size="9" font-weight="700">FLOOR</text>
         </svg>
       </div>
 
       <div class="journey-outcomes">
         <div class="journey-outcome">
-          <strong>1+</strong>
-          <span>Qualified Appt Per Rep / Week</span>
+          <strong>4</strong>
+          <span>Live Build Sessions</span>
         </div>
         <div class="journey-outcome">
           <strong>90</strong>
@@ -1040,12 +1041,12 @@
       <div class="section-header">
         <span class="eyebrow">The Pipeline Power System</span>
         <h2>Four Components. One System. Built for Your Agency.</h2>
-        <p>SOS Insurance is a done-with-you engagement. We build it alongside you and your team — then hand it to your producers and make sure they can run it without you.</p>
+        <p>SOS is a done-with-you engagement. We build it alongside you and your team, then hand it to your producers and make sure they can run it without you.</p>
       </div>
 
       <!-- Bullseye Model -->
       <div style="max-width:720px;margin:0 auto 56px;text-align:center;">
-        <img src="assets/model_handdrawn_v3_sos.png" alt="Pipeline Power System — Bullseye Model" style="width:100%;border-radius:12px;box-shadow:0 4px 32px rgba(0,0,0,0.08);" />
+        <img src="assets/model_handdrawn_v3_sos_brand.png" alt="Pipeline Power System — Bullseye Model" style="width:100%;border-radius:12px;box-shadow:0 4px 32px rgba(65,66,76,0.08);" />
       </div>
 
       <div class="program-grid">
@@ -1057,7 +1058,7 @@
         <div class="program-card">
           <div class="program-num">Component 02</div>
           <h3>The 1440</h3>
-          <p>A 14-touch, 40-day, 6-channel prospecting sequence built specifically for insurance producers pursuing employer groups and commercial accounts. Every touch is intentional. Every channel is deliberate. Every message delivers value before it makes an ask. Your producers run it. You don't have to manage it.</p>
+          <p>A 14-touch, 40-day, 6-channel prospecting sequence built specifically for insurance producers, whether they are pursuing employer groups for benefits or commercial accounts for P&amp;C, timed to the renewal dates and x-dates that make now the right moment. Every touch is intentional. Every channel is deliberate. Every message delivers value before it makes an ask. Your producers run it. You don't have to manage it.</p>
         </div>
         <div class="program-card">
           <div class="program-num">Component 03</div>
@@ -1076,7 +1077,7 @@
         <div class="runbook-copy">
           <span class="runbook-eyebrow">And every producer walks away with this</span>
           <h3>The Personal Runbook</h3>
-          <p>Not a binder of theory with their name on the cover. Their target accounts. Their words. Their objections. Their case stories. Twenty-seven scripts written in their own voice, and their pipeline math worked out to a real number. How many conversations it takes to hit their goal, and what that costs them in hours a week.</p>
+          <p>Not a binder of theory with their name on the cover. Their target accounts. Their words. Their objections. Their case stories. Twenty-seven scripts across the full 1440 and multiple Value Cadence plays, written in their own voice, and their pipeline math worked out to a real number. How many conversations it takes to hit their goal, and what that costs them in hours a week.</p>
           <p class="runbook-kicker">It is the difference between training a producer and handing them something they can run.</p>
           <div class="runbook-stats">
             <div class="runbook-stat"><strong>27</strong><span>Scripts</span></div>
@@ -1147,7 +1148,7 @@
         </ul>
         <p class="case-conclusion">Nine producers. One system. A pipeline that runs whether the owner is in the room or not.</p>
         <div class="secondary-proof" aria-label="Additional producer result">
-          <blockquote>"I know I have been doing this a long time, but finally I have a real roadmap that works."</blockquote>
+          <blockquote>"Just sold my 1st group 100% following the process. ... I know I have been doing this a long time, but finally I have a real roadmap THAT WORKS."<cite>VP of Sales, Benefits Firm</cite></blockquote>
           <div class="secondary-proof-stats">
             <div class="secondary-proof-stat"><strong>2</strong><span>Deals Closed</span></div>
             <div class="secondary-proof-stat"><strong>$75K</strong><span>New Revenue</span></div>
@@ -1168,13 +1169,13 @@
       <div class="section-header">
         <span class="eyebrow">Who We Serve</span>
         <h2>Three Buyer Types. One Standard.</h2>
-        <p>SOS Insurance works with values-aligned leaders who are ready to build — not just talk about building.</p>
+        <p>SOS works with values-aligned leaders in employee benefits and commercial P&amp;C who are ready to build, not just talk about building.</p>
       </div>
       <div class="who-grid">
         <div class="who-card">
           <div class="who-type">Tier 1</div>
           <h3>The Advisor Track</h3>
-          <p>Independent benefits advisors or solo producers with a $500K+ book who are personally production-dependent and ready to build a real prospecting system — not just work harder.</p>
+          <p>Independent benefits advisors or commercial P&amp;C producers with a $500K+ book who are personally production-dependent and ready to build a real prospecting system — not just work harder.</p>
         </div>
         <div class="who-card">
           <div class="who-type">Tier 2</div>
@@ -1198,7 +1199,6 @@
         <span class="eyebrow">Engagement Options</span>
         <h2>Meet You Where You Are</h2>
         <p>Three tiers. Same system. Different scope. The tier is determined by your team size, starting point, and growth intent — not your budget preference.</p>
-        <p style="margin-top:14px;color:var(--body-text);"><strong>Engagements typically range from $8,500 for an individual advisor track to $50,000 for a full agency implementation, scoped to your team size and starting point.</strong></p>
       </div>
       <div class="tiers-grid">
 
@@ -1213,7 +1213,7 @@
             <li>1440 Sequence installed and running</li>
             <li>Value Cadence System for solo use</li>
             <li>Force Multiplier — AI tools integrated into your workflow</li>
-            <li>Bi-weekly group coaching calls</li>
+            <li>Weekly forum calls and coaching support</li>
             <li>1-on-1 access as needed</li>
           </ul>
           <div class="tier-result"><strong>The result:</strong> Qualified conversations on the calendar consistently. No more starting from zero each month.</div>
@@ -1233,7 +1233,7 @@
             <li>VCS implemented as the standard engagement cadence</li>
             <li>Force Multiplier rolled out across the team</li>
             <li>Direct work with owner and key producers during build</li>
-            <li>Bi-weekly group coaching calls</li>
+            <li>Weekly forum calls and coaching support</li>
           </ul>
           <div class="tier-result"><strong>The result:</strong> A production floor. Producers prospecting consistently, qualified meetings every week, and the owner out of the middle of every deal.</div>
         </div>
@@ -1250,7 +1250,7 @@
             <li>Sales leadership accountability structure built</li>
             <li>Pipeline visibility tools for independent coaching</li>
             <li>Dedicated monthly agency-level leadership call</li>
-            <li>Bi-weekly group coaching calls</li>
+            <li>Weekly forum calls and coaching support</li>
           </ul>
           <div class="tier-result"><strong>The result:</strong> An agency that grows without depending on the owner to grow it. A system the leadership team runs independently.</div>
         </div>
@@ -1284,13 +1284,13 @@
             <div class="delivery-line"></div>
           </div>
           <div class="delivery-content">
-            <div class="delivery-timing">Weeks 1–2</div>
-            <h3>Diagnostic & Build Foundation</h3>
+            <div class="delivery-timing">Four Weekly Sessions</div>
+            <h3>Live Build Sessions</h3>
             <ul class="delivery-list">
-              <li>Intake call with the owner — current state, team structure, pipeline gaps</li>
-              <li>Define or validate the Target Lock based on your actual best-fit accounts</li>
-              <li>Audit existing prospecting activity, tools, and messaging</li>
-              <li>Establish baseline metrics: appointment volume, pipeline stage, conversion rates</li>
+              <li>Session 1, Kickoff and Diagnostic: current state, team structure, pipeline gaps and each producer's intake</li>
+              <li>Session 2, The Target Lock: the accounts each producer is built to win, and the triggers that make now the time to reach out</li>
+              <li>Session 3, The 1440: fourteen touches over forty days across six channels</li>
+              <li>Session 4, The Value Cadence System: staying present from first conversation to closed deal</li>
             </ul>
           </div>
         </div>
@@ -1301,14 +1301,13 @@
             <div class="delivery-line"></div>
           </div>
           <div class="delivery-content">
-            <div class="delivery-timing">Weeks 3–8</div>
-            <h3>System Build</h3>
+            <div class="delivery-timing">After Session 4</div>
+            <h3>The Personal Runbook</h3>
             <ul class="delivery-list">
-              <li>Build the 1440 sequence customized to your ICP and value proposition</li>
-              <li>Build the Value Cadence System with templated messaging and follow-up cadence</li>
-              <li>Train producers in group coaching calls and role-play formats</li>
-              <li>Implement Force Multiplier — AI tools and prompts built into the workflow</li>
-              <li>Tier 3: build and install the High-Impact Sales Meeting framework</li>
+              <li>A Personal Runbook for every producer, built from their own intake</li>
+              <li>Scripts for the full 1440 and multiple Value Cadence plays, written in their voice</li>
+              <li>Pipeline math worked out to a real number: conversations a week and the hours it takes</li>
+              <li>A red-flag review of every Runbook before it reaches a producer</li>
             </ul>
           </div>
         </div>
@@ -1319,18 +1318,20 @@
             <div class="delivery-line"></div>
           </div>
           <div class="delivery-content">
-            <div class="delivery-timing">Weeks 9 through Engagement Close</div>
-            <h3>Activation & Accountability</h3>
+            <div class="delivery-timing">Ongoing</div>
+            <h3>Coaching Support and Weekly Forums</h3>
             <ul class="delivery-list">
-              <li>Producers running live prospecting sequences with coaching support</li>
-              <li>Bi-weekly group calls — troubleshooting, messaging refinement, accountability</li>
-              <li>Pipeline review at each group call: appointments set, conversations active, deals progressing</li>
+              <li>Weekly forum calls: bring live deals, messaging and objections, and work them in the room</li>
+              <li>Coaching support between calls when a producer is stuck on a real account</li>
+              <li>The Force Multiplier: AI prompts that sharpen what producers write, in their own voice</li>
+              <li>Scale Track: the High-Impact Sales Meeting framework installed with your leadership team</li>
               <li>Owner debrief at engagement close: what's running, what needs tuning, retainer decision</li>
             </ul>
           </div>
         </div>
 
       </div>
+      <blockquote class="faith-line">"When I used to own restaurants, sometimes you don't see the dirt in the corner because you're there seven days a week. Well, now Ryan is in the restaurant with us."<cite>Managing Partner, Benefits Agency</cite></blockquote>
     </div>
   </section>
 
@@ -1338,7 +1339,7 @@
   <section id="difference">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">Why SOS Insurance</span>
+        <span class="eyebrow">Why SOS</span>
         <h2>What Makes This Different</h2>
       </div>
       <div class="diff-table-wrap">
@@ -1346,12 +1347,11 @@
           <thead>
             <tr>
               <th></th>
-              <th>SOS Insurance</th>
+              <th>SOS</th>
               <th>Generic Sales Training</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>Faith and values integrated as the foundation</td><td><span class="check">✓</span></td><td><span class="cross">✗</span></td></tr>
             <tr><td>Done-with-you build — you own every deliverable</td><td><span class="check">✓</span></td><td><span class="cross">✗</span></td></tr>
             <tr><td>Field-tested inside the insurance industry</td><td><span class="check">✓</span></td><td><span class="cross">✗</span></td></tr>
             <tr><td>Prospecting sequence built for your specific ICP</td><td><span class="check">✓</span></td><td><span class="cross">✗</span></td></tr>
@@ -1380,11 +1380,11 @@
         </details>
         <details class="faq-item">
           <summary>What if my producers resist doing things a new way?</summary>
-          <p>Every engagement includes bi-weekly group coaching built specifically for adoption — role-play, real-time troubleshooting, and accountability. Producers who see qualified meetings landing on their calendar tend to stop resisting fast.</p>
+          <p>Every engagement includes coaching support and weekly forum calls built specifically for adoption: role-play, real-time troubleshooting and accountability. Producers who see qualified meetings landing on their calendar tend to stop resisting fast.</p>
         </details>
         <details class="faq-item">
           <summary>How much time does this take from me and my team?</summary>
-          <p>The owner's heaviest time commitment is the first two weeks (diagnostic and Target Lock). After that, it's a bi-weekly group call and the system runs through your producers, not through you.</p>
+          <p>The heaviest commitment is the four live build sessions. After that, the weekly forum calls are for your producers, and the system runs through them, not through you.</p>
         </details>
         <details class="faq-item">
           <summary>How is payment structured?</summary>
@@ -1392,7 +1392,15 @@
         </details>
         <details class="faq-item">
           <summary>Do you work with agencies outside group benefits and commercial lines?</summary>
-          <p>SOS Insurance is built for group benefits, voluntary, and commercial lines. It isn't built for personal-lines-only agencies.</p>
+          <p>SOS is built for both sides of the commercial house: group benefits and voluntary, and commercial P&amp;C. Targets and triggers are built around how each side buys, including renewal dates and x-dates. It isn't built for personal-lines-only agencies.</p>
+        </details>
+        <details class="faq-item">
+          <summary>We already have a sales process. Why would we need this?</summary>
+          <p>Most agencies we work with do, and it usually works well once a producer is in the room. The Pipeline Power System builds the part most processes skip: who to pursue, how to open the door, and how to stay present until the prospect is ready to move. Your process is one room. SOS is the house. As one producer put it after the first session: "We don't have to completely rebuild it; we just have to refine it. That's a lot less overwhelming."</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do we keep producers from promising what our agency can't deliver?</summary>
+          <p>Every Personal Runbook gets a red-flag review before it reaches a producer. We check every script for claims, promises and language your agency can't stand behind, and leadership gets a summary of anything we flagged. You see what your producers will send before a prospect does.</p>
         </details>
       </div>
     </div>
@@ -1403,7 +1411,7 @@
     <div class="container--narrow" style="position:relative;">
       <span class="eyebrow">Ready to Build</span>
       <h2>Stop Being the Pipeline.<br>Start Running a System.</h2>
-      <p>Most agency owners close one new group account in the first 90 days of running the system. That one account typically covers the entire engagement. The question isn't whether the system pays for itself. It's whether your team will run it.</p>
+      <p>One VP of Sales closed two deals worth $75K within 90 days of kickoff. His email to us: "Just sold my 1st group 100% following the process." The question isn't whether the system works. It's whether your team will run it.</p>
       <a href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" class="btn btn--primary">Book a Discovery Call</a>
       <p class="cta-trust">Ryan leads every call personally. 20–30 minutes. No pitch. Just a diagnostic.</p>
     </div>

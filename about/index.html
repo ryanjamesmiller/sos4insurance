@@ -22,15 +22,15 @@
     :root {
       --steel:     #4682B4;
       --graphite:  #41424C;
-      --navy:      #2E2F38;
+      --navy:      #41424C;
       --dusty:     #3E5C76;
       --mist:      #F5F7F8;
       --sand:      #CBBFAD;
       --white:     #FFFFFF;
-      --text:      #2C2C2C;
-      --light-text:#6B7280;
-      --border:    #E5E7EB;
-      --tan:       #F9F6F1;
+      --text:      #41424C;
+      --light-text:rgba(65,66,76,0.78);
+      --border:    rgba(65,66,76,0.14);
+      --tan:       rgba(203,191,173,0.18);
     }
 
     html { scroll-behavior: smooth; }
@@ -57,7 +57,7 @@
       justify-content: space-between;
     }
     .nav-logo img {
-      height: 36px;
+      height: 46px;
       width: auto;
       display: block;
     }
@@ -94,7 +94,7 @@
     .mobile-menu {
       display: none; position: fixed; top: 64px; left: 0; right: 0; z-index: 99;
       padding: 14px 20px 20px; background: rgba(255,255,255,0.99);
-      border-bottom: 1px solid var(--border); box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      border-bottom: 1px solid var(--border); box-shadow: 0 12px 30px rgba(65,66,76,0.08);
     }
     .mobile-menu.is-open { display: grid; gap: 8px; }
     .mobile-menu a {
@@ -175,7 +175,7 @@
       object-fit: cover;
       object-position: center top;
       border: 1px solid rgba(255,255,255,0.14);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+      box-shadow: 0 20px 60px rgba(65,66,76,0.45);
     }
 
     /* ══ BIO SECTION ══════════════════════════════════════════════ */
@@ -473,7 +473,7 @@
       gap: 16px;
     }
     .footer-logo img {
-      height: 28px;
+      height: 62px;
       width: auto;
       opacity: 0.85;
     }

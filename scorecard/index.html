@@ -27,9 +27,9 @@
       --steel:     #4682B4;
       --tan:       #CBBFAD;
       --offwhite:  #F5F7F8;
-      --dark:      #2A2B32;
+      --dark:      #41424C;
       --white:     #FFFFFF;
-      --border:    #E2E6EA;
+      --border:    rgba(65,66,76,0.14);
       --max-width: 780px;
     }
 
@@ -53,7 +53,7 @@
       max-width: 1100px; height: 100%; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between; gap: 24px;
     }
-    .site-nav-logo img { display: block; height: 36px; width: auto; }
+    .site-nav-logo img { display: block; height: 46px; width: auto; }
     .site-nav-links { display: flex; align-items: center; gap: 24px; }
     .site-nav-link { color: var(--charcoal); text-decoration: none; font-size: 14px; font-weight: 700; }
     .site-nav-link:hover, .site-nav-link[aria-current="page"] { color: var(--steel); }
@@ -72,7 +72,7 @@
     .mobile-menu {
       display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 199;
       padding: 14px 20px 20px; background: rgba(255,255,255,0.99);
-      border-bottom: 1px solid var(--border); box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      border-bottom: 1px solid var(--border); box-shadow: 0 12px 30px rgba(65,66,76,0.08);
     }
     .mobile-menu.is-open { display: grid; gap: 8px; }
     .mobile-menu a {
@@ -330,8 +330,8 @@
     }
     .email-submit:hover { background: var(--steel); }
     .email-submit:disabled { cursor: wait; opacity: 0.7; }
-    .email-error { min-height: 22px; margin-top: 8px; color: #9B2C2C; font-size: 13px; font-weight: 700; }
-    .form-note { margin-top: 10px; color: #6B7280; font-size: 12px; line-height: 1.5; }
+    .email-error { min-height: 22px; margin-top: 8px; color: #3E5C76; font-size: 13px; font-weight: 700; }
+    .form-note { margin-top: 10px; color: rgba(65,66,76,0.78); font-size: 12px; line-height: 1.5; }
     .ac-native-form { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
     /* ── RESULT SECTION ───────────────────────────────────────── */
@@ -447,7 +447,7 @@
       gap: 16px;
     }
     .footer-logo {
-      width: 40px;
+      width: 136px;
       height: auto;
     }
     .footer-center {

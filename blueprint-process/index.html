@@ -36,7 +36,7 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       background: rgba(255,255,255,0.97);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid #E2E6EA;
+      border-bottom: 1px solid rgba(65,66,76,0.14);
     }
     body { padding-top: 68px; }
     .nav-inner {
@@ -44,11 +44,11 @@
       height: 68px; display: flex; align-items: center; justify-content: space-between;
     }
     .nav-left { display: flex; align-items: center; gap: 14px; }
-    .nav-logo img { height: 38px; display: block; }
+    .nav-logo img { height: 46px; display: block; }
     .nav-tagline {
       font-size: 11px; font-weight: 600; letter-spacing: 0.18em;
-      text-transform: uppercase; color: #6B7280;
-      border-left: 1px solid #E2E6EA; padding-left: 14px;
+      text-transform: uppercase; color: rgba(65,66,76,0.78);
+      border-left: 1px solid rgba(65,66,76,0.14); padding-left: 14px;
     }
     .nav-links { display: flex; align-items: center; gap: 24px; }
     .nav-link {
@@ -67,7 +67,7 @@
       transform: translateY(-2px); box-shadow: 0 8px 24px rgba(70,130,180,0.35);
     }
     .mobile-menu-toggle {
-      display: none; width: 44px; height: 44px; border: 1px solid #E2E6EA;
+      display: none; width: 44px; height: 44px; border: 1px solid rgba(65,66,76,0.14);
       border-radius: 8px; background: var(--white); color: var(--graphite);
       align-items: center; justify-content: center; cursor: pointer;
       position: relative; z-index: 2;
@@ -76,7 +76,7 @@
     .mobile-menu {
       display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 99;
       padding: 14px 20px 20px; background: rgba(255,255,255,0.99);
-      border-bottom: 1px solid #E2E6EA; box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      border-bottom: 1px solid rgba(65,66,76,0.14); box-shadow: 0 12px 30px rgba(65,66,76,0.08);
     }
     .mobile-menu.is-open { display: grid; gap: 8px; }
     .mobile-menu a {
@@ -90,7 +90,7 @@
       .nav-tagline       { display: none; }
       .nav-links         { display: none; }
       .mobile-menu-toggle{ display: inline-flex; }
-      .nav-logo img      { height: 34px; }
+      .nav-logo img      { height: 46px; }
     }
 
     /* Hero */
@@ -355,7 +355,7 @@
       flex-wrap: wrap;
       font-size: 14px;
     }
-    .footer-inner img { height: 60px; width: auto; display: block; }
+    .footer-inner img { height: 62px; width: auto; display: block; }
     .tagline { color: var(--sand); font-weight: 600; letter-spacing: 0.04em; }
 
     /* Taught by (hero) */
