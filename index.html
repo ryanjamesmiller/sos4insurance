@@ -204,7 +204,7 @@
     /* ─── PERSONAL RUNBOOK BAND ─── */
     .runbook-band {
       margin-top: 64px;
-      background: var(--graphite);
+      background: var(--dusty-blue);
       border-radius: 16px;
       padding: 48px;
       display: grid;
@@ -477,11 +477,11 @@
       margin: 28px 0;
     }
     .agency-proof-stat {
-      background: var(--graphite); border-radius: 10px; padding: 22px 16px; text-align: center;
+      background: var(--steel-blue); border-radius: 10px; padding: 22px 16px; text-align: center;
     }
-    .agency-proof-stat strong { display: block; color: var(--warm-sand); font-size: 1.7rem; line-height: 1.1; }
+    .agency-proof-stat strong { display: block; color: var(--white); font-size: 1.7rem; line-height: 1.1; }
     .agency-proof-stat span {
-      display: block; margin-top: 6px; color: rgba(255,255,255,0.65);
+      display: block; margin-top: 6px; color: var(--white);
       font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
     }
     .agency-results { margin: 24px 0; padding-left: 22px; display: grid; gap: 12px; }
@@ -510,8 +510,10 @@
     /* ─── WHO IT'S FOR ─── */
     #who {
       padding: var(--section-pad);
-      background: var(--white);
+      background: var(--warm-sand);
     }
+    #who .eyebrow { color: var(--graphite); }
+    #who .section-header p { color: var(--graphite); }
     #who .section-header { text-align: center; margin-bottom: 56px; }
     #who .section-header p { max-width: 580px; margin: 16px auto 0; }
 
@@ -520,6 +522,7 @@
       max-width: 1000px; margin: 0 auto 56px;
     }
     .who-card {
+      background: var(--white);
       border: 1px solid var(--light-border);
       border-radius: 12px; padding: 32px;
     }
@@ -571,12 +574,21 @@
       position: relative;
     }
     .tier-card--featured {
-      border-color: var(--steel-blue);
-      box-shadow: 0 12px 40px rgba(70,130,180,0.15);
+      background: var(--dusty-blue);
+      border-color: var(--dusty-blue);
+      box-shadow: 0 12px 40px rgba(62,92,118,0.28);
     }
+    .tier-card--featured h3 { color: var(--white); }
+    .tier-card--featured .tier-label { color: var(--warm-sand); }
+    .tier-card--featured .tier-who { color: rgba(255,255,255,0.85); }
+    .tier-card--featured .tier-divider { background: rgba(255,255,255,0.2); }
+    .tier-card--featured .tier-features li { color: var(--white); }
+    .tier-card--featured .tier-features li::before { color: var(--warm-sand); }
+    .tier-card--featured .tier-result { background: rgba(255,255,255,0.1); color: var(--white); }
+    .tier-card--featured .tier-result strong { color: var(--warm-sand); }
     .tier-badge {
       position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
-      background: var(--steel-blue); color: var(--white);
+      background: var(--warm-sand); color: var(--graphite);
       font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
       text-transform: uppercase; padding: 5px 16px; border-radius: 20px;
       white-space: nowrap;
