@@ -15,7 +15,7 @@
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -44,66 +44,6 @@
     }
 
     /* ══ NAV ══════════════════════════════════════════════════════ */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 0 40px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo img {
-      height: 46px;
-      width: auto;
-      display: block;
-    }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--graphite);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--steel); }
-    .nav-cta {
-      background: var(--dusty);
-      color: var(--white) !important;
-      padding: 9px 20px;
-      border-radius: 4px;
-      font-weight: 600 !important;
-      transition: background 0.2s !important;
-    }
-    .nav-cta:hover { background: var(--steel) !important; color: var(--white) !important; }
-    .mobile-menu-toggle {
-      display: none; width: 44px; height: 44px; border: 1px solid var(--border);
-      border-radius: 8px; background: var(--white); color: var(--graphite);
-      align-items: center; justify-content: center; cursor: pointer;
-      position: relative; z-index: 2;
-    }
-    .mobile-menu-toggle svg { width: 23px; height: 23px; }
-    .mobile-menu {
-      display: none; position: fixed; top: 64px; left: 0; right: 0; z-index: 99;
-      padding: 14px 20px 20px; background: rgba(255,255,255,0.99);
-      border-bottom: 1px solid var(--border); box-shadow: 0 12px 30px rgba(65,66,76,0.08);
-    }
-    .mobile-menu.is-open { display: grid; gap: 8px; }
-    .mobile-menu a {
-      display: block; padding: 12px 14px; border-radius: 8px; color: var(--graphite);
-      text-decoration: none; font-weight: 700;
-    }
-    .mobile-menu a:hover, .mobile-menu a[aria-current="page"] { background: var(--mist); color: var(--steel); }
-    .mobile-menu .mobile-cta { margin-top: 4px; text-align: center; background: var(--dusty); color: var(--white); }
-    .mobile-menu .mobile-cta:hover { background: var(--steel); color: var(--white); }
 
     /* ══ HERO ═════════════════════════════════════════════════════ */
     .hero {
@@ -495,9 +435,6 @@
 
     /* ══ RESPONSIVE ═══════════════════════════════════════════════ */
     @media (max-width: 768px) {
-      .nav { padding: 0 20px; }
-      .nav-links { display: none; }
-      .mobile-menu-toggle { display: inline-flex; }
       .hero { padding: 56px 20px 48px; }
       .hero-inner {
         grid-template-columns: 1fr;
@@ -514,37 +451,65 @@
       .footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
     }
   </style>
+  <style id="sos-nav-css">
+    .sn-bar { position: sticky; top: 0; z-index: 300; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(65,66,76,0.14); font-family: 'DM Sans', sans-serif; line-height: 1.5; }
+    .sn-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .sn-left { display: flex; align-items: center; gap: 14px; }
+    .sn-logo img { height: 46px; width: auto; display: block; }
+    .sn-tagline { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(65,66,76,0.78); border-left: 1px solid rgba(65,66,76,0.14); padding-left: 14px; line-height: 1.7; }
+    .sn-links { display: flex; align-items: center; gap: 24px; }
+    .sn-link { font-size: 14.4px; line-height: 1.5; font-weight: 600; color: #41424C; text-decoration: none; transition: color 0.2s ease; }
+    .sn-link:hover, .sn-link[aria-current="page"] { color: #4682B4; }
+    .sn-cta { display: inline-block; padding: 10px 24px; border-radius: 6px; background: #3E5C76; color: #FFFFFF; font-size: 14px; font-weight: 700; letter-spacing: 0.02em; line-height: 1.5; text-decoration: none; transition: background 0.2s ease; }
+    .sn-cta:hover { background: #4682B4; color: #FFFFFF; }
+    .sn-toggle { display: none; width: 44px; height: 44px; border: 1px solid rgba(65,66,76,0.14); border-radius: 8px; background: #FFFFFF; color: #41424C; align-items: center; justify-content: center; cursor: pointer; }
+    .sn-toggle svg { width: 23px; height: 23px; }
+    .sn-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 299; padding: 14px 20px 20px; background: rgba(255,255,255,0.99); border-bottom: 1px solid rgba(65,66,76,0.14); box-shadow: 0 12px 30px rgba(65,66,76,0.08); font-family: 'DM Sans', sans-serif; }
+    .sn-menu.is-open { display: grid; gap: 8px; }
+    .sn-menu a { display: block; padding: 12px 14px; border-radius: 8px; color: #41424C; text-decoration: none; font-weight: 700; font-size: 16px; line-height: 1.5; }
+    .sn-menu a:hover, .sn-menu a[aria-current="page"] { background: #F5F7F8; color: #4682B4; }
+    .sn-menu .sn-menu-cta { margin-top: 4px; text-align: center; background: #3E5C76; color: #FFFFFF; }
+    .sn-menu .sn-menu-cta:hover { background: #4682B4; color: #FFFFFF; }
+    @media (max-width: 768px) {
+      .sn-inner { padding: 0 20px; }
+      .sn-tagline, .sn-links { display: none; }
+      .sn-toggle { display: inline-flex; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ══ NAV ══════════════════════════════════════════════════════ -->
-  <nav class="nav" aria-label="Primary navigation">
-    <a class="nav-logo" href="/" aria-label="SOS Insurance home">
-      <img src="/assets/sos_logo_blue.png" alt="SOS Insurance" />
-    </a>
-    <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/scorecard/">Scorecard</a></li>
-      <li><a href="/about/" aria-current="page" style="color:var(--steel);">About</a></li>
-      <li><a class="nav-cta" href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener">Book a Discovery Call</a></li>
-    </ul>
-    <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
-    </button>
+  <!-- ══ NAV (shared: identical on Home, Scorecard, About) ══ -->
+  <nav class="sn-bar" aria-label="Primary navigation">
+    <div class="sn-inner">
+      <div class="sn-left">
+        <a href="/" class="sn-logo" aria-label="SOS Insurance home"><img src="/assets/sos_logo_blue.png" alt="SOS, Sales Operating System" /></a>
+        <span class="sn-tagline">Insurance</span>
+      </div>
+      <div class="sn-links">
+        <a class="sn-link" href="/">Home</a>
+        <a class="sn-link" href="/scorecard/">Scorecard</a>
+        <a class="sn-link" href="/about/" aria-current="page">About</a>
+        <a class="sn-cta" href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener">Book a Discovery Call</a>
+      </div>
+      <button class="sn-toggle" type="button" aria-expanded="false" aria-controls="sn-menu" aria-label="Open navigation menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+      </button>
+    </div>
   </nav>
-  <div class="mobile-menu" id="mobile-menu">
+  <div class="sn-menu" id="sn-menu">
     <a href="/">Home</a>
     <a href="/scorecard/">Scorecard</a>
     <a href="/about/" aria-current="page">About</a>
-    <a class="mobile-cta" href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener">Book a Discovery Call</a>
+    <a class="sn-menu-cta" href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener">Book a Discovery Call</a>
   </div>
   <script>
     (function () {
-      const toggle = document.querySelector('.mobile-menu-toggle');
-      const menu = document.getElementById('mobile-menu');
+      var toggle = document.querySelector('.sn-toggle');
+      var menu = document.getElementById('sn-menu');
       if (!toggle || !menu) return;
       toggle.addEventListener('click', function () {
-        const open = toggle.getAttribute('aria-expanded') === 'true';
+        var open = toggle.getAttribute('aria-expanded') === 'true';
         toggle.setAttribute('aria-expanded', String(!open));
         toggle.setAttribute('aria-label', open ? 'Open navigation menu' : 'Close navigation menu');
         menu.classList.toggle('is-open', !open);
