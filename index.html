@@ -239,11 +239,9 @@
       padding: 40px 24px;
     }
     .proof-strip-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: flex; align-items: center; gap: 40px; flex-wrap: wrap;
+      max-width: 820px; margin: 0 auto; text-align: center;
     }
     .proof-quote {
-      flex: 1; min-width: 260px;
       font-size: 1rem; color: rgba(255,255,255,0.9);
       font-style: italic; line-height: 1.65;
     }
@@ -252,18 +250,6 @@
       font-style: normal; font-size: 0.78rem;
       font-weight: 700; letter-spacing: 0.12em;
       text-transform: uppercase; color: var(--warm-sand);
-    }
-    .proof-divider { width: 1px; height: 60px; background: rgba(255,255,255,0.2); flex-shrink: 0; }
-    .proof-stats { display: flex; gap: 36px; flex-wrap: wrap; justify-content: center; }
-    .proof-stat { text-align: center; }
-    .proof-stat strong {
-      display: block; font-size: 2rem; font-weight: 800;
-      color: var(--warm-sand); line-height: 1;
-    }
-    .proof-stat span {
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
-      text-transform: uppercase; color: rgba(255,255,255,0.6);
-      display: block; margin-top: 4px;
     }
 
     /* ─── BEFORE / AFTER ─── */
@@ -348,8 +334,8 @@
     }
 
     .journey-outcomes {
-      max-width: 1000px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(3, 1fr);
+      max-width: 660px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(2, 1fr);
       gap: 1px; background: rgba(255,255,255,0.08);
       border-radius: 10px; overflow: hidden;
     }
@@ -731,13 +717,9 @@
       .team-card         { flex-direction: column; }
       .tiers-grid        { grid-template-columns: 1fr; }
       .not-for-list      { grid-template-columns: 1fr; }
-      .proof-strip-inner { flex-direction: column; }
-      .proof-divider     { display: none; }
       .runbook-band      { grid-template-columns: 1fr; padding: 32px 22px; gap: 32px; margin-top: 48px; }
       .runbook-copy h3   { font-size: 1.55rem; }
       .runbook-stats     { gap: 24px; }
-      .proof-stats       { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 12px; width: 100%; max-width: 320px; }
-      .proof-stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
       .journey-outcomes  { grid-template-columns: 1fr; }
       .case-story-body   { padding: 28px 24px; }
       .agency-proof-stats { grid-template-columns: 1fr; }
@@ -754,7 +736,7 @@
     }
   </style>
   <style id="sos-nav-css">
-    .sn-bar { position: sticky; top: 0; z-index: 300; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(65,66,76,0.14); font-family: 'DM Sans', sans-serif; line-height: 1.5; }
+    .sn-bar { position: sticky; top: 0; z-index: 300; background: #FFFFFF; border-bottom: 1px solid rgba(65,66,76,0.14); font-family: 'DM Sans', sans-serif; line-height: 1.5; }
     .sn-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; }
     .sn-left { display: flex; align-items: center; gap: 14px; }
     .sn-logo img { height: 46px; width: auto; display: block; }
@@ -846,12 +828,6 @@
       <div class="proof-quote">
         "I would highly recommend you to anyone who feels like their results are not aligned with their efforts."
         <cite>Insurance Consultant, SOS Client</cite>
-      </div>
-      <div class="proof-divider"></div>
-      <div class="proof-stats">
-        <div class="proof-stat"><strong>6–12</strong><span>Week Build</span></div>
-        <div class="proof-stat"><strong>$1.5M+</strong><span>Closed by One<br>Client Agency</span></div>
-        <div class="proof-stat"><strong>27</strong><span>Scripts Per<br>Producer</span></div>
       </div>
     </div>
   </section>
@@ -1007,10 +983,6 @@
         <div class="journey-outcome">
           <strong>6–12</strong>
           <span>Weeks to a Complete System</span>
-        </div>
-        <div class="journey-outcome">
-          <strong>0</strong>
-          <span>Deals Requiring the Owner &nbsp;✓</span>
         </div>
       </div>
     </div>
