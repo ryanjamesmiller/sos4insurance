@@ -55,4 +55,4 @@ All guides: https://sos4insurance.com/guides/
 ## Related
 
 - [SOS for Trades](https://sos4trades.com/): the same system for contractors and trades businesses.
-- [Ryan James Miller](https://ryanjamesmiller.com/)
+- [Ryan James Miller](https://ryanjamesmiller.com/): the founder. Every SOS term defined at https://ryanjamesmiller.com/glossary/ and the plain-English answer to getting the owner out of the pipeline at https://ryanjamesmiller.com/stop-being-the-pipeline/
