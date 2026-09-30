@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | SOS Insurance</title>
+  <meta name="description" content="Questions about SOS, your agency, or whether the Sales Operating System is a fit? Send Ryan James Miller a note." />
+  <link rel="canonical" href="https://sos4insurance.com/contact/" />
+  <meta property="og:title" content="Contact | SOS Insurance" />
+  <meta property="og:description" content="Questions about SOS, your agency, or whether the Sales Operating System is a fit? Send Ryan James Miller a note." />
+  <meta property="og:image" content="https://sos4insurance.com/assets/sos-insurance-social-v2.png" />
+  <meta property="og:url" content="https://sos4insurance.com/contact/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="/assets/favicon.ico?v=2" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --steel: #4682B4; --graphite: #41424C; --dusty: #3E5C76; --mist: #F5F7F8;
+      --sand: #CBBFAD; --white: #FFFFFF; --text: #41424C;
+      --light-text: rgba(65,66,76,0.78); --border: rgba(65,66,76,0.14);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* ══ HERO ═════════════════════════════════════════════════════ */
+    .hero { background: var(--graphite); padding: 72px 40px 64px; position: relative; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--steel); }
+    .hero-inner { max-width: 720px; margin: 0 auto; }
+    .hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sand); margin-bottom: 16px; }
+    .hero-name { font-size: clamp(36px, 5vw, 52px); font-weight: 700; color: var(--white); line-height: 1.1; margin-bottom: 20px; }
+    .hero-name span { color: var(--sand); }
+    .hero-divider { width: 48px; height: 3px; background: var(--sand); margin-bottom: 24px; border-radius: 2px; }
+    .hero-sub { font-size: 17px; color: rgba(255,255,255,0.78); line-height: 1.7; max-width: 600px; }
+
+    /* ══ FORM ═════════════════════════════════════════════════════ */
+    .form-section { padding: 72px 40px 88px; background: var(--mist); }
+    .form-card { max-width: 720px; margin: 0 auto; background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 40px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .field { margin-bottom: 22px; }
+    .field label { display: block; font-size: 14px; font-weight: 700; color: var(--graphite); margin-bottom: 8px; }
+    .field label .opt { font-weight: 400; color: var(--light-text); }
+    .field input, .field textarea {
+      width: 100%; font-family: 'DM Sans', sans-serif; font-size: 16px; color: var(--graphite);
+      background: var(--white); border: 1px solid rgba(65,66,76,0.28); border-radius: 8px; padding: 13px 14px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .field textarea { min-height: 150px; resize: vertical; line-height: 1.6; }
+    .field input:focus, .field textarea:focus { outline: none; border-color: var(--steel); box-shadow: 0 0 0 3px rgba(70,130,180,0.18); }
+    .field.has-error input, .field.has-error textarea { border-color: #41424C; box-shadow: 0 0 0 2px rgba(65,66,76,0.25); }
+    .field-error { display: none; font-size: 13px; font-weight: 600; color: var(--graphite); margin-top: 6px; }
+    .field.has-error .field-error { display: block; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .btn-primary {
+      display: inline-block; background: var(--dusty); color: var(--white); font-family: 'DM Sans', sans-serif;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.04em; padding: 16px 36px; border: 0; border-radius: 8px;
+      cursor: pointer; text-decoration: none; transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--steel); transform: translateY(-1px); }
+    .btn-primary[disabled] { opacity: 0.7; cursor: wait; transform: none; }
+    .form-foot { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 6px; }
+    .form-alt { font-size: 14px; color: var(--light-text); }
+    .form-alt a { color: var(--dusty); font-weight: 700; }
+    .form-status { display: none; margin-top: 18px; font-size: 14px; font-weight: 600; color: var(--graphite); }
+    .form-status.is-shown { display: block; }
+    .form-status a { color: var(--dusty); }
+    .thanks { display: none; text-align: center; padding: 24px 0 8px; }
+    .thanks-mark { width: 56px; height: 56px; border-radius: 50%; background: var(--sand); color: var(--graphite); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .thanks-mark svg { width: 26px; height: 26px; }
+    .thanks h2 { font-size: 28px; font-weight: 700; color: var(--graphite); margin-bottom: 12px; }
+    .thanks p { font-size: 17px; color: var(--text); line-height: 1.7; max-width: 480px; margin: 0 auto 28px; }
+    .form-card.is-sent form { display: none; }
+    .form-card.is-sent .thanks { display: block; }
+    .jf-frame { display: none; }
+
+    /* ══ FOOTER ═══════════════════════════════════════════════════ */
+    .footer { background: var(--graphite); padding: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-logo img { height: 62px; width: auto; opacity: 0.85; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.4); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+
+    @media (max-width: 768px) {
+      .hero { padding: 52px 20px 44px; }
+      .form-section { padding: 40px 16px 56px; }
+      .form-card { padding: 28px 20px; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .form-foot { flex-direction: column; align-items: stretch; }
+      .btn-primary { width: 100%; text-align: center; }
+      .footer { padding: 32px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+  <style id="sos-nav-css">
+    .sn-bar { position: sticky; top: 0; z-index: 300; background: #FFFFFF; border-bottom: 1px solid rgba(65,66,76,0.14); font-family: 'DM Sans', sans-serif; line-height: 1.5; }
+    .sn-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .sn-left { display: flex; align-items: center; gap: 14px; }
+    .sn-logo img { height: 46px; width: auto; display: block; }
+    .sn-tagline { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(65,66,76,0.78); border-left: 1px solid rgba(65,66,76,0.14); padding-left: 14px; line-height: 1.7; }
+    .sn-links { display: flex; align-items: center; gap: 24px; }
+    .sn-link { font-size: 14.4px; line-height: 1.5; font-weight: 600; color: #41424C; text-decoration: none; transition: color 0.2s ease; }
+    .sn-link:hover, .sn-link[aria-current="page"] { color: #4682B4; }
+    .sn-cta { display: inline-block; padding: 10px 24px; border-radius: 6px; background: #3E5C76; color: #FFFFFF; font-size: 14px; font-weight: 700; letter-spacing: 0.02em; line-height: 1.5; text-decoration: none; transition: background 0.2s ease; }
+    .sn-cta:hover { background: #4682B4; color: #FFFFFF; }
+    .sn-toggle { display: none; width: 44px; height: 44px; border: 1px solid rgba(65,66,76,0.14); border-radius: 8px; background: #FFFFFF; color: #41424C; align-items: center; justify-content: center; cursor: pointer; }
+    .sn-toggle svg { width: 23px; height: 23px; }
+    .sn-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 299; padding: 14px 20px 20px; background: rgba(255,255,255,0.99); border-bottom: 1px solid rgba(65,66,76,0.14); box-shadow: 0 12px 30px rgba(65,66,76,0.08); font-family: 'DM Sans', sans-serif; }
+    .sn-menu.is-open { display: grid; gap: 8px; }
+    .sn-menu a { display: block; padding: 12px 14px; border-radius: 8px; color: #41424C; text-decoration: none; font-weight: 700; font-size: 16px; line-height: 1.5; }
+    .sn-menu a:hover, .sn-menu a[aria-current="page"] { background: #F5F7F8; color: #4682B4; }
+    .sn-menu .sn-menu-cta { margin-top: 4px; text-align: center; background: #3E5C76; color: #FFFFFF; }
+    .sn-menu .sn-menu-cta:hover { background: #4682B4; color: #FFFFFF; }
+    @media (max-width: 768px) {
+      .sn-inner { padding: 0 20px; }
+      .sn-tagline, .sn-links { display: none; }
+      .sn-toggle { display: inline-flex; }
+    }
+  </style>
+  <style id="ft-key-css">.footer-links{align-items:baseline;flex-wrap:wrap;row-gap:10px}.ft-key{font-size:15px!important;font-weight:700!important;color:#FFFFFF!important;text-decoration:none!important;letter-spacing:0.01em}.ft-key:hover{color:#CBBFAD!important}</style>
+</head>
+<body>
+
+  <!-- ══ NAV (shared: identical on Home, Scorecard, About, Contact) ══ -->
+  <nav class="sn-bar" aria-label="Primary navigation">
+    <div class="sn-inner">
+      <div class="sn-left">
+        <a href="/" class="sn-logo" aria-label="SOS Insurance home"><img src="/assets/sos_logo_blue.png" alt="SOS, Sales Operating System" /></a>
+        <span class="sn-tagline">Insurance</span>
+      </div>
+      <div class="sn-links">
+        <a class="sn-link" href="/">Home</a>
+        <a class="sn-link" href="/scorecard/">Scorecard</a>
+        <a class="sn-link" href="/about/">About</a>
+        <a class="sn-link" href="/contact/" aria-current="page">Contact</a>
+        <a class="sn-cta" href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener">Book a Discovery Call</a>
+      </div>
+      <button class="sn-toggle" type="button" aria-expanded="false" aria-controls="sn-menu" aria-label="Open navigation menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="sn-menu" id="sn-menu">
+    <a href="/">Home</a>
+    <a href="/scorecard/">Scorecard</a>
+    <a href="/about/">About</a>
+    <a href="/contact/" aria-current="page">Contact</a>
+    <a class="sn-menu-cta" href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener">Book a Discovery Call</a>
+  </div>
+  <script>
+    (function () {
+      var toggle = document.querySelector('.sn-toggle');
+      var menu = document.getElementById('sn-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', function () {
+        var open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        toggle.setAttribute('aria-label', open ? 'Open navigation menu' : 'Close navigation menu');
+        menu.classList.toggle('is-open', !open);
+      });
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Open navigation menu');
+          menu.classList.remove('is-open');
+        });
+      });
+    })();
+  </script>
+
+  <!-- ══ HERO ═════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Contact</p>
+      <h1 class="hero-name">Let's <span>Talk</span></h1>
+      <div class="hero-divider"></div>
+      <p class="hero-sub">Questions about SOS, where your agency is stuck, or whether this is the right fit. Send a note and Ryan will reply personally.</p>
+    </div>
+  </section>
+
+  <!-- ══ FORM ═════════════════════════════════════════════════════ -->
+  <!-- Posts to Jotform form 262718727181059 (SOS Insurance Website Contact), which emails ryan@ryanjamesmiller.com. -->
+  <section class="form-section">
+    <div class="form-card" id="form-card">
+      <form id="contact-form" method="post" action="https://submit.jotform.com/submit/262718727181059" target="jf-submit-frame" novalidate>
+        <input type="hidden" name="formID" value="262718727181059" />
+        <input type="hidden" name="simple_spc" value="262718727181059-262718727181059" />
+        <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="cf-first">First name</label>
+            <input id="cf-first" name="q2_q2_fullname0[first]" type="text" autocomplete="given-name" required />
+            <p class="field-error">Please add your first name.</p>
+          </div>
+          <div class="field">
+            <label for="cf-last">Last name</label>
+            <input id="cf-last" name="q2_q2_fullname0[last]" type="text" autocomplete="family-name" required />
+            <p class="field-error">Please add your last name.</p>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="cf-email">Email</label>
+            <input id="cf-email" name="q3_q3_email1" type="email" autocomplete="email" required />
+            <p class="field-error">Please add a valid email address.</p>
+          </div>
+          <div class="field">
+            <label for="cf-phone">Phone <span class="opt">(optional)</span></label>
+            <input id="cf-phone" name="q4_q4_phone2[full]" type="tel" autocomplete="tel" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="cf-agency">Agency or company <span class="opt">(optional)</span></label>
+          <input id="cf-agency" name="q5_q5_textbox3" type="text" autocomplete="organization" />
+        </div>
+        <div class="field">
+          <label for="cf-message">How can we help?</label>
+          <textarea id="cf-message" name="q6_q6_textarea4" required></textarea>
+          <p class="field-error">Please add a short message.</p>
+        </div>
+
+        <div class="form-foot">
+          <button class="btn-primary" type="submit" id="cf-submit">Send Message</button>
+          <p class="form-alt">Ready to talk now? <a href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener">Book a Discovery Call</a></p>
+        </div>
+        <p class="form-status" id="cf-status" role="alert"></p>
+      </form>
+
+      <div class="thanks" id="cf-thanks" tabindex="-1">
+        <div class="thanks-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+        <h2>Message sent</h2>
+        <p>Thanks for reaching out. Ryan reads every message and will reply personally. If you'd rather not wait, grab a time on his calendar.</p>
+        <a class="btn-primary" href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener">Book a Discovery Call</a>
+      </div>
+      <iframe class="jf-frame" name="jf-submit-frame" title="Form submission" aria-hidden="true" tabindex="-1"></iframe>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var form = document.getElementById('contact-form');
+      var card = document.getElementById('form-card');
+      var frame = document.querySelector('.jf-frame');
+      var btn = document.getElementById('cf-submit');
+      var status = document.getElementById('cf-status');
+      var sent = false, timer;
+      function valid(el) {
+        var ok = el.value.trim() !== '' && (el.type !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()));
+        el.closest('.field').classList.toggle('has-error', !ok);
+        return ok;
+      }
+      form.querySelectorAll('[required]').forEach(function (el) {
+        el.addEventListener('input', function () { if (el.closest('.field').classList.contains('has-error')) valid(el); });
+      });
+      form.addEventListener('submit', function (e) {
+        var bad = null;
+        form.querySelectorAll('[required]').forEach(function (el) { if (!valid(el) && !bad) bad = el; });
+        if (bad) { e.preventDefault(); bad.focus(); return; }
+        sent = true;
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        status.classList.remove('is-shown');
+        timer = setTimeout(function () {
+          if (!card.classList.contains('is-sent')) {
+            btn.disabled = false;
+            btn.textContent = 'Send Message';
+            status.innerHTML = 'That took longer than it should. Please try again, or email <a href="mailto:ryan@ryanjamesmiller.com">ryan@ryanjamesmiller.com</a>.';
+            status.classList.add('is-shown');
+          }
+        }, 15000);
+      });
+      frame.addEventListener('load', function () {
+        if (!sent) return;
+        clearTimeout(timer);
+        card.classList.add('is-sent');
+        document.getElementById('cf-thanks').focus();
+      });
+    })();
+  </script>
+
+  <!-- ══ FOOTER ════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="/assets/sos_logo_white_v2.png" alt="SOS Insurance" />
+    </div>
+    <p class="footer-copy">&copy; 2026 SOS Insurance &middot; Sales Operating System</p>
+    <div class="footer-links">
+      <a class="ft-key" href="/guides/">Field Guides</a>
+      <a class="ft-key" href="https://ryanjamesmiller.com/about/" target="_blank" rel="noopener">Founded by Ryan James Miller</a>
+      <a href="mailto:ryan@ryanjamesmiller.com">ryan@ryanjamesmiller.com</a>
+      <a href="https://www.linkedin.com/in/rjmsalespro/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+</body>
+</html>
