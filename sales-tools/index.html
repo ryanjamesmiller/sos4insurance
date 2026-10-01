@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sales Tool Library | SOS Insurance</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="/assets/favicon.ico?v=2" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,900&display=swap" rel="stylesheet" />
+  <style>
+    /* SOS palette only: steel, graphite, mist, dusty blue, warm sand, plus white. */
+    :root {
+      --steel:    #4682B4;
+      --graphite: #41424C;
+      --mist:     #F5F7F8;
+      --dusty:    #3E5C76;
+      --sand:     #CBBFAD;
+      --white:    #FFFFFF;
+      --radius:   16px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 132px; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--graphite);
+      background: var(--mist);
+    }
+
+    /* Hero */
+    .hero { background: var(--white); padding: 72px 32px 56px; border-bottom: 1px solid rgba(65,66,76,0.08); }
+    .hero-inner { max-width: 1180px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--steel); margin-bottom: 14px;
+    }
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 88px); font-weight: 900;
+      font-variation-settings: "opsz" 40; letter-spacing: -0.035em;
+      line-height: 0.95; margin-bottom: 24px;
+    }
+    .hero h1 span { color: var(--steel); }
+    .rule { width: 72px; height: 4px; border-radius: 4px; background: var(--steel); margin-bottom: 24px; }
+    .hero-sub { font-size: clamp(17px, 2vw, 20px); max-width: 680px; }
+    .hero-note { margin-top: 14px; font-size: 15px; color: rgba(65,66,76,0.78); max-width: 680px; }
+
+    /* Section jump bar */
+    .jump {
+      position: sticky; top: 68px; z-index: 50;
+      background: rgba(245,247,248,0.97); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(65,66,76,0.08);
+    }
+    .jump-inner {
+      max-width: 1180px; margin: 0 auto; padding: 12px 32px;
+      display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none;
+    }
+    .jump-inner::-webkit-scrollbar { display: none; }
+    .jump a {
+      flex: none; padding: 8px 16px; border-radius: 999px;
+      font-size: 14px; font-weight: 600; text-decoration: none;
+      color: var(--graphite); background: var(--white);
+      border: 1px solid rgba(65,66,76,0.12); transition: border-color 0.15s, color 0.15s;
+    }
+    .jump a:hover { border-color: var(--steel); color: var(--steel); }
+
+    /* Sections */
+    main { padding: 24px 32px 88px; }
+    .lib { max-width: 1180px; margin: 0 auto; padding-top: 56px; }
+    .lib-head { margin-bottom: 24px; }
+    .lib h2 { font-size: clamp(28px, 3.4vw, 40px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 10px; }
+    .intro { max-width: 720px; font-size: 17px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+    .card {
+      background: var(--white); border-radius: var(--radius);
+      border: 1px solid rgba(65,66,76,0.08);
+      padding: 24px; display: flex; flex-direction: column;
+    }
+    .num {
+      align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--dusty); background: var(--mist); border-radius: 999px;
+      padding: 4px 12px; margin-bottom: 14px;
+    }
+    .card h3 { font-size: 20px; font-weight: 700; line-height: 1.25; margin-bottom: 8px; }
+    .card p { font-size: 15px; color: rgba(65,66,76,0.86); margin-bottom: 20px; flex: 1; }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 9px 18px; border-radius: 999px;
+      font-size: 14px; font-weight: 600; text-decoration: none; color: var(--graphite);
+      border: 1px solid rgba(65,66,76,0.18); transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .btn:hover { border-color: var(--steel); color: var(--steel); }
+    .btn-main { background: var(--dusty); border-color: var(--dusty); color: var(--white); }
+    .btn-main:hover { background: var(--steel); border-color: var(--steel); color: var(--white); }
+    .card.is-soon { background: transparent; border-style: dashed; border-color: rgba(65,66,76,0.22); }
+    .tag { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dusty); }
+
+    /* Help band */
+    .help { background: var(--sand); padding: 56px 32px; }
+    .help-inner { max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .help h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; }
+    .help p { margin-top: 6px; }
+    .help a.btn-main { padding: 12px 24px; font-size: 15px; }
+
+    /* Footer */
+    .site-footer { background: var(--graphite); color: rgba(255,255,255,0.7); padding: 44px 32px; }
+    .footer-inner {
+      max-width: 1180px; margin: 0 auto; display: flex; justify-content: space-between;
+      align-items: center; gap: 24px; flex-wrap: wrap; font-size: 14px;
+    }
+    .footer-inner img { height: 62px; width: auto; display: block; }
+    .tagline { color: var(--sand); font-weight: 600; letter-spacing: 0.04em; }
+
+    @media (max-width: 640px) {
+      .hero { padding: 48px 16px 40px; }
+      .jump-inner { padding: 10px 16px; }
+      main { padding: 8px 16px 64px; }
+      .lib { padding-top: 44px; }
+      .grid { grid-template-columns: 1fr; }
+      .card { padding: 20px; }
+      .help { padding: 44px 16px; }
+      .site-footer { padding: 36px 16px; }
+    }
+  </style>
+  <style id="sos-nav-css">
+    .sn-bar { position: sticky; top: 0; z-index: 300; background: #FFFFFF; border-bottom: 1px solid rgba(65,66,76,0.14); font-family: 'DM Sans', sans-serif; line-height: 1.5; }
+    .sn-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .sn-left { display: flex; align-items: center; gap: 14px; }
+    .sn-logo img { height: 46px; width: auto; display: block; }
+    .sn-tagline { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(65,66,76,0.78); border-left: 1px solid rgba(65,66,76,0.14); padding-left: 14px; line-height: 1.7; }
+    .sn-links { display: flex; align-items: center; gap: 24px; }
+    .sn-link { font-size: 14.4px; line-height: 1.5; font-weight: 600; color: #41424C; text-decoration: none; transition: color 0.2s ease; }
+    .sn-link:hover, .sn-link[aria-current="page"] { color: #4682B4; }
+    .sn-cta { display: inline-block; padding: 10px 24px; border-radius: 6px; background: #3E5C76; color: #FFFFFF; font-size: 14px; font-weight: 700; letter-spacing: 0.02em; line-height: 1.5; text-decoration: none; transition: background 0.2s ease; }
+    .sn-cta:hover { background: #4682B4; color: #FFFFFF; }
+    .sn-toggle { display: none; width: 44px; height: 44px; border: 1px solid rgba(65,66,76,0.14); border-radius: 8px; background: #FFFFFF; color: #41424C; align-items: center; justify-content: center; cursor: pointer; }
+    .sn-toggle svg { width: 23px; height: 23px; }
+    .sn-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; z-index: 299; padding: 14px 20px 20px; background: rgba(255,255,255,0.99); border-bottom: 1px solid rgba(65,66,76,0.14); box-shadow: 0 12px 30px rgba(65,66,76,0.08); font-family: 'DM Sans', sans-serif; }
+    .sn-menu.is-open { display: grid; gap: 8px; }
+    .sn-menu a { display: block; padding: 12px 14px; border-radius: 8px; color: #41424C; text-decoration: none; font-weight: 700; font-size: 16px; line-height: 1.5; }
+    .sn-menu a:hover, .sn-menu a[aria-current="page"] { background: #F5F7F8; color: #4682B4; }
+    .sn-menu .sn-menu-cta { margin-top: 4px; text-align: center; background: #3E5C76; color: #FFFFFF; }
+    .sn-menu .sn-menu-cta:hover { background: #4682B4; color: #FFFFFF; }
+    @media (max-width: 768px) {
+      .sn-inner { padding: 0 20px; }
+      .sn-tagline, .sn-links { display: none; }
+      .sn-toggle { display: inline-flex; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="sn-bar" aria-label="Primary navigation">
+    <div class="sn-inner">
+      <div class="sn-left">
+        <a href="/" class="sn-logo" aria-label="SOS Insurance home"><img src="/assets/sos_logo_blue.png" alt="SOS, Sales Operating System" /></a>
+        <span class="sn-tagline">Insurance</span>
+      </div>
+      <div class="sn-links">
+        <a class="sn-link" href="/">Home</a>
+        <a class="sn-link" href="/scorecard/">Scorecard</a>
+        <a class="sn-link" href="/about/">About</a>
+        <a class="sn-link" href="/contact/">Contact</a>
+        <a class="sn-cta" href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener">Book a Discovery Call</a>
+      </div>
+      <button class="sn-toggle" type="button" aria-expanded="false" aria-controls="sn-menu" aria-label="Open navigation menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="sn-menu" id="sn-menu">
+    <a href="/">Home</a>
+    <a href="/scorecard/">Scorecard</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a class="sn-menu-cta" href="https://calendly.com/ryanjamesmiller/sos-discovery-call" target="_blank" rel="noopener">Book a Discovery Call</a>
+  </div>
+  <script>
+    (function () {
+      var toggle = document.querySelector('.sn-toggle');
+      var menu = document.getElementById('sn-menu');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', function () {
+        var open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        toggle.setAttribute('aria-label', open ? 'Open navigation menu' : 'Close navigation menu');
+        menu.classList.toggle('is-open', !open);
+      });
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Open navigation menu');
+          menu.classList.remove('is-open');
+        });
+      });
+    })();
+  </script>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">SOS &middot; Client Library</p>
+      <h1>Sales Tool<br /><span>Library.</span></h1>
+      <div class="rule"></div>
+      <p class="hero-sub">Every tool, template and training in your SOS build, in one place. Always the current version.</p>
+      <p class="hero-note">Open any document, then download it or open it in Google Docs to save your own copy before you fill it in.</p>
+    </div>
+  </header>
+
+  <nav class="jump" aria-label="Library sections">
+    <div class="jump-inner"><a href="#pps">The Pipeline Power System</a><a href="#leaders">For agency leaders</a><a href="#process">SOS Sales Process</a><a href="#video">Video trainings</a><a href="#more">More tools</a></div>
+  </nav>
+
+  <main>
+    <section class="lib" id="pps">
+      <div class="lib-head">
+        <p class="eyebrow">The Pipeline Power System</p>
+        <h2>Your producer build</h2>
+        <p class="intro">Every document you work through in the build, in the order you meet it. Blank versions are yours to fill in. Samples show what finished looks like, using a fictional producer.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <span class="num">01</span>
+          <h3>PPS Overview</h3>
+          <p>Read this first. What the Pipeline Power System is, what you will build and what it asks of you.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1xmGxSmg8o9qLsnwKY9C68ITSxVifHb9s/view" target="_blank" rel="noopener">Open</a></div>
+        </article>
+        <article class="card">
+          <span class="num">02</span>
+          <h3>Producer Intake</h3>
+          <p>Tells us how you sell today. Fill it in online, section by section. Part One comes before the Target Lock session.</p>
+          <div class="actions"><a class="btn btn-main" href="https://form.jotform.com/262567526615060" target="_blank" rel="noopener">Fill in online</a><a class="btn" href="https://drive.google.com/file/d/18UjhlOvx8LxrE4YKk9XKcTV4pwgs-Oth/view" target="_blank" rel="noopener">Word copy</a></div>
+        </article>
+        <article class="card">
+          <span class="num">03</span>
+          <h3>Case Story Capture</h3>
+          <p>Three of your wins, told as stories with numbers. Your 1440 and VCS run on these.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1s7aVS9srT0h6YRZNK9-GB4urYzzjNRZ0/view" target="_blank" rel="noopener">Open</a><a class="btn" href="https://drive.google.com/file/d/1jItmvOYvC7JJY-oFd8XgXvyERC7iRJtY/view" target="_blank" rel="noopener">See a sample</a></div>
+        </article>
+        <article class="card">
+          <span class="num">04</span>
+          <h3>Target Lock Worksheet</h3>
+          <p>Who you pursue, who you stop chasing, and the target list that comes out of it. Worked live in the Target Lock session.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1igxSFOOOQCTyBbF5rV0joLv7QBD6YKCC/view" target="_blank" rel="noopener">Open</a><a class="btn" href="https://drive.google.com/file/d/1HrYY7t3pkvqyghd10i8f7x29J55fRQeF/view" target="_blank" rel="noopener">See a sample</a></div>
+        </article>
+        <article class="card">
+          <span class="num">05</span>
+          <h3>Personal Runbook (sample)</h3>
+          <p>What your finished runbook looks like: all fourteen touches of the 1440, scripted. Yours is built from your intake.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1lHdJG-tKUBsk-PqnuvdDItj2-Qvjnbtv/view" target="_blank" rel="noopener">Open</a></div>
+        </article>
+        <article class="card">
+          <span class="num">06</span>
+          <h3>SOS Target Tracker</h3>
+          <p>Where the 1440 runs: 14 touches over 40 days with due dates, plus the VCS, Ratios and COI tabs.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1xXXHJA6p-b8R9oi-yWKoBrdS-L8xo-hZ/view" target="_blank" rel="noopener">Open</a><a class="btn" href="https://drive.google.com/file/d/1oeBYpiat0vN36xI6hZum4SK4JfyItiyu/view" target="_blank" rel="noopener">See a sample</a></div>
+        </article>
+        <article class="card">
+          <span class="num">07</span>
+          <h3>Pipeline Math and Weekly Scorecard</h3>
+          <p>The chain from your revenue goal to the activity you do each week, and the weekly score against it.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1F7h37quJq0iyMqluZ5m4AIge6cd5iOO4/view" target="_blank" rel="noopener">Open</a><a class="btn" href="https://drive.google.com/file/d/1S2TZc7a_ib6s8qljupeD7XGgc4o2HKW3/view" target="_blank" rel="noopener">See a sample</a></div>
+        </article>
+        <article class="card">
+          <span class="num">08</span>
+          <h3>40-Day Batch Review</h3>
+          <p>A half-hour review on Day 40 of every batch, with your coach or agency owner. One decision comes out of it.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1Ue_7mlaWvsjS6RchZ968-gY1Luok_L-S/view" target="_blank" rel="noopener">Open</a><a class="btn" href="https://drive.google.com/file/d/1XXVGC3ws0UA4UXDnTViLkjTcRMs1jZgk/view" target="_blank" rel="noopener">See a sample</a></div>
+        </article>
+        <article class="card">
+          <span class="num">09</span>
+          <h3>VCS Template</h3>
+          <p>The Value Cadence System: never let a good conversation die. Seven touches plus the Gap One and Gap Two bridges.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1nMvb6gFu2V8QjvJLc_C9ZS_erpuNkwX-/view" target="_blank" rel="noopener">Open</a><a class="btn" href="https://drive.google.com/file/d/1YJJJXz2nIghxjBomZwk9uM-GZViw_tb3/view" target="_blank" rel="noopener">See a sample</a></div>
+        </article>
+        <article class="card">
+          <span class="num">10</span>
+          <h3>PPS Operator&#x27;s Guide</h3>
+          <p>Every PPS tool, what it is for, and how to run the system week to week.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1J_IAwJiSb0ihUfZPKM-7CMcjao6TIik9/view" target="_blank" rel="noopener">Open</a></div>
+        </article>
+        <article class="card">
+          <span class="num">11</span>
+          <h3>PPS AI Prompt Pack</h3>
+          <p>The Force Multiplier: AI prompts that keep your runbook sharp and write each VCS touch for a real meeting.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1oOq8dd3O3bdQhNeRNSkA0wLO0yIK3i8q/view" target="_blank" rel="noopener">Open</a></div>
+        </article>
+      </div>
+    </section>
+    <section class="lib" id="leaders">
+      <div class="lib-head">
+        <p class="eyebrow">For agency leaders</p>
+        <h2>Owners and sales leaders</h2>
+        <p class="intro">The tools that sit above every producer&#x27;s build.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <span class="num">A1</span>
+          <h3>Agency Target Lock</h3>
+          <p>The agency&#x27;s outer boundary that every producer&#x27;s Target Lock sits inside. Fill it in online or work from the Word copy.</p>
+          <div class="actions"><a class="btn btn-main" href="https://form.jotform.com/262658601127053" target="_blank" rel="noopener">Fill in online</a><a class="btn" href="https://drive.google.com/file/d/1yb9ERTpO1VDxSHqqB4XPuXXTGYcgF7x4/view" target="_blank" rel="noopener">Word copy</a></div>
+        </article>
+        <article class="card">
+          <span class="num">A2</span>
+          <h3>Producer Ramp System</h3>
+          <p>For agencies adding producers: attract, interview, hire, onboard and train, alongside the PPS.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/19UlEmTc4FaRVdtQm_YjhyYv9CT4bceZt/view" target="_blank" rel="noopener">Open</a></div>
+        </article>
+      </div>
+    </section>
+    <section class="lib" id="process">
+      <div class="lib-head">
+        <p class="eyebrow">SOS Sales Process</p>
+        <h2>First meeting to signed client</h2>
+        <p class="intro">How a producer moves an employer from the first meeting to a signed client: three meetings, two gaps.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <span class="num">S1</span>
+          <h3>Sales Process Overview</h3>
+          <p>The whole system from Reframe to Roadmap in one read.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1Of1vuYfl3wffKrUoR5iRrW9S025J-AY3/view" target="_blank" rel="noopener">Open</a></div>
+        </article>
+        <article class="card">
+          <span class="num">S2</span>
+          <h3>Sales Process Operator&#x27;s Guide</h3>
+          <p>What each document is, when it comes off the shelf, and how a new producer is trained on it.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1SEyH11syCTkrLe2U_UoHxrcxFRKPwmGc/view" target="_blank" rel="noopener">Open</a></div>
+        </article>
+        <article class="card">
+          <span class="num">S3</span>
+          <h3>Meeting One: The Reframe</h3>
+          <p>Turns a first meeting into a shift in how the prospect sees their business, and a reason to come back.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1oMaDePkxGg2vcdiye8jnhzlA1pStwwC2/view" target="_blank" rel="noopener">Open</a></div>
+        </article>
+        <article class="card">
+          <span class="num">S4</span>
+          <h3>Gap One: The Bridge to Discovery</h3>
+          <p>Keeps the prospect warm between the first meeting and discovery.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1hGlZm0Kpwf5CddoMmmqTxd9-rnnaj1Lk/view" target="_blank" rel="noopener">Open</a></div>
+        </article>
+        <article class="card">
+          <span class="num">S5</span>
+          <h3>Discovery: The Real Close</h3>
+          <p>Meeting Two, run on the SOS-Q. The prospect names the expensive problem and puts a number on it.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1tpwPCmCdQG3eY9Z39wwC1jDNHSh5BGcc/view" target="_blank" rel="noopener">Open</a></div>
+        </article>
+        <article class="card">
+          <span class="num">S6</span>
+          <h3>Gap Two: The Most Dangerous Stretch</h3>
+          <p>Holds the temperature between discovery and the roadmap.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1YcBZucGSLU_uZAavtZOGYaYYn_tpLE1J/view" target="_blank" rel="noopener">Open</a></div>
+        </article>
+        <article class="card">
+          <span class="num">S7</span>
+          <h3>The Roadmap: Confirm, Don&#x27;t Convince</h3>
+          <p>Meeting Three. The prospect is handed a decision they already made.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1odEiUSSHvctn2G6RHKa0U1wLbzC4Y8rR/view" target="_blank" rel="noopener">Open</a></div>
+        </article>
+        <article class="card">
+          <span class="num">S8</span>
+          <h3>Objection Map</h3>
+          <p>The most common objection at each stage, its resistance type, and the response.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1rPrLtCEi2dLkQIC2OYHiPsLija8MA6YX/view" target="_blank" rel="noopener">Open</a></div>
+        </article>
+        <article class="card">
+          <span class="num">S9</span>
+          <h3>How We Work (prospect overview)</h3>
+          <p>An explainer you send a prospect: what to expect, meeting by meeting.</p>
+          <div class="actions"><a class="btn btn-main" href="https://drive.google.com/file/d/1WaxZRTW6SldYhBczHClEW7ngonChKXrq/view" target="_blank" rel="noopener">Open</a></div>
+        </article>
+      </div>
+    </section>
+    <section class="lib" id="video">
+      <div class="lib-head">
+        <p class="eyebrow">Video trainings</p>
+        <h2>Watch and learn</h2>
+        <p class="intro">Recorded trainings you can work through at your own pace.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <span class="num">V1</span>
+          <h3>The Blueprint Process</h3>
+          <p>Thirteen sessions with Chad Jenkins, from the first touch to the final close.</p>
+          <div class="actions"><a class="btn btn-main" href="/blueprint-process/">Watch</a></div>
+        </article>
+        <article class="card is-soon">
+          <span class="num">V2</span>
+          <h3>More trainings coming</h3>
+          <p>New video trainings are added here as they are released.</p>
+          <div class="actions"><span class="tag">Coming soon</span></div>
+        </article>
+      </div>
+    </section>
+    <section class="lib" id="more">
+      <div class="lib-head">
+        <p class="eyebrow">More tools</p>
+        <h2>Worksheets and frameworks</h2>
+        <p class="intro">Extra worksheets and frameworks to use alongside the build.</p>
+      </div>
+      <div class="grid">
+        <article class="card is-soon">
+          <span class="num">M1</span>
+          <h3>More tools coming</h3>
+          <p>Additional worksheets and frameworks are added here as they are released.</p>
+          <div class="actions"><span class="tag">Coming soon</span></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <section class="help">
+    <div class="help-inner">
+      <div>
+        <h2>Can't find something?</h2>
+        <p>Email your coaches and we'll point you to it.</p>
+      </div>
+      <a class="btn btn-main" href="mailto:coaching@sos4insurance.com">coaching@sos4insurance.com</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <img src="/assets/sos_logo_white_v2.png" alt="SOS, Sales Operating System" />
+      <span class="tagline">Structure. Optimize. Scale.</span>
+      <span>Private library for SOS clients. Please keep the link in-house.</span>
+    </div>
+  </footer>
+</body>
+</html>
